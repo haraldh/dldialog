@@ -2,15 +2,15 @@
 <!--
 /******************************************************************************
 **
-** $Id: dldialog.sgml.cpp,v 1.1 2001/03/14 02:31:46 saturn_de Exp $
+** $Id: dldialog.sgml.cpp,v 1.2 2002/04/04 15:25:24 saturn_de Exp $
 **
 **	This program is free software; you can redistribute it and/or
 **	modify it under the terms of the GNU General Public License
 **	as published by the Free Software Foundation; either version
 **	2 of the License, or (at your option) any later version.
 **
-** by Harald Hoyer (HarryH@Royal.Net) 
-** for delix Computer GmbH (http://www.delix.de)
+** by Harald Hoyer (dldialog@parzelle.de) 
+** Copyright (C) 1998-2002 Harald Hoyer <DLDialog@parzelle.de> - All rights reserved -
 ** 
 ******************************************************************************/
 -->
@@ -19,7 +19,7 @@
   <article>
     <titlepag>
       <title>The DLDialog Handbook</title>
-      <author><name>Harald Hoyer, <tt><htmlurl url="mailto:harald@delix.de" name="harald@delix.de"></tt></name></author>
+      <author><name>Harald Hoyer, <tt><htmlurl url="mailto:dldialog@parzelle.de" name="dldialog@parzelle.de"></tt></name></author>
       <date>Version @VERSION@, @DATE@</date>
       <abstract>This Handbook describes DLDialog Version @VERSION@</abstract>
     </titlepag>
@@ -29,9 +29,6 @@
 <em>Please don&acute;t forget to read the frequently asked questions! 
 Thank You!</em>
       </p><p>
-DLDialog was mainly developed for the  
-<bf>Deutsche Linux Distribution (DLD) of delix Computer GmbH</bf>.
-      </p><p>
 DLDialog offers the capability to draw a variety of widgets,
 in order to ease the human user in feeding input to the script. 
 The program is designed to be particularly useful to implement system 
@@ -39,26 +36,21 @@ administration scripts.
 I hope you will enjoy this program.  
       </p><p>
 <tt>Harald Hoyer</tt>   
-<htmlurl url="mailto:harald@delix.de" name="harald@delix.de">
-<htmlurl url="mailto:Hoyer@Royal.Net" name="Hoyer@Royal.Net"> 
+<htmlurl url="mailto:dldialog@parzelle.de" name="dldialog@parzelle.de"> 
 </p>
     </sect>
     <sect><heading>Installation</heading>      
       <sect1><heading>How to obtain DLDialog</heading>
 	<p>
-DLDialog is part of dldadmin of the delix Deutsche Linux Distribution  
-<url url="http://www.delix.de">. 
 DLDialog can be found in 
-<url url="http://www.delix.de/~harald/">.
+<url url="http://parzelle.de/Linux/Applications/dldialog">.
 </p></sect1>
       <sect1><heading>Requirements</heading>
 	<p>
 In order to successfully compile DLDialog, you need:
 <itemize>
-	    <item>qt-1.33 or newer versions</item>
-	    <item>qimgio with png extension,
-if you want to display png images with qt</item>
-	    <item>tvision 0.5.6 or newer versions</item>
+	    <item>qt-2 or newer versions</item>
+	    <item>tvision 0.7 or newer versions</item>
 	    <item>libdl</item>
 	    <item>gettext, if you want i18n (internationalisation)</item>
 	    <item>automake version 1.4 or newer versions</item>
@@ -69,7 +61,7 @@ if you want to display png images with qt</item>
 	  </itemize>
 	</p><p>
 Some of the required libraries as well as DLDialog itself can
- be found on <url url="http://www.delix.de/~harald/">.
+ be found on <url url="http://parzelle.de/Linux/Applications/">.
 </p>
       </sect1>
       <sect1><heading>Compilation and installation</heading>

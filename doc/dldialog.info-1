@@ -1,5 +1,5 @@
 Dies ist dldialog.info, hergestellt von Makeinfo Version 4.1 aus
-/tmp/linuxdoc-dir-21969/sgmltmp.dldialog.info.2.
+/tmp/linuxdoc-dir-18086/sgmltmp.dldialog.info.2.
 
    \input texinfo
 
@@ -9,7 +9,7 @@ File: dldialog.info,  Node: Top,  Next: Introduction,  Up: (dir)
 The DLDialog Handbook
 *********************
 
-     Harald Hoyer, `harald@delix.de'
+     Harald Hoyer, `dldialog@parzelle.de'
      Version 1.4.1, 04.04.2002
 
    This Handbook describes DLDialog Version 1.4.1
@@ -35,15 +35,12 @@ Introduction
    `Please dont forget to read the frequently asked questions!  Thank
 You!'
 
-   DLDialog was mainly developed for the `Deutsche Linux Distribution
-(DLD) of delix Computer GmbH'.
-
    DLDialog offers the capability to draw a variety of widgets, in
 order to ease the human user in feeding input to the script.  The
 program is designed to be particularly useful to implement system
 administration scripts.  I hope you will enjoy this program.
 
-   `Harald Hoyer' harald@delix.de Hoyer@Royal.Net
+   `Harald Hoyer' dldialog@parzelle.de
 
 
 File: dldialog.info,  Node: Installation,  Next: The Manual Page,  Prev: Introduction,  Up: Top
@@ -63,9 +60,8 @@ File: dldialog.info,  Node: How to obtain DLDialog,  Next: Requirements,  Up: In
 How to obtain DLDialog
 ======================
 
-   DLDialog is part of dldadmin of the delix Deutsche Linux Distribution
- (http://www.delix.de).  DLDialog can be found in
-(http://www.delix.de/~harald/).
+   DLDialog can be found in
+(http://parzelle.de/Linux/Applications/dldialog).
 
 
 File: dldialog.info,  Node: Requirements,  Next: Compilation and installation,  Prev: How to obtain DLDialog,  Up: Installation
@@ -74,12 +70,9 @@ Requirements
 ============
 
    In order to successfully compile DLDialog, you need:
-   * qt-1.33 or newer versions
+   * qt-2 or newer versions
 
-   * qimgio with png extension, if you want to display png images with
-     qt
-
-   * tvision 0.5.6 or newer versions
+   * tvision 0.7 or newer versions
 
    * libdl
 
@@ -96,7 +89,7 @@ Requirements
    * sgml-tools version >= 1.0.8 for documentation purposes
 
    Some of the required libraries as well as DLDialog itself can be
-found on   (http://www.delix.de/~harald/).
+found on   (http://parzelle.de/Linux/Applications/).
 
 
 File: dldialog.info,  Node: Compilation and installation,  Prev: Requirements,  Up: Installation
@@ -443,7 +436,7 @@ File: dldialog.info,  Node: BUGS,  Prev: ENVIRONMENT,  Up: The Manual Page
 BUGS
 ====
 
-   Report them to http://www.delix.de.
+   Report them to parzelle.de>.
 
 
 File: dldialog.info,  Node: DLDialog Program Syntax,  Next: Questions and answers,  Prev: The Manual Page,  Up: Top

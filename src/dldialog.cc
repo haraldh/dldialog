@@ -1,8 +1,8 @@
 /*-*- c++ -*-******************************************************************
 **
-**  Copyright (C) 1998,1999,2000 Harald Hoyer (HarryH@Royal.Net) 
+**  Copyright (C) 1998-2002 Harald Hoyer <DLDialog@parzelle.de> - All rights reserved -
 **
-**  $Id: dldialog.cc,v 1.1 2001/03/14 02:33:07 saturn_de Exp $
+**  $Id: dldialog.cc,v 1.2 2002/04/04 15:25:25 saturn_de Exp $
 **
 **  This program is free software; you can redistribute it and/or modify
 **  it under the terms of the GNU General Public License as published by
@@ -525,8 +525,8 @@ dld_server (int argc, char **argv)
 
 	 case 'v':
 	    cout << _("dldialog version ") << VERSION << endl
-                 << _("\tby Harald Hoyer (HarryH@Royal.Net)\n"
-	            "\tfor delix Computer GmbH (http://www.delix.de)\n");
+                 << _("\tby Harald Hoyer (dldialog@parzelle.de)\n"
+		      "\tCopyright (C) 1998-2002 Harald Hoyer <DLDialog@parzelle.de> - All rights reserved -");
 	    return (0);
 	    break;
 
@@ -840,8 +840,8 @@ dld_client (int argc, char **argv)
 
 	 case 'v':
 	    cout << _("dldialog version ") << DLD_VERSION_STRING << endl
-                 << _("\tby Harald Hoyer (HarryH@Royal.Net)\n"
-	            "\tfor delix Computer GmbH (http://www.delix.de)\n");
+                 << _("\tby Harald Hoyer (dldialog@parzelle.de)\n" 
+		      "\tCopyright (C) 1998-2002 Harald Hoyer <DLDialog@parzelle.de> - All rights reserved -\n");
 	    return (0);
 	    break;
 

@@ -1,13 +1,13 @@
 /******************************************************************************
 **
-** $Id: dld_geom.h,v 1.1 2001/03/14 02:33:18 saturn_de Exp $
+** $Id: dld_geom.h,v 1.2 2002/04/04 15:25:25 saturn_de Exp $
 **
 **	This program is free software; you can redistribute it and/or
 **	modify it under the terms of the GNU General Public License
 **	as published by the Free Software Foundation; either version
 **	2 of the License, or (at your option) any later version.
 **
-** (C) (C) 1999,2000 Harald Hoyer <DLDialog@parzelle.de> - All rights reserved -
+** (C) 1998-2002 Harald Hoyer <DLDialog@parzelle.de> - All rights reserved -
 **
 ******************************************************************************/
 #ifndef DLD_GEOM_H
@@ -23,7 +23,7 @@
  * Used to implement a geometry handler.
  *
  * @author Harald Hoyer <Harald@Hoyer.org>
- * @version $Id: dld_geom.h,v 1.1 2001/03/14 02:33:18 saturn_de Exp $
+ * @version $Id: dld_geom.h,v 1.2 2002/04/04 15:25:25 saturn_de Exp $
  * @short basic class for one dimensional size handling.
  */
 class Len {

@@ -1,21 +1,14 @@
                  dldialog - a shell interface to user dialogs
                  ============================================
 
-                     dldialog was mainly developed for the 
-
-  ========================================================================
- | Deutsche Linux Distribution (DLD) of delix Computer GmbH (www.delix.de)|
-  ========================================================================
-
 dldialog offers the capability to draw a variety of widgets, in order to
 ease the human user in feeding input to the script. The program is designed
 to be particularly useful to implement system administration scripts.
 
 Requirements:
 =============
-- qt-1.33 or newer versions 
-- qimgio with png extension if you want to display png images with qt
-- tvision 0.5.6 or newer versions
+- qt-2 or newer versions 
+- tvision 0.7 or newer versions
 - libdl
 - gettext, if you want i18n (internationalisation)
 - automake version 1.4 or newer versions
@@ -26,18 +19,8 @@ Requirements:
 
 Normal compilation procedure:
 =============================
-
-> aclocal
-> autoheader
-> automake -a
-> autoconf
-> ./configure --prefix=/usr
-
-If you do have kdoc installed:
+> ./autogen.sh
 > make
-
-else:
-> cd src;make
 
 For installing:
 > su -c "make install"
@@ -60,11 +43,5 @@ Read the `INSTALL' file for generic informations on installing this program.
 
 For more informations about dldialog please read the html documentation in the
 `doc' directory.
-
-If you compile dldialog with qt it requires the Qt library, 
-which is copyright Troll Tech AS.
-Freely distributable programs may generally use Qt Free Edition free of charge, 
-see README.QT for details. 
 	    
 - Harald Hoyer <DLDialog@parzelle.de>
-	

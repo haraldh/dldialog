@@ -53,9 +53,9 @@ xlc )
     am_opt=--include-deps;;
 esac
 
-libtoolize --force
+libtoolize --force --copy
 autoconf
-#gettextize --copy --force
+gettextize --copy --force --intl
 autoheader
 aclocal -I . $ACLOCAL_FLAGS
 aclocal

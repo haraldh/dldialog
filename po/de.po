@@ -5,10 +5,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dldialog 1.0\n"
-"POT-Creation-Date: 2001-02-15 11:30+0100\n"
+"POT-Creation-Date: 2002-04-04 16:39+0200\n"
 "PO-Revision-Date: 1999-04-14 13:38+02:00\n"
-"Last-Translator: Harald Hoyer <harald@delix.de>\n"
-"Language-Team: de <harald@delix.de>\n"
+"Last-Translator: Harald Hoyer <dldialog@parzelle.de>\n"
+"Language-Team: de <dldialog@parzelle.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8-bit\n"
@@ -109,13 +109,12 @@ msgstr "Lösche Ausgabe-Pipe "
 msgid "dldialog version "
 msgstr "dldialog Version "
 
-#: src/dldialog.cc:528 src/dldialog.cc:843
+#: src/dldialog.cc:528
 msgid ""
-"\tby Harald Hoyer (HarryH@Royal.Net)\n"
-"\tfor delix Computer GmbH (http://www.delix.de)\n"
+"\tby Harald Hoyer (dldialog@parzelle.de)\n"
+"\tCopyright (C) 1998-2002 Harald Hoyer <DLDialog@parzelle.de> - All rights "
+"reserved -"
 msgstr ""
-"        von Harald Hoyer (harald@delix.de)\n"
-"        für die delix Computer GmbH (http://www.delix.de)\n"
 
 #: src/dldialog.cc:549
 msgid "DLD_PRELOAD not specified!"
@@ -137,12 +136,17 @@ msgstr "TVision-Modus Unterstützung wurde nicht aktiviert beim Kompilieren!"
 msgid "Try `"
 msgstr "Versuche `"
 
+#: src/dldialog.cc:843
+msgid ""
+"\tby Harald Hoyer (dldialog@parzelle.de)\n"
+"\tCopyright (C) 1998-2002 Harald Hoyer <DLDialog@parzelle.de> - All rights "
+"reserved -\n"
+msgstr ""
+
 #: src/DLD_QT/dld_image.cc:116
 msgid " could not be loaded"
 msgstr " konnte nicht geladen werden"
 
-#. *new TStatusItem ("~Alt-X~ to Cancel!",
-#. kbAltX, cmDLDQuit) +
 #: src/DLD_TV/dld_tvapp.cc:180
 msgid "SPACE selects - TAB to move -"
 msgstr "LEERTASTE zum auswaehlen - TABULATOR zum wechseln -"

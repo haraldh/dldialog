@@ -1,48 +1,48 @@
 Dies ist dldialog.info, hergestellt von Makeinfo Version 4.1 aus
-/tmp/linuxdoc-dir-21969/sgmltmp.dldialog.info.2.
+/tmp/linuxdoc-dir-18086/sgmltmp.dldialog.info.2.
 
    \input texinfo
 
 
 Indirect:
 dldialog.info-1: 134
-dldialog.info-2: 41545
+dldialog.info-2: 41278
 
 Tag Table:
 (Indirect)
 Node: Top134
-Node: Introduction543
-Node: Installation1148
-Node: How to obtain DLDialog1361
-Node: Requirements1658
-Node: Compilation and installation2466
-Node: Normal compilation procedure2711
-Node: More options for configure3200
-Node: INSTALL4157
-Node: The Manual Page12099
-Node: NAME12327
-Node: SYNOPSIS12500
-Node: DESCRIPTION12707
-Node: OPTIONS13160
-Node: ENVIRONMENT14024
-Node: BUGS14242
-Node: DLDialog Program Syntax14371
-Node: General Syntax14791
-Node: Common options15982
-Node: Container Commands17055
-Node: Simple Commands20625
-Node: Script Example28103
-Node: Questions and answers31379
-Node: What is this start stop for?31867
-Node: How can I display a status box (info box)?33157
-Node: How can I specify the geometry of the dialog in qt mode?34173
-Node: How can I change elements depending on others?34719
-Node: How can I configure my xterm to display nice colours?36161
-Node: Why does my dialog start up so minimised?36645
-Node: Why can't I see my list?36945
-Node: NEWS38608
-Node: The Change Log41545
-Node: The TODO List61715
-Node: COPYING62202
+Node: Introduction548
+Node: Installation1040
+Node: How to obtain DLDialog1253
+Node: Requirements1473
+Node: Compilation and installation2206
+Node: Normal compilation procedure2451
+Node: More options for configure2940
+Node: INSTALL3897
+Node: The Manual Page11839
+Node: NAME12067
+Node: SYNOPSIS12240
+Node: DESCRIPTION12447
+Node: OPTIONS12900
+Node: ENVIRONMENT13764
+Node: BUGS13982
+Node: DLDialog Program Syntax14104
+Node: General Syntax14524
+Node: Common options15715
+Node: Container Commands16788
+Node: Simple Commands20358
+Node: Script Example27836
+Node: Questions and answers31112
+Node: What is this start stop for?31600
+Node: How can I display a status box (info box)?32890
+Node: How can I specify the geometry of the dialog in qt mode?33906
+Node: How can I change elements depending on others?34452
+Node: How can I configure my xterm to display nice colours?35894
+Node: Why does my dialog start up so minimised?36378
+Node: Why can't I see my list?36678
+Node: NEWS38341
+Node: The Change Log41278
+Node: The TODO List74183
+Node: COPYING74670
 
 End Tag Table

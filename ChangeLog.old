@@ -1,10 +1,10 @@
-1999-09-15  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-09-15  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_QT/dld_list.cc (create): curious setCurrentItem(0)
 
 	* src/DLD_TV/dld_list.cc (close_brace): no preselection of multilist
 
-1999-09-13  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-09-13  Harald Hoyer  <dldialog@parzelle.de>
 
 	* many many variable fixes
 	
@@ -18,17 +18,17 @@
 
 	* src/dld_obj.cc (activate): resolve symbolic "/bin/sh" link
 
-1999-09-07  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-09-07  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/dld_dialog.h: gcc-2.95 tweaks
 
 	* src/DLD_QT/dld_button.cc (movieUpdate): gcc-2.95 tweaks
 
-1999-09-06  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-09-06  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_TV/dld_combobox.cc (create): initial value is the first 
 
-1999-09-01  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-09-01  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/dld_parser_lex.ll: added -fork
 
@@ -40,27 +40,27 @@
 
 	* src/dld_obj.cc (activate): changed $SHELL to /bin/sh
 
-1999-08-19  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-08-19  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_QT/dld_check.cc (slot_activate): signal_cbpress in deactivate
 
-1999-08-18  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-08-18  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_QT/dld_combobox.cc (DLD_QTComboBox): removed slot activate
 
 	* src/DLD_TV/dld_dialog.cc (handleEvent): added UP and DOWN keys
 
-1999-08-16  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-08-16  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_TV/dld_combobox.cc (create): cleanup of preset variables
 
-1999-08-10  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-08-10  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_TV/dld_row.cc (DLD_TVRow): likewise
 
 	* src/DLD_TV/dld_col.cc (DLD_TVObj): setSizeAdd(1)
 
-1999-08-09  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-08-09  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_QT/dld_list.h (class DLD_QTList): dict now with listitems
 
@@ -70,7 +70,7 @@
 
 	* src/DLD_TV/dld_tvobj.cc (conname): tabs corrected
 
-1999-07-21  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-07-21  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_QT/dld_radiolist.cc (DLD_QTRadioList): likewise
 
@@ -82,29 +82,29 @@
 
 	* src/dldialog.cc: fixed exit and return values
 
-1999-07-19  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-07-19  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_TV/dld_textbox.cc (handleEvent): added keys for scrolling
 
-1999-06-18  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-06-18  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_TV/dld_input.cc (DLD_TVInput): minimal width=3 (test13)
 
-1999-06-17  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-06-17  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_TV/dld_list.cc (handleEvent): if key pressed, jump to items
 
-1999-06-09  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-06-09  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_QT/dld_text.cc (create): -font added
 
 	* src/DLD_QT/dld_textbox.cc (create): -font added
 
-1999-05-19  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-05-19  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_QT/dld_button.cc (movieUpdate): optimizations
 
-1999-05-07  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-05-07  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/dld_parser_yacc.yy: MOVIE and MOVIEFILE added
 	* src/dld_parser_lex.ll: likewise
@@ -113,19 +113,19 @@
 
 	* src/dld_obj.h (class DLD_Obj): is_movie added
 
-1999-05-06  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-05-06  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_TV/dld_button.h (class DLD_TVButton): can now have 
 	multiple lines
 
-1999-05-05  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-05-05  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_TV/dld_button.h (class DLD_TVButton): added -disable
 
 	* src/DLD_QT/dld_button.cc: movies
 	* src/DLD_QT/dld_image.cc: movies
 
-1999-04-22  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-04-22  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/dldialog.cc (dld_server): catch no tty
 	(dld_send): fixed problem with buffer length
@@ -135,7 +135,7 @@
 
 	* src/DLD_QT/dld_qtapp.cc (exec): cleanup moved to dialog
 
-1999-04-21  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-04-21  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_QT/dld_button.cc (drawButtonLabel): center pixmap
 
@@ -153,7 +153,7 @@
 
 	* src/DLD_TV/dld_form.cc (DLD_TVForm): use label
 
-1999-04-19  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-04-19  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_TV/dld_gauge.cc (draw): can now display 100
 
@@ -178,14 +178,14 @@
 
 	* src/dld_gauge.cc (parse): fixed child handling (zombies)
 
-1999-04-14  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-04-14  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/dld_app.cc (parse): improved parsing
 	(parse): improved parsing
 
 	* src/DLD_QT/dld_qtapp.cc (exec): fixed usleep call (microseconds)
 
-1999-04-13  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-04-13  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_QT/dld_button.cc (drawButtonLabel): improved
 
@@ -199,7 +199,7 @@
 
 	* src/DLD_QT/dld_dialog.cc (create): geometry handling
 
-1999-04-12  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-04-12  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/dldialog.cc: gettext
 
@@ -213,14 +213,14 @@
 
 	* src/DLD_TV/dld_button.cc (DLD_TVButton): fixed height
 
-1999-04-09  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-04-09  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_QT/dld_dialog.cc: correct geometry management
 	* src/DLD_QT/dld_form.cc: likewise
 	* src/DLD_QT/dld_col.cc: likewise
 	* src/DLD_QT/dld_row.cc: likewise
 
-1999-04-08  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-04-08  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_TV/dld_gauge.cc (set_progress): set variable every time
 
@@ -235,7 +235,7 @@
 	* src/DLD_QT/dld_gauge.cc: added
 	* src/DLD_QT/dld_gauge.h: added
 
-1999-04-07  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-04-07  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/dld_parser_yacc.yy: textbox can have no <name>
 
@@ -273,7 +273,7 @@
 
 	* src/dld_gui.h: changed ordering for -Wall
 
-1999-04-02  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-04-02  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/dld_gui.h: Documentation updates.
 
@@ -281,7 +281,7 @@
 
 	* src/DLD_TV/dld_list.cc (close_brace): select listitems that have their variable set
 
-1999-04-01  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-04-01  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_TV/dld_list.cc (handleEvent): activate listitems only if they are doubleclicked
 
@@ -309,7 +309,7 @@
 
 	* src/dld_parser_yacc.yy: some cleanups, -gaugevar removed
 
-1999-03-26  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-03-26  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_TV/dld_list.cc (selectItem): fixed setting
 
@@ -327,7 +327,7 @@
 
 	* src/DLD_TV/dld_input.cc (DLD_TVInput): isPasswd initialised
 
-1999-03-18  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-03-18  Harald Hoyer  <dldialog@parzelle.de>
 
 	* src/DLD_TV/dld_list.cc: cosmetic -Wall changes
 
@@ -369,21 +369,21 @@
 	* src/DLD_TV/dld_list.cc (DLD_TVList): changed tag char 
 	* src/DLD_TV/dld_tvapp.cc: new background color
 
-1999-03-17  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-03-17  Harald Hoyer  <dldialog@parzelle.de>
 	* src/DLD_TV/dld_list.cc: -multi added
 	* src/DLD_TV/dld_input.cc (set_length): added
 
-1999-03-12  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-03-12  Harald Hoyer  <dldialog@parzelle.de>
 	* added -passwd to input
 
-1999-03-03  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-03-03  Harald Hoyer  <dldialog@parzelle.de>
  	* src/DLD_QT/dld_list.cc (sizeHint): changed from 24 to 12 lines
 	* src/DLD_QT/dld_input.cc (DLD_Input): setMaxLength (1024)	
 
-1999-02-25  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-02-25  Harald Hoyer  <dldialog@parzelle.de>
 	* src/dld_parser_yacc.yy: made old style syntax work
 
-1999-02-17  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-02-17  Harald Hoyer  <dldialog@parzelle.de>
 	* dld_app.cc: (DLD_Dialog::DLD_Dialog) set_dialog added
 	* dld_app.cc: gauges changed from stack to list
 	* dld_gui.h: likewise
@@ -397,7 +397,7 @@
 	* DLD_QT: col, form, row added
 	* DLD_TV/tsinputl.cpp: newData instead of strcpy for the possible notification
 
-1999-02-12  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-02-12  Harald Hoyer  <dldialog@parzelle.de>
 
 	* dld_app.cc: export environment in forks
 	* dld_obj.cc: likewise, convstr to global function
@@ -409,12 +409,12 @@
 	* DLD_TV/dld_radiolist.cc: likewise
 	* DLD_TV/dld_checklist.cc: likewise
 
-1999-02-11  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-02-11  Harald Hoyer  <dldialog@parzelle.de>
 
 	* acinclude.m4: QT_LIBS added
 	* dld_app.c: gauges have 100 percent if the child ends
 
-1999-02-09  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-02-09  Harald Hoyer  <dldialog@parzelle.de>
 
 	* dldialog.spec.in: defattr added
 	* dld_parser_yacc.yy: changed tmpnam to tempnam
@@ -423,12 +423,12 @@
 	* DLD_TV/dld_tvapp.cc: ignoring SIGTSTP, menuBar redraw obsoleted 
 	                       with setsid
 
-1999-02-08  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+1999-02-08  Harald Hoyer  <dldialog@parzelle.de>
 
 	* dldialog.cc: DLD_Gui::parse argument wait added
 	* dld_app.cc: likewise, changed select timeout to 0
 
-1999-01-29  Harald Hoyer  <HarryH@Royal.Net>
+1999-01-29  Harald Hoyer  <dldialog@parzelle.de>
 
 	* dldialog.spec.in: tests and dldialog_funcs to %doc added
 	* dld_app.cc: modified for socket protocol
@@ -440,7 +440,7 @@
 	* dldialog.h: likewise
 	* test: added dldialog_funcs for easier shell programming
 
-1999-01-28  Harald Hoyer  <HarryH@Royal.Net>
+1999-01-28  Harald Hoyer  <dldialog@parzelle.de>
 
 	* configure.in: added enable debug, -fno-rtti
 	* DLD_GEN: added --parse should now work
@@ -452,12 +452,12 @@
 	* dldialog.cc: likewise, added flock of pipes, setsid of dldialog.cc
 	* DLD_QT: beginning of migration
 
-1999-01-15  Harald Hoyer  <HarryH@Royal.Net>
+1999-01-15  Harald Hoyer  <dldialog@parzelle.de>
 
 	* major interface change
 	* tvision mostly implemented
 
-1998-10-13  Harald Hoyer  <HarryH@Royal.Net>
+1998-10-13  Harald Hoyer  <dldialog@parzelle.de>
 
 	* released dldialog-0.8
 	* added combobox to QT Module
@@ -467,25 +467,25 @@
 	* fixed QT geometry
 	* fixed -r argument
 
-1998-08-29  Harald Hoyer  <HarryH@Royal.Net>
+1998-08-29  Harald Hoyer  <dldialog@parzelle.de>
 
 	* added TV checklist, radiolist ENV Variable checking
 
-1998-08-27  Harald Hoyer  <HarryH@Royal.Net>
+1998-08-27  Harald Hoyer  <dldialog@parzelle.de>
 
 	* Released Version 0.74
 
-1998-08-24  Harald Hoyer  <HarryH@Royal.Net>
+1998-08-24  Harald Hoyer  <dldialog@parzelle.de>
 
 	* melted documentation to dldialog.sgml.cpp
 
-1998-08-17  Harald Hoyer  <HarryH@Royal.Net>
+1998-08-17  Harald Hoyer  <dldialog@parzelle.de>
 
 	* added combobox, comboitem, input
 	* added -numeric, -ip, -width, -height, -file to parser
 	* added generic parsing (without any GUI)
 
-1998-06-26  Harald Hoyer  <HarryH@Royal.Net>
+1998-06-26  Harald Hoyer  <dldialog@parzelle.de>
 
 	* added list, listitem
 	* updated doc

@@ -1,13 +1,13 @@
 #/*****************************************************************************
 #**
-#** $Id: configure.in,v 1.1 2001/03/14 02:31:10 saturn_de Exp $
+#** $Id: configure.in,v 1.2 2002/04/04 15:25:24 saturn_de Exp $
 #**
 #**	This program is free software; you can redistribute it and/or
 #**	modify it under the terms of the GNU General Public License
 #**	as published by the Free Software Foundation; either version
 #**	2 of the License, or (at your option) any later version.
 #**
-#** (C) 1999,2000 Harald Hoyer <DLDialog@parzelle.de> 
+#** (C) 1998-2002 Harald Hoyer <DLDialog@parzelle.de> - All rights reserved -
 #**
 #*****************************************************************************/
 dnl We need autoconf --version >= 2.1
@@ -120,7 +120,7 @@ AC_SUBST(HAVE_FINAL)
 HAVE_FINAL=$use_final
 
 
-AC_OUTPUT(Makefile \
+AC_OUTPUT(Makefile  intl/Makefile  m4/Makefile \
    dldialog.spec \
 	tests/Makefile \
 	doc/Makefile \
@@ -133,7 +133,7 @@ AC_OUTPUT(Makefile \
 	src/DLD_QT/Makefile \
 	perl/Makefile \
 	perl/doc/Makefile \
-	intl/Makefile \
+	\
 	po/Makefile.in \
 )
 

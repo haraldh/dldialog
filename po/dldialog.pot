@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) YEAR (C) 1998-2002 Harald Hoyer <DLDialog@parzelle.de>
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-04-04 14:18+0200\n"
+"POT-Creation-Date: 2002-04-04 16:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,10 +96,11 @@ msgstr ""
 msgid "dldialog version "
 msgstr ""
 
-#: src/dldialog.cc:528 src/dldialog.cc:843
+#: src/dldialog.cc:528
 msgid ""
-"\tby Harald Hoyer (HarryH@Royal.Net)\n"
-"\tfor delix Computer GmbH (http://www.delix.de)\n"
+"\tby Harald Hoyer (dldialog@parzelle.de)\n"
+"\tCopyright (C) 1998-2002 Harald Hoyer <DLDialog@parzelle.de> - All rights "
+"reserved -"
 msgstr ""
 
 #: src/dldialog.cc:549
@@ -122,12 +123,17 @@ msgstr ""
 msgid "Try `"
 msgstr ""
 
+#: src/dldialog.cc:843
+msgid ""
+"\tby Harald Hoyer (dldialog@parzelle.de)\n"
+"\tCopyright (C) 1998-2002 Harald Hoyer <DLDialog@parzelle.de> - All rights "
+"reserved -\n"
+msgstr ""
+
 #: src/DLD_QT/dld_image.cc:116
 msgid " could not be loaded"
 msgstr ""
 
-#. *new TStatusItem ("~Alt-X~ to Cancel!",
-#. kbAltX, cmDLDQuit) +
 #: src/DLD_TV/dld_tvapp.cc:180
 msgid "SPACE selects - TAB to move -"
 msgstr ""

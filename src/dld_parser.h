@@ -1,13 +1,13 @@
 /**-*- C++ -*-*****************************************************************
 **
-** $Id: dld_parser.h,v 1.1 2001/03/14 02:32:56 saturn_de Exp $
+** $Id: dld_parser.h,v 1.2 2002/04/04 15:25:25 saturn_de Exp $
 **
 **	This program is free software; you can redistribute it and/or
 **	modify it under the terms of the GNU General Public License
 **	as published by the Free Software Foundation; either version
 **	2 of the License, or (at your option) any later version.
 **
-** (C) 1999,2000 Harald Hoyer <DLDialog@parzelle.de> 
+** (C) 1998-2002 Harald Hoyer <DLDialog@parzelle.de> - All rights reserved -
 **
 ******************************************************************************/
 
@@ -67,7 +67,7 @@ extern int DLD_error;
 /**
  * Parse error exception.
  * @short Parse error exception.
- * @author Harald Hoyer <HarryH@Royal.Net>
+ * @author Harald Hoyer <dldialog@parzelle.de>
  */
 class DLD_Parse_Error : public exception {   
 };
@@ -75,7 +75,7 @@ class DLD_Parse_Error : public exception {
 /**
  * Pipe error exception.
  * @short Pipe error exception.
- * @author Harald Hoyer <HarryH@Royal.Net>
+ * @author Harald Hoyer <dldialog@parzelle.de>
  */
 class DLD_Pipe_Error : public exception {   
 };
