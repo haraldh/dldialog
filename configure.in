@@ -1,6 +1,6 @@
 #/*****************************************************************************
 #**
-#** $Id: configure.in,v 1.3 2002/04/04 15:42:31 saturn_de Exp $
+#** $Id: configure.in,v 1.4 2002/04/04 15:48:49 saturn_de Exp $
 #**
 #**	This program is free software; you can redistribute it and/or
 #**	modify it under the terms of the GNU General Public License
@@ -23,7 +23,7 @@ dnl or changed since the last update and set REVISION to 0.
 CURRENT=26
 
 dnl Increment this every time the code changes
-REVISION=0
+REVISION=1
 
 dnl If any interfaces have been added since the last public release, 
 dnl then increment AGE.
