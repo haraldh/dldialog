@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 <HEAD>
- <META NAME="GENERATOR" CONTENT="SGML-Tools 1.0.8">
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
  <TITLE>The DLDialog Handbook: DLDialog Program Syntax</TITLE>
  <LINK HREF="dldialog-5.html" REL=next>
  <LINK HREF="dldialog-3.html" REL=previous>
@@ -12,132 +12,135 @@
 <A HREF="dldialog-3.html">Previous</A>
 <A HREF="dldialog.html#toc4">Contents</A>
 <HR>
-<H2><A NAME="s4">4. DLDialog Program Syntax</A></H2>
+<H2><A NAME="s4">4.</A> <A HREF="dldialog.html#toc4">DLDialog Program Syntax</A></H2>
 
 <P>In the following text, contents in brackets &lt;&gt; is defined 
 at other locations in this text and contents in square brackets 
-[] is optional.
-<H2><A NAME="ss4.1">4.1 General Syntax</A>
+[] is optional.</P>
+<H2><A NAME="ss4.1">4.1</A> <A HREF="dldialog.html#toc4.1">General Syntax</A>
 </H2>
 
 <P>
 <DL>
-<p><DT><B><B>//</B><EM> [&lt;comment&gt;]</EM></B><DD>DLDialog ignores the rest of the line after //.
-<p><DT><B><B>#</B><EM> [&lt;comment&gt;]</EM></B><DD>DLDialog ignores the rest of the line after #.
-<p><DT><B><EM><B>{</B>&lt;block&gt;<B>}</B></EM></B><DD>block consists of multiple combinations of commands surrounded by braces.
-<p><DT><B><EM>&lt;name&gt;</EM></B><DD>name is a single word or several words surrounded by parenthesis. A &amp;
-will specify the next letter as the shortcut for this item.
-<p><DT><B><B>"</B><EM>&lt;string&gt;</EM><B>" 
-"</B><EM>&lt;string&gt;</EM><B>"</B></B><DD>Strings are concatenated like in ANSI C.
-<p><DT><B><EM>&lt;varname&gt;</EM></B><DD>varname is a single word beginning with an alphabetic letter, 
-which contains no special characters.
-<p><DT><B><EM>&lt;value&gt;</EM></B><DD>value is a &lt;varname&gt;, a &lt;name&gt; or a number.
-<p><DT><B><EM>&lt;executable&gt;</EM></B><DD>executable is a filename that has the executable flag set and can be 
-executed by e.g. <EM>sh -c "&lt;executable&gt;"</EM>.
+<DT><B><B>//</B><EM> [&lt;comment&gt;]</EM></B><DD><P>DLDialog ignores the rest of the line after //.</P>
+<DT><B><B>#</B><EM> [&lt;comment&gt;]</EM></B><DD><P>DLDialog ignores the rest of the line after #.</P>
+<DT><B><EM><B>{</B>&lt;block&gt;<B>}</B></EM></B><DD><P>block consists of multiple combinations of commands surrounded by braces.</P>
+<DT><B><EM>&lt;name&gt;</EM></B><DD><P>name is a single word or several words surrounded by parenthesis. A &amp;
+will specify the next letter as the shortcut for this item.</P>
+<DT><B><B>"</B><EM>&lt;string&gt;</EM><B>" 
+"</B><EM>&lt;string&gt;</EM><B>"</B></B><DD><P>Strings are concatenated like in ANSI C.</P>
+<DT><B><EM>&lt;varname&gt;</EM></B><DD><P>varname is a single word beginning with an alphabetic letter, 
+which contains no special characters.</P>
+<DT><B><EM>&lt;value&gt;</EM></B><DD><P>value is a &lt;varname&gt;, a &lt;name&gt; or a number.</P>
+<DT><B><EM>&lt;executable&gt;</EM></B><DD><P>executable is a filename that has the executable flag set and can be 
+executed by e.g. <EM>sh -c "&lt;executable&gt;"</EM>.</P>
 <P>This file will be executed and the standard output of this file will be
-parsed and executed as a DLDialog program.
-<P>Variables set with the executable will have global effect.
-<p><DT><B><EM>&lt;command&gt;</EM><B>;</B></B><DD>normal commands end with a semicolon.
+parsed and executed as a DLDialog program.</P>
+<P>Variables set with the executable will have global effect.</P>
+<DT><B><EM>&lt;command&gt;</EM><B>;</B></B><DD><P>normal commands end with a semicolon.</P>
 </DL>
-<H2><A NAME="ss4.2">4.2 Common options</A>
+</P>
+<H2><A NAME="ss4.2">4.2</A> <A HREF="dldialog.html#toc4.2">Common options</A>
 </H2>
 
 <P>The following options can be given to all commands:
 <DL>
-<p><DT><B><EM>[</EM><B>-fork</B></B><DD>Together with the -exec tag this will let your spawned childs live if the parent dies. 
-<p><DT><B><EM>[</EM><B>-height</B>
-<EM>&lt;height in percent&gt;]</EM></B><DD>Specifies the height of the element in percent 
-of the parent size.
-<p><DT><B><EM>[</EM><B>-width</B> 
-<EM>&lt;width in percent&gt;]</EM></B><DD>Specifies the width of the element in percent of the parent size.
-<p><DT><B><EM>[</EM><B>-font</B><EM> &lt;X11 font specifier&gt;]
+<DT><B><EM>[</EM><B>-fork</B></B><DD><P>Together with the -exec tag this will let your spawned childs live if the parent dies. </P>
+<DT><B><EM>[</EM><B>-height</B>
+<EM>&lt;height in percent&gt;]</EM></B><DD><P>Specifies the height of the element in percent 
+of the parent size.</P>
+<DT><B><EM>[</EM><B>-width</B> 
+<EM>&lt;width in percent&gt;]</EM></B><DD><P>Specifies the width of the element in percent of the parent size.</P>
+<DT><B><EM>[</EM><B>-font</B><EM> &lt;X11 font specifier&gt;]
 [</EM><B>-size</B><EM> &lt;fontsize&gt;] 
 [</EM><B>-bg</B><EM> &lt;backgroundcolor&gt;] 
-[</EM><B>-fg</B><EM> &lt;foregroundcolor&gt;] </EM></B><DD>-font specifies the font of the element in X11/QT mode.
+[</EM><B>-fg</B><EM> &lt;foregroundcolor&gt;] </EM></B><DD><P>-font specifies the font of the element in X11/QT mode.</P>
 <P>-size specifies the size of the font. E.g. a  absolut numeric size or 
-mini, small, normal, large, huge or big. Default size is 12.
-<P>-bg specifies the background color of the font. Can be e.g. blue, white, "#FF0010".
-<P>-fg specifies the foreground color of the font. Can be e.g. blue, white, "#FF0010".
-<P>
+mini, small, normal, large, huge or big. Default size is 12.</P>
+<P>-bg specifies the background color of the font. Can be e.g. blue, white, "#FF0010".</P>
+<P>-fg specifies the foreground color of the font. Can be e.g. blue, white, "#FF0010".</P>
+
 </DL>
-<H2><A NAME="ss4.3">4.3 Container Commands</A>
+</P>
+<H2><A NAME="ss4.3">4.3</A> <A HREF="dldialog.html#toc4.3">Container Commands</A>
 </H2>
 
 <P>
 <DL>
-<p><DT><B><B>dialog</B>&nbsp;<EM>[&lt;name&gt;] 
-[</EM><B>-modal</B><EM>] </EM><B>{</B><EM>&lt;block&gt;</EM><B>}</B></B><DD>Draws a dialog window with title &lt;name&gt; which contains the 
-elements contained in &lt;block&gt;.
+<DT><B><B>dialog</B>&nbsp;<EM>[&lt;name&gt;] 
+[</EM><B>-modal</B><EM>] </EM><B>{</B><EM>&lt;block&gt;</EM><B>}</B></B><DD><P>Draws a dialog window with title &lt;name&gt; which contains the 
+elements contained in &lt;block&gt;.</P>
 <P>If the argument -modal is set, input for other dialogs is blocked 
-until the last modal dialog exited.
+until the last modal dialog exited.</P>
 <P>There should be one or more buttons with the -exit argument in 
-this dialog to let the user exit the dialog.
-<p><DT><B><B>form</B>&nbsp;<EM>[&lt;name&gt;] </EM><B>{</B><EM>&lt;block&gt;</EM><B>}</B></B><DD>Draws a rectangle with title &lt;name&gt; which contains the elements
-in &lt;block&gt;.
+this dialog to let the user exit the dialog.</P>
+<DT><B><B>form</B>&nbsp;<EM>[&lt;name&gt;] </EM><B>{</B><EM>&lt;block&gt;</EM><B>}</B></B><DD><P>Draws a rectangle with title &lt;name&gt; which contains the elements
+in &lt;block&gt;.</P>
 <P>DLDialog tries to order the elements more or less effective in this 
-rectangle.
-<p><DT><B><B>row</B> <EM>[&lt;name&gt;] </EM><B>{</B><EM>&lt;block&gt;</EM><B>}</B></B><DD>Draws a rectangle with title &lt;name&gt; which contains the elements
-in &lt;block&gt;.
-<P>DLDialog orders the elements in a row in this rectangle.
-<p><DT><B><B>col</B> <EM>[&lt;name&gt;] </EM><B>{</B><EM>&lt;block&gt;</EM><B>}</B></B><DD>Draws a rectangle with title &lt;name&gt; which contains the elements
-in &lt;block&gt;.
-<P>DLDialog orders the elements in a column in this rectangle.
-<p><DT><B><B>radiolist</B> <EM>[&lt;name&gt;] 
-[</EM><B>-var</B><EM> &lt;varname&gt;] </EM><B>{</B><EM>&lt;block&gt;</EM><B>}</B></B><DD>Draws a rectangle with title &lt;name&gt; which contains radio buttons
-in &lt;block&gt;.
-<P>DLDialog orders the radio buttons in a column in this rectangle.
-<P>The -var argument specifies a variable named &lt;varname&gt;.
+rectangle.</P>
+<DT><B><B>row</B> <EM>[&lt;name&gt;] </EM><B>{</B><EM>&lt;block&gt;</EM><B>}</B></B><DD><P>Draws a rectangle with title &lt;name&gt; which contains the elements
+in &lt;block&gt;.</P>
+<P>DLDialog orders the elements in a row in this rectangle.</P>
+<DT><B><B>col</B> <EM>[&lt;name&gt;] </EM><B>{</B><EM>&lt;block&gt;</EM><B>}</B></B><DD><P>Draws a rectangle with title &lt;name&gt; which contains the elements
+in &lt;block&gt;.</P>
+<P>DLDialog orders the elements in a column in this rectangle.</P>
+<DT><B><B>radiolist</B> <EM>[&lt;name&gt;] 
+[</EM><B>-var</B><EM> &lt;varname&gt;] </EM><B>{</B><EM>&lt;block&gt;</EM><B>}</B></B><DD><P>Draws a rectangle with title &lt;name&gt; which contains radio buttons
+in &lt;block&gt;.</P>
+<P>DLDialog orders the radio buttons in a column in this rectangle.</P>
+<P>The -var argument specifies a variable named &lt;varname&gt;.</P>
 <P>At creation this variable will be read and if set to a number, the 
-radio button with this number will be activated per default.
+radio button with this number will be activated per default.</P>
 <P>If the dialog exits the variable will be set to the number of the 
-selected radio button.
-<P>E.g. TESTVAR="1".
-<p><DT><B><B>checklist</B> <EM>[&lt;name&gt;] 
-[</EM><B>-var</B><EM> &lt;varname&gt;] </EM><B>{</B><EM>&lt;block&gt;</EM><B>}</B></B><DD>Draws a rectangle with title &lt;name&gt; which contains check buttons 
-in &lt;block&gt;.
-<P>DLDialog orders the check buttons in a column in this rectangle.
-<P>The -var argument specifies a variable named &lt;varname&gt;.
+selected radio button.</P>
+<P>E.g. TESTVAR="1".</P>
+<DT><B><B>checklist</B> <EM>[&lt;name&gt;] 
+[</EM><B>-var</B><EM> &lt;varname&gt;] </EM><B>{</B><EM>&lt;block&gt;</EM><B>}</B></B><DD><P>Draws a rectangle with title &lt;name&gt; which contains check buttons 
+in &lt;block&gt;.</P>
+<P>DLDialog orders the check buttons in a column in this rectangle.</P>
+<P>The -var argument specifies a variable named &lt;varname&gt;.</P>
 <P>At creation this variable will be read and if set to a number(s), the 
-check button(s) with this number(s) will be activated per default.
+check button(s) with this number(s) will be activated per default.</P>
 <P>If the dialog exits the variable will be set to the number(s) of the 
-selected check button(s).
-<P>E.g. TESTVAR="1 3 5".
-<p><DT><B><B>list</B> <EM>[&lt;name&gt;] 
+selected check button(s).</P>
+<P>E.g. TESTVAR="1 3 5".</P>
+<DT><B><B>list</B> <EM>[&lt;name&gt;] 
 [</EM><B>-var</B><EM> &lt;varname&gt;] 
 [</EM><B>-multi</B> <EM>]</EM> 
 <B>{ listitem</B> 
 <EM>[&lt;args&gt;]</EM><B>;</B>
-<EM> ...</EM><B>}</B></B><DD>Draws a scrollable list with title &lt;name&gt; which contains the 
-listitem elements in &lt;block&gt;.
-<P>DLDialog orders the list items in a column in this rectangle.
-<P>The -var argument specifies a variable named &lt;varname&gt;.
+<EM> ...</EM><B>}</B></B><DD><P>Draws a scrollable list with title &lt;name&gt; which contains the 
+listitem elements in &lt;block&gt;.</P>
+<P>DLDialog orders the list items in a column in this rectangle.</P>
+<P>The -var argument specifies a variable named &lt;varname&gt;.</P>
 <P>At creation this variable will be read and if set to a number(s), the 
-listitem(s) with this number(s) will be activated per default.
+listitem(s) with this number(s) will be activated per default.</P>
 <P>If the dialog exits the variable will be set to the number(s) of the 
-selected listitem(s).
-<P>E.g. TESTVAR="1 3 5".
+selected listitem(s).</P>
+<P>E.g. TESTVAR="1 3 5".</P>
 <P>The -multi argument enables multi line selection, where the line numbers,
-that were selected, are stored space separated in the variable.
+that were selected, are stored space separated in the variable.</P>
 <P>In tvision mode <B>F7</B> marks all, <B>F8</B>unmarks all and 
-<B>F9</B> toggles all.
-<p><DT><B><B>combobox</B> 
+<B>F9</B> toggles all.</P>
+<DT><B><B>combobox</B> 
 <B>-var</B><EM> &lt;varname&gt;] </EM><B>{ comboitem</B> 
 <EM>[&lt;args&gt;]</EM><B>;</B><EM> 
-...</EM><B>}</B></B><DD>Draws a combobox with title &lt;name&gt; which contains the comboitem 
-elements in &lt;block&gt;.
-<P>The -var argument specifies a variable named &lt;varname&gt;.
+...</EM><B>}</B></B><DD><P>Draws a combobox with title &lt;name&gt; which contains the comboitem 
+elements in &lt;block&gt;.</P>
+<P>The -var argument specifies a variable named &lt;varname&gt;.</P>
 <P>At creation this variable will be read and if set to a number(s), 
-the nth comboitem will be activated per default.
+the nth comboitem will be activated per default.</P>
 <P>If the dialog exits the variable will be set to the number of the 
-selected comboitem.
-<P>E.g. TESTVAR="1".
+selected comboitem.</P>
+<P>E.g. TESTVAR="1".</P>
 </DL>
-<H2><A NAME="ss4.4">4.4 Simple Commands</A>
+</P>
+<H2><A NAME="ss4.4">4.4</A> <A HREF="dldialog.html#toc4.4">Simple Commands</A>
 </H2>
 
 <P>
 <DL>
-<p><DT><B><B>button</B> <EM>&lt;name&gt; 
+<DT><B><B>button</B> <EM>&lt;name&gt; 
 [</EM><B>-var </B><EM>&lt;varname&gt; 
 [</EM><B>-set</B><EM> &lt;value&gt;] 
 [</EM><B>-add </B><EM>&lt;value&gt;]] 
@@ -145,151 +148,152 @@ selected comboitem.
 [</EM><B>-image </B><EM>&lt;image file&gt;] 
 [</EM><B>-movie </B><EM>&lt;movie file&gt;] 
 [</EM><B>-sign </B><EM>] 
-[</EM><B>-exit</B><EM>]&nbsp;</EM><B>;</B></B><DD>Draws a button labelled with &lt;name&gt;.
+[</EM><B>-exit</B><EM>]&nbsp;</EM><B>;</B></B><DD><P>Draws a button labelled with &lt;name&gt;.</P>
 <P>The -var argument specifies a variable named &lt;varname&gt;, which will
 be set, if the button is pressed,&nbsp; to the either the &lt;value&gt; 
-specified with -set
+specified with -set</P>
 <P>If instead of the -set argument -add is specified, the old value of 
 the variable is not cleared but the &lt;value&gt; will be appended 
-with a space as a separator.
+with a space as a separator.</P>
 <P>The -exec argument specifies an executable, which will be executed if 
-the button is pressed.
+the button is pressed.</P>
 <P>The -image argument specifies an image file, which will be displayed left to 
 the text. If the -sign option is given additionally, the image will be 
-displayed on top of the text.
+displayed on top of the text.</P>
 <P>The -movie argument specifies an animated image file, which will be 
 displayed left to the text. If the -sign option is given additionally, 
-the image will be displayed on top of the text.
+the image will be displayed on top of the text.</P>
 <P>The -exit argument means that the dialog will be terminated if the 
-button is pressed.
-<p><DT><B><B>checkbutton</B> <EM>&lt;name&gt; 
+button is pressed.</P>
+<DT><B><B>checkbutton</B> <EM>&lt;name&gt; 
 [</EM><B>-var </B><EM>&lt;varname&gt; 
 [</EM><B>-set</B> <EM>&lt;value&gt;] 
-[</EM><B>-add </B><EM>&lt;value&gt;]]&nbsp;</EM><B>;</B></B><DD>Draws a check button labelled with &lt;name&gt;.
-<P>Check buttons can only be grouped with the checklist command.
+[</EM><B>-add </B><EM>&lt;value&gt;]]&nbsp;</EM><B>;</B></B><DD><P>Draws a check button labelled with &lt;name&gt;.</P>
+<P>Check buttons can only be grouped with the checklist command.</P>
 <P>The -var argument specifies a variable named &lt;varname&gt;, which 
 will be set if the button&nbsp; is selected to the either the &lt;value&gt;
-specified with -set.
+specified with -set.</P>
 <P>If instead of the -set argument -add is specified, the old value of the
 variable is not cleared but the &lt;value&gt; will be appended with a 
-space as a separator.
+space as a separator.</P>
 <P>If the variable is already set to the value specified with -set or the 
 variable contains a value specified with -add, the checkbutton is 
-activated per default.
-<p><DT><B><B>radiobutton</B> <EM>&lt;name&gt; 
+activated per default.</P>
+<DT><B><B>radiobutton</B> <EM>&lt;name&gt; 
 [</EM><B>-var </B><EM>&lt;varname&gt; 
 [</EM><B>-set</B> <EM>&lt;value&gt;] 
-[</EM><B>-add </B><EM>&lt;value&gt;]]&nbsp;</EM><B>;</B></B><DD>Draws a radio button labelled with &lt;name&gt;.
-<P>Radio buttons can only be grouped with the radiolist command.
+[</EM><B>-add </B><EM>&lt;value&gt;]]&nbsp;</EM><B>;</B></B><DD><P>Draws a radio button labelled with &lt;name&gt;.</P>
+<P>Radio buttons can only be grouped with the radiolist command.</P>
 <P>The -var argument specifies a variable named &lt;varname&gt;, which 
 will be set ,if the button is selected, to the either the &lt;value&gt;
-specified with -set.
+specified with -set.</P>
 <P>If instead of the -set argument -add is specified, the old value of 
 the variable is not cleared but the &lt;value&gt; will be appended 
-with a space as a separator.
+with a space as a separator.</P>
 <P>If the variable is already set to the value specified with -set or the 
 variable contains a value specified with -add, the radiobutton is 
-activated per default.
+activated per default.</P>
 <P>NOTE: If multiple radio buttons are activated per default, the last one 
-set will only be activated.
-<p><DT><B><B>comboitem</B> <EM>&lt;name&gt; 
+set will only be activated.</P>
+<DT><B><B>comboitem</B> <EM>&lt;name&gt; 
 [</EM><B>-var </B><EM>&lt;varname&gt; 
 [</EM><B>-set</B> <EM>&lt;value&gt;] 
-[</EM><B>-add </B><EM>&lt;value&gt;]]&nbsp;</EM><B>;</B></B><DD>Draws a combobox item labeled with &lt;name&gt;.
-<P>Comboitems can only be grouped with the combolist command.
+[</EM><B>-add </B><EM>&lt;value&gt;]]&nbsp;</EM><B>;</B></B><DD><P>Draws a combobox item labeled with &lt;name&gt;.</P>
+<P>Comboitems can only be grouped with the combolist command.</P>
 <P>The -var argument specifies a variable named &lt;varname&gt;, which 
 will be set ,if the item is selected, to the either the &lt;value&gt;
-specified with -set.
+specified with -set.</P>
 <P>If instead of the -set argument -add is specified, the old value of 
 the variable is not cleared but the &lt;value&gt; will be appended with 
-a space as a separator.
+a space as a separator.</P>
 <P>If the variable is already set to the value specified with -set or the
 variable contains a value specified with -add, the item is activated per
-default.
+default.</P>
 <P>NOTE: If multiple items are activated per default, the last one set will
-only be activated.
-<p><DT><B><B>listitem</B> <EM>&lt;name&gt; 
+only be activated.</P>
+<DT><B><B>listitem</B> <EM>&lt;name&gt; 
 [</EM><B>-var </B> <EM>&lt;varname&gt; 
 [</EM><B>-set</B> <EM>&lt;value&gt;] 
 [</EM><B>-add </B><EM>&lt;value&gt;]]&nbsp;
 [</EM><B>-exec </B><EM>&lt;executable&gt;] 
 [</EM><B>-image </B><EM>&lt;image file&gt;] 
-[</EM><B>-exit</B><EM>]&nbsp;</EM><B>;</B></B><DD>Draws a listitem labeled with &lt;name&gt;.
-<P>listitems can only exists within a list block.
+[</EM><B>-exit</B><EM>]&nbsp;</EM><B>;</B></B><DD><P>Draws a listitem labeled with &lt;name&gt;.</P>
+<P>listitems can only exists within a list block.</P>
 <P>The -var argument specifies a variable named &lt;varname&gt;, which 
 will be set ,if the button is selected, to the either the &lt;value&gt;
-specified with -set.
+specified with -set.</P>
 <P>If instead of the -set argument -add is specified, the old value of the
 variable is not cleared but the &lt;value&gt; will be appended with a 
-space as a separator.
+space as a separator.</P>
 <P>If the variable is already set to the value specified with -set or the
 variable contains a value specified with -add, the listitem is activated
-per default.
+per default.</P>
 <P>NOTE: If multiple listitems are activated per default and -multi is not
-set in the list, the last one set will only be activated.
+set in the list, the last one set will only be activated.</P>
 <P>The -image argument specifies an image file, which will be displayed left to 
-the text. 
+the text. </P>
 <P>The -exec argument specifies an executable, which will be executed 
-if the listitem is activated.
+if the listitem is activated.</P>
 <P>The -exit argument means that the dialog will be terminated 
-if the listitem is double-clicked.
-<P>
-<p><DT><B><B>text</B> <EM>&lt;name&gt;&nbsp;</EM><B>;</B></B><DD>Displays &lt;name&gt; as text. Should not be longer than 255 chars, 
-because of some limitations in the tvision library!
+if the listitem is double-clicked.</P>
+
+<DT><B><B>text</B> <EM>&lt;name&gt;&nbsp;</EM><B>;</B></B><DD><P>Displays &lt;name&gt; as text. Should not be longer than 255 chars, 
+because of some limitations in the tvision library!</P>
 <P>Text can include newlines or backslashed characters, which will be 
 transformed like in C strings. E.g. \n is newline, \t 
-tabulator, etc.
-<p><DT><B><B>textbox</B> <EM>&lt;name&gt;&nbsp;</EM><B>;</B></B><DD>Displays &lt;name&gt; as text in a box with scrollbars, if needed.
+tabulator, etc.</P>
+<DT><B><B>textbox</B> <EM>&lt;name&gt;&nbsp;</EM><B>;</B></B><DD><P>Displays &lt;name&gt; as text in a box with scrollbars, if needed.</P>
 <P>Text can include newlines or backslashed characters, which will be 
 transformed like in C strings. 
-E.g. \n is newline, \t tabulator, etc.
-<p><DT><B><B>textbox</B> 
-<B>-file </B><EM>&lt;filename&gt;&nbsp;</EM><B>;</B></B><DD>Displays the file &lt;filename&gt; as text in a box with scrollbars, 
-if needed.
-<p><DT><B><B>input</B> 
+E.g. \n is newline, \t tabulator, etc.</P>
+<DT><B><B>textbox</B> 
+<B>-file </B><EM>&lt;filename&gt;&nbsp;</EM><B>;</B></B><DD><P>Displays the file &lt;filename&gt; as text in a box with scrollbars, 
+if needed.</P>
+<DT><B><B>input</B> 
 <B>-var </B><EM>&lt;varname&gt;
 [</EM><B>-passwd</B><EM>] &nbsp;
 [</EM><B>-length </B><EM>&lt;value&gt; 
 [</EM><B>-numeric</B><EM>] 
-[</EM><B>-ip</B><EM>]</EM><B> ;</B></B><DD>Displays an input field, which is named &lt;name&gt;.
-<P>If -passwd is specified, no text is shown.
-<P>If -length is specified, the field is &lt;varname&gt; long.
-<P>If -numeric is specified, only numeric input is accepted
-<P>If -ip is specified, only IP address formatted input is accepted
-<P>-ip and -numeric cant be used together!
+[</EM><B>-ip</B><EM>]</EM><B> ;</B></B><DD><P>Displays an input field, which is named &lt;name&gt;.</P>
+<P>If -passwd is specified, no text is shown.</P>
+<P>If -length is specified, the field is &lt;varname&gt; long.</P>
+<P>If -numeric is specified, only numeric input is accepted</P>
+<P>If -ip is specified, only IP address formatted input is accepted</P>
+<P>-ip and -numeric cant be used together!</P>
 <P>The -var argument specifies a variable named &lt;varname&gt;, which 
-will be set to the contents of the input field, if the dialog exits.
+will be set to the contents of the input field, if the dialog exits.</P>
 <P>If the variable is already set it will be the default value for the 
-input field.
+input field.</P>
 <P>The -exec argument specifies an executable, which will be executed 
-if return is pressed or the dialog exits.
+if return is pressed or the dialog exits.</P>
 <P>The -exit argument means that the dialog will be terminated 
-if return is pressed.
-<p><DT><B><B>image</B> <EM>&lt;name&gt;&nbsp;</EM><B>;</B></B><DD>Displays an image with filename &lt;name&gt;.
-<p><DT><B><B>movie</B> <EM>&lt;name&gt;&nbsp;</EM><B>;</B></B><DD>Displays an animated image with filename &lt;name&gt;.
-<p><DT><B><B>gauge</B> 
+if return is pressed.</P>
+<DT><B><B>image</B> <EM>&lt;name&gt;&nbsp;</EM><B>;</B></B><DD><P>Displays an image with filename &lt;name&gt;.</P>
+<DT><B><B>movie</B> <EM>&lt;name&gt;&nbsp;</EM><B>;</B></B><DD><P>Displays an animated image with filename &lt;name&gt;.</P>
+<DT><B><B>gauge</B> 
 <B>-var</B><EM> &lt;varname&gt; 
 [</EM><B>-exec</B> <EM>&lt;executable&gt;] 
-[</EM><B>-exit</B><EM>] </EM><B>;</B></B><DD>Draws a meter labeled with &lt;name&gt;.&nbsp; The meter indicates the 
-percentage.
+[</EM><B>-exit</B><EM>] </EM><B>;</B></B><DD><P>Draws a meter labeled with &lt;name&gt;.&nbsp; The meter indicates the 
+percentage.</P>
 <P>The -exec argument specifies an executable, which will be executed 
-immediately.
+immediately.</P>
 <P>New percentages are read from standard input of the executable.
 Integer or double values are accepted separated by spaces. Non-digit characters
 will be over-read.
 The meter is updated to reflect each new percentage.
 The variable specified with the varname is set to the percentage, when 
 the dialog exits or to the exit status of the executable, if it exits 
-with a negative value.
+with a negative value.</P>
 <P>If the -exit argument is set, the dialog will be exited if the -exec
-child exits.
-<p><DT><B><EM>&lt;varname&gt;</EM><B>=</B><EM>&lt;value&gt; </EM><B>;</B></B><DD>Sets the global variable &lt;varname&gt; to &lt;value&gt;.
+child exits.</P>
+<DT><B><EM>&lt;varname&gt;</EM><B>=</B><EM>&lt;value&gt; </EM><B>;</B></B><DD><P>Sets the global variable &lt;varname&gt; to &lt;value&gt;.</P>
 </DL>
-<H2><A NAME="ss4.5">4.5 Script Example</A>
+</P>
+<H2><A NAME="ss4.5">4.5</A> <A HREF="dldialog.html#toc4.5">Script Example</A>
 </H2>
 
 <P>Has no sense ... just to demonstrate all language elements of DLDialog.
-<HR noshade size=1>
+<HR>
 <PRE>
 #!./dldialog -tf
  dialog "All GUI Elements" -width 100 -height 100 {
@@ -393,7 +397,8 @@ EOF";
       }
 }   
 </PRE>
-<HR noshade size='1'>
+<HR>
+</P>
 <HR>
 <A HREF="dldialog-5.html">Next</A>
 <A HREF="dldialog-3.html">Previous</A>

@@ -1,6 +1,6 @@
 #/*****************************************************************************
 #**
-#** $Id: Makefile.am,v 1.1 2001/03/14 02:32:31 saturn_de Exp $
+#** $Id: Makefile.am,v 1.2 2002/04/04 12:51:54 saturn_de Exp $
 #**
 #**	This program is free software; you can redistribute it and/or
 #**	modify it under the terms of the GNU General Public License
@@ -24,7 +24,7 @@ KDOC = @KDOC@
 base.kdoc:  $(wildcard $(top_srcdir)/src/*.h)
 	@(cd $(top_srcdir)/src/; \
 	if [ -n "$(KDOC)" ]; then \
-		$(KDOC) ../doc/classdoc/base -u ../ -d../doc/classdoc *.h; \
+		$(KDOC) -f html -L ../doc/classdoc -n base -u ../ -d ../doc/classdoc *.h; \
 	else \
 		touch ../doc/classdoc/base.kdoc; \
 	fi)

@@ -1,6 +1,6 @@
 #/*****************************************************************************
 #**
-#** $Id: Makefile.am,v 1.1 2001/03/14 02:32:31 saturn_de Exp $
+#** $Id: Makefile.am,v 1.2 2002/04/04 12:51:54 saturn_de Exp $
 #**
 #**	This program is free software; you can redistribute it and/or
 #**	modify it under the terms of the GNU General Public License
@@ -12,17 +12,19 @@
 #**
 #*****************************************************************************/
 
-EXTRA_DIST = tv.kdoc $(wildcard *.html)
+EXTRA_DIST = dld_tv.kdoc $(wildcard *.html)
 
 if CLASSDOC
-tv_DATA = tv.kdoc $(wildcard *.html) 
+tv_DATA = dld_tv.kdoc $(wildcard *.html) 
 tvdir = $(prefix)/doc/dldialog-@VERSION@/classdoc/tv
 
-tv.kdoc: $(srcdir)/../base.kdoc $(wildcard $(top_srcdir)/src/DLD_TV/*.h)
-	@(cd $(top_srcdir)/src/; \
+dld_tv.kdoc: $(srcdir)/../base.kdoc $(wildcard $(top_srcdir)/src/DLD_TV/*.h)
+	(cd $(top_srcdir)/src/; \
 	if [ -n "$(KDOC)" ]; then \
-		$(KDOC) ../doc/classdoc/tv/tv -d../doc/classdoc/tv  \
-			DLD_TV/*.h -l../doc/classdoc/base; \
+		$(KDOC) -n dld_tv -f html -L ../doc/classdoc/ -l base \
+			--liboutdir ../doc/classdoc/tv \
+			-d ../doc/classdoc/tv  \
+			DLD_TV/*.h ; \
 	else \
 		touch ../doc/classdoc/tv/tv.kdoc; \
 	fi)

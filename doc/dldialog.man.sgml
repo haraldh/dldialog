@@ -2,7 +2,7 @@
 <!--
 /******************************************************************************
 **
-** $Id: dldialog.man.sgml,v 1.1 2001/03/14 02:31:35 saturn_de Exp $
+** $Id: dldialog.man.sgml,v 1.2 2002/04/04 12:49:20 saturn_de Exp $
 **
 **	This program is free software; you can redistribute it and/or
 **	modify it under the terms of the GNU General Public License
@@ -21,7 +21,7 @@
 <!--
 /******************************************************************************
 **
-** $Id: dldialog.man.sgml,v 1.1 2001/03/14 02:31:35 saturn_de Exp $
+** $Id: dldialog.man.sgml,v 1.2 2002/04/04 12:49:20 saturn_de Exp $
 **
 **	This program is free software; you can redistribute it and/or
 **	modify it under the terms of the GNU General Public License
@@ -116,13 +116,12 @@ Main author(s):
 ===============
 
 Harald Hoyer	E-Mail:
-			Harald@delix.de
-			Harald@redhat.de
-			Harald@redhat.com
-			Hoyer@hot.spotline.de
-			HarryH@Royal.Net
+			DLDialog@parzelle.de
+			Harald.Hoyer@redhat.de
+			Harald.Hoyer@redhat.com
+
 		HTTP:
-			http://www.delix.de/~harald
+			http://parzelle.de
 			http://hot.spotline.de
 
 Perl modules: 

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 <HEAD>
- <META NAME="GENERATOR" CONTENT="SGML-Tools 1.0.8">
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
  <TITLE>The DLDialog Handbook: Questions and answers</TITLE>
  <LINK HREF="dldialog-6.html" REL=next>
  <LINK HREF="dldialog-4.html" REL=previous>
@@ -12,14 +12,14 @@
 <A HREF="dldialog-4.html">Previous</A>
 <A HREF="dldialog.html#toc5">Contents</A>
 <HR>
-<H2><A NAME="s5">5. Questions and answers</A></H2>
+<H2><A NAME="s5">5.</A> <A HREF="dldialog.html#toc5">Questions and answers</A></H2>
 
-<H2><A NAME="ss5.1">5.1 What is this start, stop for?</A>
+<H2><A NAME="ss5.1">5.1</A> <A HREF="dldialog.html#toc5.1">What is this start, stop for?</A>
 </H2>
 
 <P>If you plan to display several dialogs in your session, it is useful
 to start a dialog server with:
-<HR noshade size=1>
+<HR>
 <PRE>
 if [ -z "$DLDIALOG_INFIFO" ]; then
   dld_waitforend="yes";
@@ -41,11 +41,11 @@ function dldialog_start () $lcub;
 
 dldialog_start $ARGS
 </PRE>
-<HR noshade size='1'>
+<HR>
 
 At the end of the script dldialog_stop is now called, which can look 
 like this:
-<HR noshade size=1>
+<HR>
 <PRE>
 function dldialog_stop () {
   if [ "$dld_waitforend" = "yes" ]; then
@@ -59,16 +59,16 @@ function dldialog_stop () {
   fi
 }
 </PRE>
-<HR noshade size='1'>
+<HR>
 
 All of these functions (and more) can be found in dldialog_funcs, which 
 is in this documentation directory or in the tests directory of the 
-source package.
-<H2><A NAME="ss5.2">5.2 How can I display a status box (info box)?</A>
+source package.</P>
+<H2><A NAME="ss5.2">5.2</A> <A HREF="dldialog.html#toc5.2">How can I display a status box (info box)?</A>
 </H2>
 
 <P>You want the user to see, what is going on. OK here is an example:
-<HR noshade size=1>
+<HR>
 <PRE>
 #!/bin/sh
 
@@ -100,12 +100,13 @@ declare -fx testf
 
 infobox "Preparing the system" testf;
 </PRE>
-<HR noshade size='1'>
-<H2><A NAME="ss5.3">5.3 How can I specify the geometry of the dialog in qt mode?</A>
+<HR>
+</P>
+<H2><A NAME="ss5.3">5.3</A> <A HREF="dldialog.html#toc5.3">How can I specify the geometry of the dialog in qt mode?</A>
 </H2>
 
 <P>Start dldialog with the -geometry in the EXTRA OPTIONS section. E.g.:
-<HR noshade size=1>
+<HR>
 <PRE>
 $ dldialog -q -- -geometry 640x480 &lt;&lt; EOF
 dialog "TEST" {
@@ -114,14 +115,15 @@ dialog "TEST" {
 }
 EOF
 </PRE>
-<HR noshade size='1'>
-<H2><A NAME="ss5.4">5.4 How can I change elements depending on others?</A>
+<HR>
+</P>
+<H2><A NAME="ss5.4">5.4</A> <A HREF="dldialog.html#toc5.4">How can I change elements depending on others?</A>
 </H2>
 
 <P>Suppose you want to get the host name and domain name of a host. You want to
 preset the domain name with the domain of the host name, once the user has
 entered it.
-<HR noshade size=1>
+<HR>
 <PRE>
 #!/bin/sh
 
@@ -163,36 +165,37 @@ done
 
 dldialog --wait
 </PRE>
-<HR noshade size='1'>
+<HR>
 
 <B>Note:</B> The user has to press return after entering the 
-hostname to let the dialog exit.
-<H2><A NAME="ss5.5">5.5 How can I configure my xterm to display nice colours?</A>
+hostname to let the dialog exit.</P>
+<H2><A NAME="ss5.5">5.5</A> <A HREF="dldialog.html#toc5.5">How can I configure my xterm to display nice colours?</A>
 </H2>
 
 <P>Try to set the TERM variable to one of: xterm-color, 
 color-xterm or rxvt. Best results are on Linux console or in a rxvt.
-<HR noshade size=1>
+<HR>
 <PRE>
 $ export TERM=xterm-color
 </PRE>
-<HR noshade size='1'>
-<H2><A NAME="ss5.6">5.6 Why does my dialog start up so minimised?</A>
+<HR>
+</P>
+<H2><A NAME="ss5.6">5.6</A> <A HREF="dldialog.html#toc5.6">Why does my dialog start up so minimised?</A>
 </H2>
 
-<P>Same as below.
-<H2><A NAME="ss5.7">5.7 Why can't I see my list?</A>
+<P>Same as below.</P>
+<H2><A NAME="ss5.7">5.7</A> <A HREF="dldialog.html#toc5.7">Why can't I see my list?</A>
 </H2>
 
 <P>If no -width and -height is specified the element shows up with it's 
-smallest size. 
+smallest size. </P>
 <P>Remember: -width and -height are relative to the element 
 with the most inner {}. The dialog element's width and height 
-tags are relative to the -geometry size (or as a default 600x400).
+tags are relative to the -geometry size (or as a default 600x400).</P>
 <P>Specifying -width and -height also gives dldialog a hint which elements
-have to grow how much, if the dialog resizes.
+have to grow how much, if the dialog resizes.</P>
 <P>This one is ugly:
-<HR noshade size=1>
+<HR>
 <PRE>
 dialog "Not so nice" {
   list "A very small list" {
@@ -215,10 +218,10 @@ dialog "Not so nice" {
   }
 }
 </PRE>
-<HR noshade size='1'>
+<HR>
 
 Here a nicer one:
-<HR noshade size=1>
+<HR>
 <PRE>
 dialog "Not so nice" -width 100 -height 100 {
   list "A very small list" -width 100 -height 100 {
@@ -241,7 +244,8 @@ dialog "Not so nice" -width 100 -height 100 {
   }
 }
 </PRE>
-<HR noshade size='1'>
+<HR>
+</P>
 <HR>
 <A HREF="dldialog-6.html">Next</A>
 <A HREF="dldialog-4.html">Previous</A>

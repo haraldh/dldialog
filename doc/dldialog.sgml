@@ -2,7 +2,7 @@
 <!--
 /******************************************************************************
 **
-** $Id: dldialog.sgml,v 1.1 2001/03/14 02:31:41 saturn_de Exp $
+** $Id: dldialog.sgml,v 1.2 2002/04/04 12:49:20 saturn_de Exp $
 **
 **	This program is free software; you can redistribute it and/or
 **	modify it under the terms of the GNU General Public License
@@ -20,8 +20,8 @@
     <titlepag>
       <title>The DLDialog Handbook</title>
       <author><name>Harald Hoyer, <tt><htmlurl url="mailto:harald@delix.de" name="harald@delix.de"></tt></name></author>
-      <date>Version 1.3.2, 17.09.1999</date>
-      <abstract>This Handbook describes DLDialog Version 1.3.2</abstract>
+      <date>Version 1.4.1, 04.04.2002</date>
+      <abstract>This Handbook describes DLDialog Version 1.4.1</abstract>
     </titlepag>
     <toc>
     <sect><heading>Introduction</heading>
@@ -307,7 +307,7 @@ operates.
 <!--
 /******************************************************************************
 **
-** $Id: dldialog.sgml,v 1.1 2001/03/14 02:31:41 saturn_de Exp $
+** $Id: dldialog.sgml,v 1.2 2002/04/04 12:49:20 saturn_de Exp $
 **
 **	This program is free software; you can redistribute it and/or
 **	modify it under the terms of the GNU General Public License
@@ -1329,6 +1329,21 @@ Changes in release 0.6:
     <sect><heading>The Change Log</heading>
       <p>
 <verb>
+2001-03-14  Harald Hoyer  <harald@redhat.de>
+
+	* src/DLD_GEN/dld_gengui.h, src/DLD_GEN/dld_lib.cc, src/DLD_GEN/Makefile.am, src/dldialog.cc, src/dldialog.h, src/dld_parser_lex.cc, src/dld_parser_lex.ll, src/dld_parser_yacc.cc, src/dld_parser_yacc.yy, src/DLD_QT/dld_button.cc, src/DLD_QT/dld_button.h, src/DLD_QT/dld_check.cc, src/DLD_QT/dld_check.h, src/DLD_QT/dld_checklist.cc, src/DLD_QT/dld_checklist.h, src/DLD_QT/dld_col.cc, src/DLD_QT/dld_col.h, src/DLD_QT/dld_combobox.cc, src/DLD_QT/dld_combobox.h, src/DLD_QT/dld_comboitem.cc, src/DLD_QT/dld_comboitem.h, src/DLD_QT/dld_dialog.cc, src/DLD_QT/dld_dialog.h, src/DLD_QT/dld_form.cc, src/DLD_QT/dld_form.h, src/DLD_QT/dld_gauge.cc, src/DLD_QT/dld_gauge.h, src/DLD_QT/dld_image.cc, src/DLD_QT/dld_image.h, src/DLD_QT/dld_input.cc, src/DLD_QT/dld_input.h, src/DLD_QT/dld_listitem.h, src/DLD_QT/dld_qtapp.cc, src/DLD_QT/dld_qtapp.h, src/DLD_QT/dld_qtcontainer.cc, src/DLD_QT/dld_qtcontainer.h, src/DLD_QT/dld_qtlib.h, src/DLD_QT/dld_qtobj.cc, src/DLD_QT/dld_qtobj.h, src/DLD_QT/dld_radio.cc, src/DLD_QT/dld_radio.h, src/DLD_QT/dld_radiolist.cc, src/DLD_QT/dld_radiolist.h, src/DLD_QT/dld_row.cc, src/DLD_QT/dld_row.h, src/DLD_QT/dld_textbox.cc, src/DLD_QT/dld_textbox.h, src/DLD_QT/dld_text.cc, src/DLD_QT/dld_text.h, src/DLD_QT/Makefile.am, src/DLD_TV/dld_button.cc, src/DLD_TV/dld_button.h, src/DLD_TV/dld_checklist.cc, src/DLD_TV/dld_checklist.h, src/DLD_TV/dld_col.cc, src/DLD_TV/dld_col.h, src/DLD_TV/dld_combobox.cc, src/DLD_TV/dld_combobox.h, src/DLD_TV/dld_comboitem.cc, src/DLD_TV/dld_comboitem.h, src/DLD_TV/dld_dialog.cc, src/DLD_TV/dld_dialog.h, src/DLD_TV/dld_form.cc, src/DLD_TV/dld_form.h, src/DLD_TV/dld_gauge.cc, src/DLD_TV/dld_gauge.h, src/DLD_TV/dld_geom.cc, src/DLD_TV/dld_geom.h, src/DLD_TV/dld_input.cc, src/DLD_TV/dld_input.h, src/DLD_TV/dld_lib.cc, src/DLD_TV/dld_list.cc, src/DLD_TV/dld_list.h, src/DLD_TV/dld_listitem.cc, src/DLD_TV/dld_listitem.h, src/DLD_TV/dld_radiolist.cc, src/DLD_TV/dld_radiolist.h, src/DLD_TV/dld_row.cc, src/DLD_TV/dld_row.h, src/DLD_TV/dld_textbox.cc, src/DLD_TV/dld_textbox.h, src/DLD_TV/dld_text.cc, src/DLD_TV/dld_text.h, src/DLD_TV/dld_tvapp.cc, src/DLD_TV/dld_tvapp.h, src/DLD_TV/dld_tvcheck.cc, src/DLD_TV/dld_tvcheck.h, src/DLD_TV/dld_tvcontainer.cc, src/DLD_TV/dld_tvcontainer.h, src/DLD_TV/dld_tvlib.h, src/DLD_TV/dld_tvobj.cc, src/DLD_TV/dld_tvobj.h, src/DLD_TV/dld_tvradio.cc, src/DLD_TV/dld_tvradio.h, src/DLD_TV/Makefile.am, src/DLD_TV/nmcmbobx.cpp, src/DLD_TV/nmcmbovw.cpp, src/DLD_TV/nmcmbown.cpp, src/DLD_TV/nmsinput.cpp, src/DLD_TV/tcombobx.h, src/DLD_TV/tsinputl.h, tests/Makefile.am, AUTHORS, configure.in, dldialog.spec.in, intl/Makefile, Makefile.am, po/de.po, po/dldialog.pot, po/Makefile, po/Makefile.in, README, src/dld_dialog.cc, src/dld_gauge.cc, src/dld_gui.cc, src/dld_lib.h, src/dld_obj.cc, src/dld_parser.h, src/Makefile.am:
+	updated copyright
+
+1999-09-17  Harald Hoyer  <harald@redhat.de>
+
+	* doc/dldialog.info-1, doc/dldialog.info, doc/dldialog.info-2, src/DLD_TV/dld_combobox.cc, src/DLD_TV/dld_combobox.h, doc/dldialog.dvi, src/DLD_QT/dld_dialog.cc, src/DLD_TV/dld_button.cc, src/DLD_TV/dld_dialog.cc, src/DLD_TV/dld_tvobj.cc, tests/test1, tests/test2, po/Makefile, po/Makefile.in, src/dld_dialog.cc, src/dld_dialog.h, src/DLD_GEN/dld_lib.cc, doc/dldialog.html, doc/dldialog.man.sgml, doc/dldialog.sgml, doc/dldialog.txt, intl/Makefile, configure.in:
+	*** empty log message ***
+
+1999-09-15  Harald Hoyer  <harald@redhat.de>
+
+	* acinclude.m4, tests/test2.cmp, po/de.po, po/Makefile, po/Makefile.in, src/DLD_QT/dld_list.cc, src/DLD_TV/dld_list.cc, tests/test2, doc/dldialog.html, doc/dldialog.info-1, doc/dldialog.info, doc/dldialog.info-2, doc/dldialog.man.sgml, doc/dldialog.sgml, doc/dldialog.txt, intl/Makefile, doc/dldialog-7.html, doc/dldialog.dvi, ChangeLog, configure.in, src/dld_parser_yacc.cc, po/dldialog.pot, src/dld_parser_lex.cc:
+	*** empty log message ***
+
 1999-09-15  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
 
 	* src/DLD_QT/dld_list.cc (create): curious setCurrentItem(0)

@@ -1,17 +1,15 @@
   The DLDialog Handbook
   Harald Hoyer, harald@delix.de
-  Version 1.3.2, 17.09.1999
+  Version 1.4.1, 04.04.2002
 
-  This Handbook describes DLDialog Version 1.3.2
+  This Handbook describes DLDialog Version 1.4.1
   ______________________________________________________________________
 
   Table of Contents
 
 
   1. Introduction
-
   2. Installation
-
      2.1 How to obtain DLDialog
      2.2 Requirements
      2.3 Compilation and installation
@@ -20,7 +18,6 @@
         2.3.3 INSTALL
 
   3. The Manual Page
-
      3.1 NAME
      3.2 SYNOPSIS
      3.3 DESCRIPTION
@@ -29,7 +26,6 @@
      3.6 BUGS
 
   4. DLDialog Program Syntax
-
      4.1 General Syntax
      4.2 Common options
      4.3 Container Commands
@@ -37,7 +33,6 @@
      4.5 Script Example
 
   5. Questions and answers
-
      5.1 What is this start, stop for?
      5.2 How can I display a status box (info box)?
      5.3 How can I specify the geometry of the dialog in qt mode?
@@ -47,13 +42,9 @@
      5.7 Why can't I see my list?
 
   6. NEWS
-
   7. The Change Log
-
   8. The TODO List
-
   9. COPYING
-
 
 
   ______________________________________________________________________
@@ -64,12 +55,14 @@
 
   DLDialog was mainly developed for the DDeeuuttsscchhee LLiinnuuxx DDiissttrriibbuuttiioonn
   ((DDLLDD)) ooff ddeelliixx CCoommppuutteerr GGmmbbHH.
+
   DLDialog offers the capability to draw a variety of widgets, in order
   to ease the human user in feeding input to the script.  The program is
   designed to be particularly useful to implement system administration
   scripts.  I hope you will enjoy this program.
 
   Harald Hoyer harald@delix.de Hoyer@Royal.Net
+
 
   22..  IInnssttaallllaattiioonn
 
@@ -177,22 +170,6 @@
   AAggaaiinn:: Should you run into problems, please report them to me.
 
   22..33..33..  IINNSSTTAALLLL
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -836,26 +813,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   ______________________________________________________________________
   #!./dldialog -tf
    dialog "All GUI Elements" -width 100 -height 100 {
@@ -971,23 +928,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   ______________________________________________________________________
   if [ -z "$DLDIALOG_INFIFO" ]; then
     dld_waitforend="yes";
@@ -1036,21 +976,6 @@
   55..22..  HHooww ccaann II ddiissppllaayy aa ssttaattuuss bbooxx ((iinnffoo bbooxx))??
 
   You want the user to see, what is going on. OK here is an example:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1108,15 +1033,6 @@
   Suppose you want to get the host name and domain name of a host. You
   want to preset the domain name with the domain of the host name, once
   the user has entered it.
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1250,8 +1166,6 @@
 
 
 
-
-
   Changes in release 1.3.0:
   * many many variable fixes
 
@@ -1360,29 +1274,20 @@
 
 
 
+  2001-03-14  Harald Hoyer  <harald@redhat.de>
 
+          * src/DLD_GEN/dld_gengui.h, src/DLD_GEN/dld_lib.cc, src/DLD_GEN/Makefile.am, src/dldialog.cc, src/dldialog.h, src/dld_parser_lex.cc, src/dld_parser_lex.ll, src/dld_parser_yacc.cc, src/dld_parser_yacc.yy, src/DLD_QT/dld_button.cc, src/DLD_QT/dld_button.h, src/DLD_QT/dld_check.cc, src/DLD_QT/dld_check.h, src/DLD_QT/dld_checklist.cc, src/DLD_QT/dld_checklist.h, src/DLD_QT/dld_col.cc, src/DLD_QT/dld_col.h, src/DLD_QT/dld_combobox.cc, src/DLD_QT/dld_combobox.h, src/DLD_QT/dld_comboitem.cc, src/DLD_QT/dld_comboitem.h, src/DLD_QT/dld_dialog.cc, src/DLD_QT/dld_dialog.h, src/DLD_QT/dld_form.cc, src/DLD_QT/dld_form.h, src/DLD_QT/dld_gauge.cc, src/DLD_QT/dld_gauge.h, src/DLD_QT/dld_image.cc, src/DLD_QT/dld_image.h, src/DLD_QT/dld_input.cc, src/DLD_QT/dld_input.h, src/DLD_QT/dld_listitem.h, src/DLD_QT/dld_qtapp.cc, src/DLD_QT/dld_qtapp.h, src/DLD_QT/dld_qtcontainer.cc, src/DLD_QT/dld_qtcontainer.h, src/DLD_QT/dld_qtlib.h, src/DLD_QT/dld_qtobj.cc, src/DLD_QT/dld_qtobj.h, src/DLD_QT/dld_radio.cc, src/DLD_QT/dld_radio.h, src/DLD_QT/dld_radiolist.cc, src/DLD_QT/dld_radiolist.h, src/DLD_QT/dld_row.cc, src/DLD_QT/dld_row.h, src/DLD_QT/dld_textbox.cc, src/DLD_QT/dld_textbox.h, src/DLD_QT/dld_text.cc, src/DLD_QT/dld_text.h, src/DLD_QT/Makefile.am, src/DLD_TV/dld_button.cc, src/DLD_TV/dld_button.h, src/DLD_TV/dld_checklist.cc, src/DLD_TV/dld_checklist.h, src/DLD_TV/dld_col.cc, src/DLD_TV/dld_col.h, src/DLD_TV/dld_combobox.cc, src/DLD_TV/dld_combobox.h, src/DLD_TV/dld_comboitem.cc, src/DLD_TV/dld_comboitem.h, src/DLD_TV/dld_dialog.cc, src/DLD_TV/dld_dialog.h, src/DLD_TV/dld_form.cc, src/DLD_TV/dld_form.h, src/DLD_TV/dld_gauge.cc, src/DLD_TV/dld_gauge.h, src/DLD_TV/dld_geom.cc, src/DLD_TV/dld_geom.h, src/DLD_TV/dld_input.cc, src/DLD_TV/dld_input.h, src/DLD_TV/dld_lib.cc, src/DLD_TV/dld_list.cc, src/DLD_TV/dld_list.h, src/DLD_TV/dld_listitem.cc, src/DLD_TV/dld_listitem.h, src/DLD_TV/dld_radiolist.cc, src/DLD_TV/dld_radiolist.h, src/DLD_TV/dld_row.cc, src/DLD_TV/dld_row.h, src/DLD_TV/dld_textbox.cc, src/DLD_TV/dld_textbox.h, src/DLD_TV/dld_text.cc, src/DLD_TV/dld_text.h, src/DLD_TV/dld_tvapp.cc, src/DLD_TV/dld_tvapp.h, src/DLD_TV/dld_tvcheck.cc, src/DLD_TV/dld_tvcheck.h, src/DLD_TV/dld_tvcontainer.cc, src/DLD_TV/dld_tvcontainer.h, src/DLD_TV/dld_tvlib.h, src/DLD_TV/dld_tvobj.cc, src/DLD_TV/dld_tvobj.h, src/DLD_TV/dld_tvradio.cc, src/DLD_TV/dld_tvradio.h, src/DLD_TV/Makefile.am, src/DLD_TV/nmcmbobx.cpp, src/DLD_TV/nmcmbovw.cpp, src/DLD_TV/nmcmbown.cpp, src/DLD_TV/nmsinput.cpp, src/DLD_TV/tcombobx.h, src/DLD_TV/tsinputl.h, tests/Makefile.am, AUTHORS, configure.in, dldialog.spec.in, intl/Makefile, Makefile.am, po/de.po, po/dldialog.pot, po/Makefile, po/Makefile.in, README, src/dld_dialog.cc, src/dld_gauge.cc, src/dld_gui.cc, src/dld_lib.h, src/dld_obj.cc, src/dld_parser.h, src/Makefile.am:
+          updated copyright
 
+  1999-09-17  Harald Hoyer  <harald@redhat.de>
 
+          * doc/dldialog.info-1, doc/dldialog.info, doc/dldialog.info-2, src/DLD_TV/dld_combobox.cc, src/DLD_TV/dld_combobox.h, doc/dldialog.dvi, src/DLD_QT/dld_dialog.cc, src/DLD_TV/dld_button.cc, src/DLD_TV/dld_dialog.cc, src/DLD_TV/dld_tvobj.cc, tests/test1, tests/test2, po/Makefile, po/Makefile.in, src/dld_dialog.cc, src/dld_dialog.h, src/DLD_GEN/dld_lib.cc, doc/dldialog.html, doc/dldialog.man.sgml, doc/dldialog.sgml, doc/dldialog.txt, intl/Makefile, configure.in:
+          *** empty log message ***
 
+  1999-09-15  Harald Hoyer  <harald@redhat.de>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          * acinclude.m4, tests/test2.cmp, po/de.po, po/Makefile, po/Makefile.in, src/DLD_QT/dld_list.cc, src/DLD_TV/dld_list.cc, tests/test2, doc/dldialog.html, doc/dldialog.info-1, doc/dldialog.info, doc/dldialog.info-2, doc/dldialog.man.sgml, doc/dldialog.sgml, doc/dldialog.txt, intl/Makefile, doc/dldialog-7.html, doc/dldialog.dvi, ChangeLog, configure.in, src/dld_parser_yacc.cc, po/dldialog.pot, src/dld_parser_lex.cc:
+          *** empty log message ***
 
   1999-09-15  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
 
@@ -1435,7 +1340,6 @@
           * src/DLD_QT/dld_combobox.cc (DLD_QTComboBox): removed slot activate
 
           * src/DLD_TV/dld_dialog.cc (handleEvent): added UP and DOWN keys
-
   1999-08-16  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
 
           * src/DLD_TV/dld_combobox.cc (create): cleanup of preset variables
@@ -1568,7 +1472,6 @@
 
           * src/dld_app.cc (parse): improved parsing
           (parse): improved parsing
-
           * src/DLD_QT/dld_qtapp.cc (exec): fixed usleep call (microseconds)
 
   1999-04-13  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
@@ -1582,6 +1485,7 @@
           * src/parser.sed: better error messages from the parser
 
           * src/DLD_QT/dld_qtapp.cc (exec): switched to processEvents
+
           * src/DLD_QT/dld_dialog.cc (create): geometry handling
 
   1999-04-12  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
@@ -1648,6 +1552,7 @@
 
           * src/DLD_QT/dld_input.cc (class DLD_QTInput):
           changed to new interface
+
           * src/DLD_QT/dld_input.h (class DLD_QTInput): likewise
 
           * src/DLD_QT: added convstr to initialisation, -Wall corrections
@@ -1714,6 +1619,7 @@
   1999-03-18  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
 
           * src/DLD_TV/dld_list.cc: cosmetic -Wall changes
+
           * src/DLD_TV/dld_dialog.cc (close_brace): put child dialogs in front
 
           * src/DLD_QT/dld_qtcontainer.cc: app replaced with dld_app
@@ -1881,6 +1787,7 @@
   88..  TThhee TTOODDOO LLiisstt
 
 
+
   Items in order of priority:
   ---------------------------
 
@@ -1902,13 +1809,7 @@
 
 
 
-
-
-
   99..  CCOOPPYYIINNGG
-
-
-
 
 
 
@@ -2191,54 +2092,6 @@
   POSSIBILITY OF SUCH DAMAGES.
 
                        END OF TERMS AND CONDITIONS
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

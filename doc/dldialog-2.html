@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 <HEAD>
- <META NAME="GENERATOR" CONTENT="SGML-Tools 1.0.8">
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.16">
  <TITLE>The DLDialog Handbook: Installation</TITLE>
  <LINK HREF="dldialog-3.html" REL=next>
  <LINK HREF="dldialog-1.html" REL=previous>
@@ -12,16 +12,16 @@
 <A HREF="dldialog-1.html">Previous</A>
 <A HREF="dldialog.html#toc2">Contents</A>
 <HR>
-<H2><A NAME="s2">2. Installation</A></H2>
+<H2><A NAME="s2">2.</A> <A HREF="dldialog.html#toc2">Installation</A></H2>
 
-<H2><A NAME="ss2.1">2.1 How to obtain DLDialog</A>
+<H2><A NAME="ss2.1">2.1</A> <A HREF="dldialog.html#toc2.1">How to obtain DLDialog</A>
 </H2>
 
 <P>DLDialog is part of dldadmin of the delix Deutsche Linux Distribution  
 <A HREF="http://www.delix.de">http://www.delix.de</A>. 
 DLDialog can be found in 
-<A HREF="http://www.delix.de/~harald/">http://www.delix.de/~harald/</A>.
-<H2><A NAME="ss2.2">2.2 Requirements</A>
+<A HREF="http://www.delix.de/~harald/">http://www.delix.de/~harald/</A>.</P>
+<H2><A NAME="ss2.2">2.2</A> <A HREF="dldialog.html#toc2.2">Requirements</A>
 </H2>
 
 <P>In order to successfully compile DLDialog, you need:
@@ -38,16 +38,17 @@ if you want to display png images with qt</LI>
 <LI>kdoc (ftp.kde.org part of kdevelop) for documentation purposes</LI>
 <LI>sgml-tools version &gt;= 1.0.8 for documentation purposes</LI>
 </UL>
+</P>
 <P>Some of the required libraries as well as DLDialog itself can
 be found on 
-<A HREF="http://www.delix.de/~harald/">http://www.delix.de/~harald/</A>.
-<H2><A NAME="ss2.3">2.3 Compilation and installation</A>
+<A HREF="http://www.delix.de/~harald/">http://www.delix.de/~harald/</A>.</P>
+<H2><A NAME="ss2.3">2.3</A> <A HREF="dldialog.html#toc2.3">Compilation and installation</A>
 </H2>
 
 <H3>Normal compilation procedure</H3>
 
 <P>
-<HR noshade size=1>
+<HR>
 <PRE>
 $ aclocal
 $ autoheader
@@ -55,35 +56,36 @@ $ automake -a
 $ autoconf
 $ ./configure --prefix=/usr
 </PRE>
-<HR noshade size='1'>
+<HR>
 
 If you do have kdoc installed:
-<HR noshade size=1>
+<HR>
 <PRE>
 $ make
 </PRE>
-<HR noshade size='1'>
+<HR>
 
 else:
-<HR noshade size=1>
+<HR>
 <PRE>
 $ cd src;make
 </PRE>
-<HR noshade size='1'>
+<HR>
 
 To install type:
-<HR noshade size=1>
+<HR>
 <PRE>
 $ su -c "make install"
 </PRE>
-<HR noshade size='1'>
+<HR>
 
 If you want to deinstall it just do a:
-<HR noshade size=1>
+<HR>
 <PRE>
 $ su -c "make uninstall"
 </PRE>
-<HR noshade size='1'>
+<HR>
+</P>
 <H3>More options for configure</H3>
 
 <P>
@@ -97,10 +99,10 @@ $ su -c "make uninstall"
 <LI>  --with-tvision-includes=&lt;dir&gt;  where the tv includes are. </LI>
 <LI>  --with-tvision-libraries=&lt;dir&gt; where the tv library is installed.</LI>
 </UL>
- 
-<P>See also the files README and INSTALL that come with the distribution. 
+ </P>
+<P>See also the files README and INSTALL that come with the distribution. </P>
 <P><B>Again:</B> 
-Should you run into problems, please report them to me.   
+Should you run into problems, please report them to me.   </P>
 <H3>INSTALL</H3>
 
 <P>
@@ -288,6 +290,7 @@ operates.
 
 `configure' also accepts some other, not widely useful, options.
 </PRE>
+</P>
 <HR>
 <A HREF="dldialog-3.html">Next</A>
 <A HREF="dldialog-1.html">Previous</A>
