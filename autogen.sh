@@ -55,7 +55,7 @@ esac
 
 libtoolize --force --copy
 autoconf
-gettextize --copy --force --intl
+#gettextize --copy --force --intl
 autoheader
 aclocal -I . $ACLOCAL_FLAGS
 aclocal

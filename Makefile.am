@@ -1,6 +1,6 @@
 #/***********************************************************************
 #**
-#** $Id: Makefile.am,v 1.3 2002/04/04 15:25:24 saturn_de Exp $
+#** $Id: Makefile.am,v 1.4 2002/04/04 15:42:31 saturn_de Exp $
 #**
 #**	This program is free software; you can redistribute it and/or
 #**	modify it under the terms of the GNU General Public License
@@ -34,4 +34,4 @@ srpm: distcheck rp3-1.1.10.tar.gz
 	rpmbuild --define "_sourcedir `pwd`" --define "_srcrpmdir `pwd`" --define "_specdir `pwd`" -ts @PACKAGE@-@VERSION@.tar.gz
 
 
-ACLOCAL_AMFLAGS = -I m4
+

@@ -1271,6 +1271,9 @@
 
   2002-04-04  harald  <harald@redhat.com>
 
+          * po/boldquot.sed~, po/boldquot.sed, po/ChangeLog~, po/ChangeLog, po/de.gmo, po/de.po, po/dldialog.pot, po/en@boldquot.header~, po/en@boldquot.header, po/en@quot.header~, po/en@quot.header, po/insert-header.sin~, po/insert-header.sin, po/Makefile.in.in~, po/Makefile.in.in, po/Makevars, po/Makevars.template, po/quot.sed~, po/quot.sed, po/remove-potcdate.sin~, po/remove-potcdate.sin, po/Rules-quot~, po/Rules-quot, src/dld_button.h, src/dld_checkbutton.h, src/dld_checklist.h, src/dld_col.h, src/dld_combobox.h, src/dld_comboitem.h, src/dld_container.h, src/dld_dialog.cc, src/dld_dialog.h, src/dld_form.h, src/dld_gauge.h, src/DLD_GEN/dld_gengui.h, src/DLD_GEN/dld_lib.cc, src/dld_gui.cc, src/dld_gui.h, src/dldialog.cc, src/dldialog.h, src/dld_image.h, src/dld_input.h, src/dld_lib.h, src/dld_list.h, src/dld_listitem.h, src/dld_menu.h, src/dld_obj.cc, src/dld_obj.h, src/dld_out.h, src/dld_parser.h, src/dld_parser_lex.cc, src/dld_parser_lex.ll, src/dld_parser_yacc.yy, src/DLD_QT/dld_button.cc, src/DLD_QT/dld_button.h, src/DLD_QT/dld_check.cc, src/DLD_QT/dld_check.h, src/DLD_QT/dld_checklist.cc, src/DLD_QT/dld_checklist.h, src/DLD_QT/dld_col.cc, src/DLD_QT/dld_col.h, src/DLD_QT/dld_combobox.cc, src/DLD_QT/dld_combobox.h, src/DLD_QT/dld_comboitem.cc, src/DLD_QT/dld_comboitem.h, src/DLD_QT/dld_dialog.cc, src/DLD_QT/dld_dialog.h, src/DLD_QT/dld_form.cc, src/DLD_QT/dld_form.h, src/DLD_QT/dld_gauge.cc, src/DLD_QT/dld_gauge.h, src/DLD_QT/dld_image.cc, src/DLD_QT/dld_image.h, src/DLD_QT/dld_input.cc, src/DLD_QT/dld_input.h, src/DLD_QT/dld_listitem.h, src/DLD_QT/dld_menuitem.cc, src/DLD_QT/dld_qtapp.cc, src/DLD_QT/dld_qtapp.h, src/DLD_QT/dld_qtcontainer.cc, src/DLD_QT/dld_qtcontainer.h, src/DLD_QT/dld_qtlib.h, src/DLD_QT/dld_qtobj.cc, src/DLD_QT/dld_qtobj.h, src/DLD_QT/dld_radio.cc, src/DLD_QT/dld_radio.h, src/DLD_QT/dld_radiolist.cc, src/DLD_QT/dld_radiolist.h, src/DLD_QT/dld_row.cc, src/DLD_QT/dld_row.h, src/DLD_QT/dld_textbox.h, src/dld_radiobutton.h, src/dld_radiolist.h, src/dld_row.h, src/dld_textbox.h, src/dld_text.h, src/DLD_TV/dld_button.cc, src/DLD_TV/dld_button.h, src/DLD_TV/dld_checklist.cc, src/DLD_TV/dld_checklist.h, src/DLD_TV/dld_col.cc, src/DLD_TV/dld_col.h, src/DLD_TV/dld_combobox.cc, src/DLD_TV/dld_combobox.h, src/DLD_TV/dld_comboitem.cc, src/DLD_TV/dld_comboitem.h, src/DLD_TV/dld_dialog.cc, src/DLD_TV/dld_dialog.h, src/DLD_TV/dld_form.cc, src/DLD_TV/dld_form.h, src/DLD_TV/dld_gauge.cc, src/DLD_TV/dld_gauge.h, src/DLD_TV/dld_geom.cc, src/DLD_TV/dld_geom.h, src/DLD_TV/dld_input.cc, src/DLD_TV/dld_input.h, src/DLD_TV/dld_lib.cc, src/DLD_TV/dld_list.cc, src/DLD_TV/dld_list.h, src/DLD_TV/dld_listitem.cc, src/DLD_TV/dld_listitem.h, src/DLD_TV/dld_radiolist.cc, src/DLD_TV/dld_radiolist.h, src/DLD_TV/dld_row.cc, src/DLD_TV/dld_row.h, src/DLD_TV/dld_textbox.cc, src/DLD_TV/dld_textbox.h, src/DLD_TV/dld_text.cc, src/DLD_TV/dld_text.h, src/DLD_TV/dld_tvapp.cc, src/DLD_TV/dld_tvapp.h, src/DLD_TV/dld_tvcheck.cc, src/DLD_TV/dld_tvcheck.h, src/DLD_TV/dld_tvcontainer.cc, src/DLD_TV/dld_tvcontainer.h, src/DLD_TV/dld_tvlib.h, src/DLD_TV/dld_tvobj.cc, src/DLD_TV/dld_tvobj.h, src/DLD_TV/dld_tvradio.cc, src/DLD_TV/dld_tvradio.h, src/Makefile.am, tests/dldialog-scripts.po, tests/Makefile.am, ABOUT-NLS, AUTHORS, autogen.sh, ChangeLog, ChangeLog.old, configure.in, doc/classdoc/Makefile.am, doc/classdoc/qt/Makefile.am, doc/classdoc/tv/Makefile.am, doc/dldialog.1, doc/dldialog-1.html, doc/dldialog-2.html, doc/dldialog-3.html, doc/dldialog-7.html, doc/dldialog.dvi, doc/dldialog.html, doc/dldialog.info-1, doc/dldialog.info, doc/dldialog.info-2, doc/dldialog.man.sgml, doc/dldialog.man.sgml.body, doc/dldialog.man.sgml.in, doc/dldialog.sgml, doc/dldialog.sgml.cpp, doc/dldialog.txt, doc/frame.html, doc/index.html, doc/Makefile.am, intl/bindtextdom.c, intl/ChangeLog, intl/config.charset, intl/dcgettext.c, intl/dcigettext.c, intl/dcngettext.c, intl/dgettext.c, intl/dngettext.c, intl/eval-plural.h, intl/explodename.c, intl/finddomain.c, intl/gettext.c, intl/gettextP.h, intl/gmo.h, intl/hash-string.h, intl/intl-compat.c, intl/l10nflist.c, intl/libgnuintl.h, intl/loadinfo.h, intl/loadmsgcat.c, intl/localcharset.c, intl/locale.alias, intl/localealias.c, intl/localename.c, intl/Makefile, intl/Makefile.in, intl/ngettext.c, intl/os2compat.c, intl/os2compat.h, intl/osdep.c, intl/plural.c, intl/plural-exp.c, intl/plural-exp.h, intl/plural.y, intl/ref-add.sin, intl/ref-del.sin, intl/textdomain.c, intl/VERSION, m4/ChangeLog, m4/codeset.m4, m4/gettext.m4, m4/glibc21.m4, m4/iconv.m4, m4/isc-posix.m4, m4/lcmessage.m4, m4/lib-ld.m4, m4/lib-link.m4, m4/lib-prefix.m4, m4/Makefile, m4/Makefile.am, m4/Makefile.in, m4/progtest.m4, Makefile.am, perl/doc/Makefile.am, perl/Makefile.am, README:
+          updated gettext, libtool, etc.
+
           * doc/classdoc/Makefile.am, doc/classdoc/qt/Makefile.am, doc/classdoc/tv/Makefile.am, doc/dldialog.info-2, intl/Makefile, po/cat-id-tbl.c, po/dldialog.pot, po/POTFILES, tests/dldialog-scripts.po, doc/dldialog.dvi, doc/dldialog.info-1, doc/dldialog.info, ChangeLog, config.sub, doc/dldialog.1, doc/dldialog-1.html, doc/dldialog-2.html, doc/dldialog-3.html, doc/dldialog-4.html, doc/dldialog-5.html, doc/dldialog-6.html, doc/dldialog-7.html, doc/dldialog-8.html, doc/dldialog-9.html, doc/dldialog.html, doc/dldialog.man.sgml, doc/dldialog.sgml, doc/dldialog.txt, ltmain.sh, Makefile.am:
           minor changes to make it run under the current Red Hat
 
@@ -1530,7 +1533,6 @@
   1999-09-13  Harald Hoyer  <dldialog@parzelle.de>
 
           * many many variable fixes
-
           * create() to all objects
 
           * src/dld_obj.h: added is_created, was_created
@@ -1663,8 +1665,8 @@
           * src/DLD_QT/dld_button.cc (drawButtonLabel): center pixmap
 
           * src/DLD_QT/dld_form.cc (DLD_QTForm): setBorder
-
           * src/DLD_QT/dld_col.cc (DLD_QTCol): setBorder
+
           * src/DLD_QT/dld_row.cc (DLD_QTRow): setBorder
 
           * src/DLD_TV/dld_list.cc (DLD_TVList): forgot isMulti(false)
@@ -1863,6 +1865,7 @@
           (DLD_QTApp): lastWindowClosed connected
           (dialog): small cleanup
           (exec): better handling of cleanup, reuse old mainDialog
+
           * src/DLD_QT/dld_dialog.h (class DLD_QTDialog): isEmpty added
           has_exited changed
 
@@ -1929,6 +1932,7 @@
           * DLD_TV/dld_list.cc: updated to activate immediatly if selected
           * DLD_TV/dld_radiolist.cc: likewise
           * DLD_TV/dld_checklist.cc: likewise
+
   1999-02-11  Harald Hoyer  <dldialog@parzelle.de>
 
           * acinclude.m4: QT_LIBS added
