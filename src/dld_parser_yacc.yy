@@ -1,7 +1,7 @@
 %{/*-*- c++ -*-*/
 /******************************************************************************
 **
-** $Id: dld_parser_yacc.yy,v 1.1 2001/03/14 02:33:07 saturn_de Exp $ 
+** $Id: dld_parser_yacc.yy,v 1.2 2002/04/04 12:29:57 saturn_de Exp $ 
 **
 ** The Yacc File for DLDialog
 **
@@ -293,6 +293,7 @@ buttonargs: args SIGN { button->set_signature(true); } args
 textboxargs: /* empty */
            | textboxargs FILEARG constring { textbox->set_filename($3);}
            | textboxargs sizeargs
+	   ;
 
 menuargs: /* empty */ 
          | menuargs EXEC constring    { menu->add_exec($3);}
@@ -357,7 +358,7 @@ value: constring
      ;
 
 name: /* empty */ {$$.erase();}
-    | NAME {$$=$1} name { $$+=$3; }
+    | NAME {$$=$1;} name { $$= $$ + $3; }
     ;
 
 fontargs: 
@@ -370,7 +371,7 @@ colourargs: /* empty */
     | colourargs FG value { if(obj)obj->set_fg($3);}
     ;
 
-constring: NAME {$$=$1} name {$$+=$3; }
+constring: NAME {$$=$1;} name {$$ = $$ + $3; }
          ;
 
 %%
