@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2001-02-15 11:30+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: src/dldialog.cc:88
+msgid "Usage: "
+msgstr ""
+
+#: src/dldialog.cc:88
+msgid ""
+" [OPTIONS]\n"
+"\n"
+"OPTIONS:\n"
+"\t-f, --file \tread input from file, rather than from stdin\n"
+msgstr ""
+
+#: src/dldialog.cc:92
+msgid "\t-q, --qt \tstart with Qt (X11) interface\n"
+msgstr ""
+
+#: src/dldialog.cc:95
+msgid "\t-t, --tv \tstart with tvision (terminal) interface\n"
+msgstr ""
+
+#: src/dldialog.cc:97
+msgid ""
+"\t-T, --title \tsets the window title to the next argument\n"
+"\t-p, --parse \tparse only to check input\n"
+"\t-b, --start \tstart dldialog server\n"
+"\t-e, --stop \tstop dldialog server\n"
+"\t-w, --wait \twait for dldialog server to end\n"
+"\t-d, --debug \tdisplays debugging output\n"
+"\t-v, --version \tdisplay version information and exit\n"
+"\t-h, --help \tdisplay this help and exit\n"
+"\n"
+msgstr ""
+
+#: src/dldialog.cc:316 src/dldialog.cc:385
+msgid " tried!"
+msgstr ""
+
+#: src/dldialog.cc:324
+msgid "Sending start"
+msgstr ""
+
+#: src/dldialog.cc:331 src/dldialog.cc:364
+msgid "Waiting for ok"
+msgstr ""
+
+#: src/dldialog.cc:357
+msgid "Sending stop"
+msgstr ""
+
+#: src/dldialog.cc:393
+msgid "Sending client {"
+msgstr ""
+
+#: src/dldialog.cc:431
+msgid "Sending }"
+msgstr ""
+
+#: src/dldialog.cc:447
+msgid "Getting output pipe"
+msgstr ""
+
+#: src/dldialog.cc:452
+msgid " is no output pipe"
+msgstr ""
+
+#: src/dldialog.cc:459
+msgid "Opening output pipe "
+msgstr ""
+
+#: src/dldialog.cc:466
+msgid "Reading output pipe "
+msgstr ""
+
+#: src/dldialog.cc:473
+msgid "Deleting output pipe "
+msgstr ""
+
+#: src/dldialog.cc:527 src/dldialog.cc:842
+msgid "dldialog version "
+msgstr ""
+
+#: src/dldialog.cc:528 src/dldialog.cc:843
+msgid ""
+"\tby Harald Hoyer (HarryH@Royal.Net)\n"
+"\tfor delix Computer GmbH (http://www.delix.de)\n"
+msgstr ""
+
+#: src/dldialog.cc:549
+msgid "DLD_PRELOAD not specified!"
+msgstr ""
+
+#: src/dldialog.cc:562 src/dldialog.cc:580 src/dldialog.cc:593
+msgid "Another mode was already selected!"
+msgstr ""
+
+#: src/dldialog.cc:565
+msgid "QT support not compiled in!"
+msgstr ""
+
+#: src/dldialog.cc:583
+msgid "TVision support not compiled in!"
+msgstr ""
+
+#: src/dldialog.cc:617 src/dldialog.cc:889
+msgid "Try `"
+msgstr ""
+
+#: src/DLD_QT/dld_image.cc:116
+msgid " could not be loaded"
+msgstr ""
+
+#. *new TStatusItem ("~Alt-X~ to Cancel!",
+#. kbAltX, cmDLDQuit) +
+#: src/DLD_TV/dld_tvapp.cc:180
+msgid "SPACE selects - TAB to move -"
+msgstr ""

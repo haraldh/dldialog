@@ -1,0 +1,11 @@
+dialog "TEST" -width 100 -height 100 {
+
+   textbox "test9" -file "../tests/test9" -width 100 -height 100;
+   
+   text ""; // Spacer
+
+   row {
+      button "&OK" -exit -var STATUS -add "OK";
+      button "&Cancel" -exit -var STATUS -add "NOK";
+   }
+}

@@ -1,0 +1,22 @@
+dialog    {
+	row {
+	    col {
+		text "Select and deselect buttons of your choice.";
+		text "Then press <continue>.\n";
+		text "$TEXT";
+	    }
+	    checklist -var CHECK {
+		checkbutton "Check &1";
+		checkbutton "Check &2";
+		checkbutton "Check &3";
+	    }
+	}
+       row 
+       { 
+         button "&Continue" -var exitbutton -set "w" -exit; 
+         text "    ";     # leerer Platz
+         button "&All correct - Finish" -var exitbutton -set "q" -exit;
+         text "    ";     # leerer Platz
+         button "&Wrong behaviour - Finish" -var exitbutton -set "f" -exit;
+       }
+    }

@@ -1,0 +1,56 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dldialog-scripts 1.0\n"
+"PO-Revision-Date: 1999-04-12 13:09+02:00\n"
+"Last-Translator: Harald Hoyer <harald@delix.de>\n"
+"Language-Team: de <harald@delix.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+msgid "Button"
+msgstr "Knopf"
+
+msgid "All GUI Elements"
+msgstr "Alle GUI Elemente"
+
+msgid "A Row"
+msgstr "Eine Zeile"
+
+msgid "The Lists"
+msgstr "Die Listen"
+
+msgid "A &Radiolist"
+msgstr "Eine &Radioliste"
+
+msgid "Gauges"
+msgstr "Fortschrittsbalken"
+
+msgid " Input:"
+msgstr " Eingabe:"
+
+msgid "bla bla bla"
+msgstr "bla bla bla"
+
+msgid "Passwd:"
+msgstr "Passwort:"
+
+msgid "bla bla bla"
+msgstr "bla bla bla"
+
+msgid " Numeric:"
+msgstr " Numerisch:"
+
+msgid "&Not OK - output is scrambled"
+msgstr "&Nicht OK - Ausgabe ist schlecht"
+
+msgid "&Source"
+msgstr "&Quelltext"
+
+msgid "&OK - seen all"
+msgstr "&OK - Alles gesehen"
+

@@ -1,0 +1,21 @@
+# This is a translation file for internationalisation
+# of the program DlHelp.pm for german language,
+# automatically generated at Mit Apr  7 22:13:59 CEST 1999
+# by maketransfile.pl (C) by Thomas Hagedorn tom@delix.de
+
+# DlHelp.pm in line nr: 64
+msgid "choose a help-chapter"
+msgstr "Wählen Sie ein Hilfe-Kapitel"
+
+# DlHelp.pm in line nr: 65
+msgid "content"
+msgstr "Inhalt"
+
+# DlHelp.pm in line nr: 66
+msgid "show"
+msgstr "Kapitel anzeigen"
+
+# DlHelp.pm in line nr: 67
+msgid "back"
+msgstr "Zurück"
+

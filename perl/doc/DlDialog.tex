@@ -1,0 +1,360 @@
+% LaTeX document produced by pod2latex from "DlDialog.pod".
+% The followings need be defined in the preamble of this document:
+\def\C++{{\rm C\kern-.05em\raise.3ex\hbox{\footnotesize ++}}}
+\def\underscore{\leavevmode\kern.04em\vbox{\hrule width 0.4em height 0.3pt}}
+\setlength{\parindent}{0pt}
+\documentclass{article}
+\usepackage{a4,german}
+\usepackage[T1]{fontenc}
+\pagestyle{empty}
+\title{DlDialog.pm, Version 0.8}
+\author{Thomas Hagedorn}
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+Eine Wrapper-Suite für die Verwendung von dldialog unter Perl
+\end{abstract}
+\tableofcontents
+
+\section{DLDIALOG}
+
+\subsection{NAME}\begin{verbatim}
+        DlDialog.pm - Eine Wrapper-Suite für dldialog in Perl
+\end{verbatim}
+
+\subsection{SYNOPSIS}
+DlDialog ist eine Wrapper-Suite für den objektorienierten Aufbau von DlDialog-Widgets in Perl  und stellt dazu vreschiedene Objekte bereit, die den Umgang und die Ablaufsteuerung weitgehend vereinfachen. Die Suite teilt sich dabei in 3 Beriche :
+
+\subsubsection{Basisklassen}%
+\index{Basisklassen}
+
+Für den Grundlegenden Dialogaufbau stehen 3 Klassen zur Verfügung
+\begin{verbatim}
+        DlDialog
+\end{verbatim}
+
+gibt die Referenz auf ein the {\em DlDialog\/} manpage-Objekt zurück, das automatisch mit den erforderlichen $<$Hilfe, Zurück, Weiter, Ok, Abbrechen$>$-Buttons versehen wird.
+Das the {\em DlDialog\/} manpage-Objekt selbst verwaltet nur verschiedene Widgets und WidgetGruppen.
+\begin{verbatim}
+        DlWizzard
+\end{verbatim}
+
+gibt die Referenz auf einen the {\em DlWizzard\/} manpage-Objekt zurück, das einen the {\em DlDialog\/} manpage-Stack verwaltet, der die Abwicklung von Konfigurations- oder Abfragedialogen im Wizzard-Stil steuert. Auf dem Stapel werden the {\em DlDialog\/} manpage-Objekte gesammelt, die in einer Kette abgearbeitet werden, eine einheitliche the {\em Hilfe\/} manpagedatei verwalten und mit den jeweils sinnvollen Steuerbuttons ausgestatet sind. Eingegebene Variablen bleiben beim Vor- und Zurückblättern erhalten und jeder einzelne Dialog kann eine the {\em Callback\/} manpageroutine zugeordnet bekommen, die aufgerufen wird, wenn der Dialog verlassen wird.
+
+\subsubsection{Widgetklassen}%
+\index{Widgetklassen}
+
+Um die Dialoge mit Inhalt zu füllen, stehen verschiedene Widgetklassen zur Verfügung. Dies sind in alphabetischer Reihenfolge
+\begin{verbatim}
+        DlButton
+        DlButtonGroup
+        DlCheckList
+        DlComboBox
+        DlInputField
+        DlList
+        DlRadioList
+        DlWidgetGroup
+\end{verbatim}
+
+\subsubsection{Hilfsklassen}%
+\index{Hilfsklassen}
+
+Dies sind Klassen, die von DlDialog-Objekten direkt verwaltet werden oder auch ohne Erstellung einer Instanz direkt aufgerufen werden können.
+\begin{verbatim}
+        DlHelp
+\end{verbatim}
+
+verwaltet eine the {\em Hilfe\/} manpagedatei mit Kapiteln und Inhaltsverzeichniss.
+\begin{verbatim}
+        DlMessage
+\end{verbatim}
+
+gibt einen einfachen Dialog aus für Mitteilungen oder Bestätigungen.
+
+\subsection{Gebrauch}%
+\index{Gebrauch}
+
+Mit der Anweisung
+\begin{verbatim}
+        use DlDialog;
+\end{verbatim}
+
+werden im Perlscript alle Klassen zur Verfügung gestellt.
+
+\subsection{Die Basisklassen im einzelnen}%
+\index{Die Basisklassen im einzelnen}
+
+\subsubsection{DlDialog}%
+\index{DlDialog}
+
+Ein DlDialog-Objekt wird mit {\em show()\/} zur Anzeige gebracht und ist standardmä"sig mit einem $<$Ok$>$ und einem $<$Zurück$>$-Button ausgestattet. Wird der Dialog mit einer Hilfedatei verfnüpft, kommt noch ein $<$Hilfe$>$-Button dazu.
+
+Das Handling der Hilfedatei wird komplett innerhalb der Funktion abgewickelt, der Programmierer braucht also nur mit I$<${\em setHelp\/}({\em helpfile\/})$>$ die Hilfe initiieren und vergessen.
+
+Den Rückkehrstatus eines DlDialogs wird über die Variable {\em \$\underscore{}confirm\/} ausgewertet. Sie kann mit DlDialog-$>$\{ok\} und DlDialog-$>$\{back\} verglichen werden.
+
+the {\em Variablen\/} manpage, die den einzelnen Widgets zugewiesen werden, sind nach der Beenigung des Dialogs in Scope des Aufrufers gültige Perlvarialblen.
+
+Der Konstruktor legt eine neues DlDialogobjekt an, das den Titel {\em \$title\/} enthält und eine Referenz auf das erzeugte Objekt zurückgibt. {\em \$orientation\/} gibt die Ausrichtung des Dialogs an. Gültige Parameter sind 'r$|$row','c$|$col','f$|$form', Gross- und Kleinschreibung wird ignoriert, default ist 'col'.
+
+{\bf Rückgabewert:} Referenz auf das Objekt.
+
+Setzt den Titel des Dialogs auf {\em \$newtitle\/}.
+{\bf Rückgabewert:} Der alte Titel des Dialogs.
+
+{\bf Rückgabewert:} Der Titel des Dialogs.
+
+Setzt den einleitenden Text des Dialogs auf {\em \$text\/}.
+
+fügt dem Dialog das Widget {\em \$a\underscore{}widget\/} als Nummer {\em \$pos\/} hinzu. Dies können DlWidgetGroup oder jedes andere Widget sein, die über eine Funktion {\bf getCode} verfügen, die einen gültigen dldialog-code zurückgibt. Ist {\em \$pos\/} nicht angegeben, wird das Widget hinten angefügt.
+
+{\bf Rückgabewert:} Referenznummer auf die hinzugefügte Gruppe.
+
+entfernt das Widget mit der Referenznummer ({\em \$ref\underscore{}nr\/} aus dem Dialog.
+
+{\bf Rückgabewert:} Referenznummer der entfernten Gruppe oder 0 bei Fehlschlag.
+
+verknüpft den Dialog mit einer Hilfedatei. './' und '$\tilde{\hspace{0.4em}}$/' werden expandiert. 
+
+\subsubsection{DlWizzard}%
+\index{DlWizzard}
+
+Das Konzept des DlWizzards wurde entwickelt, um die Abwicklung von Dialogen im Wizzard-Stil zu automatisieren und den Entwickler freizusetzen, sich auf den Inhalt der Dialoge zu konzentrieren. Ein weiterer Vortiel ist, dass die Gestaltung der Steuerbuttons und der Grundaufbau der Dialoge zentral verwaltet und dadurch einheitlich gestaltet ist.
+
+Der DlWizzard verwaltet einen Stack mit 'finite machines' DlDialog-Objekten.
+{\bf Hilfe} {\bf Zurück} {\bf Weiter} {\bf Ok} {\bf Abbrechen}  sind intelligent angebracht wie Till vorgeschlagen hat.
+
+Der DlWizzard kann mit einer einfach aufgebauten the {\em Hilfe\/} manpagedatei verknüpft werden, die für alle  Dialoge zentral verwaltet wird.
+
+Über the {\em Callback\/} manpageroutinen können die gesetzten Werte nach jedem '$-$exit' verarbeitet werden.
+
+Einzelne Dialoge können beliebig ein- und ausgeblendet werden.
+
+Der Aufbau einzelner Dialoge kann dynamisch gestaltet werden.
+
+gibt die Referenz auf einen neuen Wizard zurück
+
+Fügt dem Wizzard einen oder mehrere Dialoge hinzu. Werden die Dialoge einzeln hinzugefügt, gibt die Funktion eine Referenznummer zurück, die für die Funktionen {\bf hide} und {\bf unhide} benötigt werden.
+
+bindet eine zentrale Hilfedatei {\em \$helpfile\/} ein. in die einzelnen Dialoge sollte dann keine separate Hilfe eingebunden werden. (siehe the {\em Hilfe\/} manpage)
+
+schaltet einzelne oder mehrere Dialoge im Wizzard aus (z.B. um bei speziellen Eingaben sinnlose Seiten zu überspringen).
+
+schaltet einen oder mehrere Dialoge wieder ein.
+
+startet den Wizzard. Der Rückgabewert entspricht dem Beendigungszustand des letzten Dialoges und  hat den Wert 'cancel' oder 'ok'. 
+
+\subsubsection{Callback}%
+\index{Callback}
+\begin{verbatim}
+         B<setCallback($callbackref)>
+\end{verbatim}
+
+Setzt die Callbackfunktion des Dialogs, die von DlWizzard beim Verlassen des DlDialogobjektes aufgerufen wird. 
+{\em \$callbackref\/} ist dabei eine Referenz auf eine Funktion, die im Hauptprogramm (dort , wo der DlWizzard aufgerufen wird, als anonyme Subroutine deklariert ist.
+\begin{verbatim}
+         $callbackref = sub {
+        do_this($widgetvar1);
+        do_that...}
+\end{verbatim}
+
+Innerhalb des Blocks kann auf alle the {\em Variablen\/} manpage des Dialogs zugegriffen werden
+
+\subsubsection{Variablen}%
+\index{Variablen}
+
+Den einzelnen Widgets können beim Einrichten Variablen zugeordnet werden indem der Variablenname als String übergeben wird. Ist im Scope des Aufrufers die Variable mit einem Wert versehen, so ist dieser Wert auch im Dialog bekannt. Umgekehrt sind die im Dialog zugeordneten Werte nach Beendigung des Dialogs im Scope des Aufrufers gesetzt. Zum Vergleich der Werte sollten die Referenzwerte verwendetwerden, die beim Einrichten eines Widgets zurückgegeben werden. {\bf Beispiel:}
+\begin{verbatim}
+        $myradiolist = new DlRadioList('Titel','radiovar');
+        $choice1 = $myradiolist->insertButton('1. Wahl');
+        $choice2 = $myradiolist->insertButton('2. Wahl');
+        ...
+\end{verbatim}
+
+Nach Abarbeitung des Dialogs lässt sich der Zustand mit 
+\begin{verbatim}
+        if ($radiovar eq $choice1) {
+		print "Sie haben die 1. Wahl getroffen\n"}
+\end{verbatim}
+
+verarbeiten. Mit der Syntax 'radiovar=3' lässt sich ein Defaultwert setzen, der jedoch bei jedem neuen Aufruf des Dialogs den gewählten Wert wieder überschreibt. Normalerweise sollten defaultwerte über die zugehörige Perl-variable gesetzt werden.(z.B. \$radiavar=\$choice2). 
+
+{\bf Wichtig:} Da die Variablen beim Beenden eines Dialoges nur dann modifiziert werden, wenn ein Wert gesetzt wurde, sollten Variablen, die keine Werte in den Dialog transportieren, vor dem Aufruf mit undef oder einer Leerstringzuweisung entladen werden. (liegt an dldialog :-( )
+
+\subsubsection{Hilfe}%
+\index{Hilfe}
+
+Der Aufbau der Hilfedatei ist entsprechend Tills Vorschlag mit einfachen Tags gesteuert. {\bf Beispiel:}
+\begin{verbatim}
+        <Title> Titel des Hilfedialogs bis zum Ende der Zeile
+        <Einführung>
+        Dies ist der Einführungstext bis zum nächsten Tag.
+        <Details> 
+        Der Tag wird jedoch nur zum Beginn einer Zeile erkannt, 
+        dieser <Tag> wird im Text normal wiedergegeben
+        <about> die Zeile hinter einem gültigen Tag wird ignoriert
+        ...
+\end{verbatim}
+
+erzeugt einen Hilfedialog mit dem gewünschten Titel, einer Combobox, in der die Kapitel 'Einführung', 'Details' und 'about' zur Auswahl angeboten werden.
+Im darunterliegenden Fenster wird der Text des gewählten Kapitels, defaultmässig das erste Kapitel, angezeigt. Die Auswahl wird beim the {\em DlWizzard\/} manpage über alle Dialoge hinweg gespeichert.
+Eingebunden wird die Hilfe mit
+\begin{verbatim}
+        DlDialog->setHelp($helpfile)
+\end{verbatim}
+
+bzw.
+\begin{verbatim}
+        DlWizzard->setHelp($helpfile)
+\end{verbatim}
+
+\subsection{Die Widgetklassen}%
+\index{Die Widgetklassen}
+
+\subsubsection{DlButton(\$text, \$varname)}%
+\index{DlButton(\$text, \$varname)}
+
+gibt die Referenz auf einen Button zurück, der mit {\em \$text\/} beschriftet wird und bei Betätigung die Variable {\em \$\$varname\/} auf '1' setzt.
+
+\subsubsection{DlButtonGroup}%
+\index{DlButtonGroup}
+
+erstellt eine ButtonGruppe mit dem Titel I\$$<$title$>$. {\em \$orient\/} setzt die Ausrichtung der ButtonGruppe, gültige Werte sind 'r$|$row$|$c$|$col'. {\em \$titlepos\/} bestimmt die Anordnung des Titels, gültige Werte sind 't$|$top$|$b$|$bottom$|$l$|$left$|$r$|$right'. {\em \$varname\/} setzt den Namen der Rückgabethe {\em Variablen\/} manpage. {\em \$height\/} und {\em \$width\/} setzen die Geometrie der ButtonGruppe.
+
+installiert einen oder mehrere Buttons mit den übergebenen Namen. Werden die Buttons einzeln installiert, ist der Rückgabewert eine Referenznummer auf den Button, die auch dem Rückgabewert der Variablen {\em \$\$varname\/} entspricht. z.B:
+\begin{verbatim}
+        $bgroup = new DlButtonGroup('Titel','pressed');
+        $chaos_pressed = $bgroup->insertButton('Chaos');
+        ...
+        if ($pressed eq $chaos_pressed) {
+		print "Sie lieben das Chaos?\n"}
+\end{verbatim}
+
+entfernt den Button mit der Referenznummer {\em \$refnr\/}.
+
+macht {\em \$newtitle\/} zum neuen Titel der ButtonGruppe und gibt den alten Titel zurück.
+
+gibt den aktuellen Titel zurück
+
+setzt einen Text in der ButtonGruppe auf {\em \$text\/}, defaultmässig vor den Buttons. Ist {\em \$pos\/} auf 'b$|$bottom$|$back' gesetzt, erscheint der Text nach den Buttons.
+
+\subsubsection{DlChecklist}%
+\index{DlChecklist}
+
+erstellt eine Checkliste mit dem Titel {\em \$title\/}. {\em \$varname\/} setzt den Namen der Rückgabethe {\em Variablen\/} manpage. {\em \$height\/} und {\em \$width\/} setzen die Geometrie der Checkliste.
+
+macht {\em \$newtitle\/} zum neuen Titel der Checkliste und gibt den alten Titel zurück.
+
+gibt den aktuellen Titel zurück
+
+setzt einen Text in der Checkliste auf {\em \$text\/}, defaultmässig oben. Ist {\em \$pos\/} auf 'b$|$bottom' gesetzt, erscheint der Text nach den CheckButtons.
+
+installiert einen oder mehrere CheckButtons mit den übergebenen Namen. Werden die Buttons einzeln installiert, ist der Rückgabewert eine Referenznummer auf den Button, die auch dem Rückgabewert der Variablen {\em \$\$varname\/} entspricht.
+
+entfernt den CheckButton mit der Referenznummer {\em \$refnr\/}.
+
+\subsubsection{DlComboBox}%
+\index{DlComboBox}
+
+erstellt eine Combobox mit dem Titel {\em \$title\/}. {\em \$varname\/} setzt den Namen der Rückgabethe {\em Variablen\/} manpage. {\em \$height\/} und {\em \$width\/} setzen die Geometrie der Checkliste.
+
+macht {\em \$newtitle\/} zum neuen Titel der Combobox und gibt den alten Titel zurück.
+
+gibt den aktuellen Titel zurück
+
+setzt einen Text in der Combobox auf {\em \$text\/}, defaultmässig oben. Ist {\em \$pos\/} auf 'b$|$bottom' gesetzt, erscheint der Text unten.
+
+fügt der Combobox einen oder mehrere Einträge hinzu. werden die Einträge einzeln hinzugefügt, ist der Rückgabewert eine Referenznummer auf den Eintrag.
+
+entfernt den Eintrag mit der Referenznummer {\em \$refnr\/} aus der Combobox.
+
+gibt den Text des Eintrags mit der Referenznummer {\em \$refnr\/} zurück.
+
+leert die Combobox.
+
+\subsubsection{DlInputField}%
+\index{DlInputField}
+
+erstellt ein Eingabefeld mit dem Titel {\em \$title\/}, {\em \$titlepos\/} gibt die Positiondes Titels an, gültige Werte sind 't$|$top$|$b$|$bottom$|$l$|$left$|$r$|$right'.
+{\em \$varname\/} setzt den Namen der Rückgabethe {\em Variablen\/} manpage. Ist {\em \$exit\/} gesetzt (nicht\underscore{}null), beendet ein $<$Enter$>$ nach der Eingabe den Dialog. Im LDlWizzard$>$ wird der Dialog jedoch nicht weitergeschaltet, so dass die Eingabe in der the {\em Callback\/} manpagefunktion verarbeitet werden und ggf. der Dialog entsprechend verändert werden kann.
+{\em \$typ\/} gibt den Typ des Eingabefeldes an, gültige Werte sind hier 'p$|$passwd$|$n$|$numeric$|$i$|$ip'. Diese Angaben können auch kombiniert werden und sollten dann mit Leerstellen getrennt in {\em \$typ\/} übergeben werden (z.B. \$typ = 'numeric passwd'). {\em \$height\/} und {\em \$width\/} setzen die Geometrie der Checkliste.
+Die Eingabe wird über die Variable {\em \$\$varname\/} zurückgegeben.
+
+\subsubsection{DlList}%
+\index{DlList}
+
+erstellt eine Auswahlliste mit dem Titel  {\em \$title\/}. {\em \$varname\/} setzt den Namen der Rückgabethe {\em Variablen\/} manpage. Ist {\em \$multi\/} gesetzt (nicht\underscore{}null), ist eine mehrfachauswahl möglich. Ist {\em \$exit\/} gesetzt (nicht\underscore{}null), beendet ein Doppelclick auf einen Listeneintrag den Dialog. Im LDlWizzard$>$ wird der Dialog jedoch nicht weitergeschaltet, so dass die Eingabe in der the {\em Callback\/} manpagefunktion verarbeitet werden und ggf. der Dialog entsprechend verändert werden kann. {\em \$height\/} und {\em \$width\/} setzen die Geometrie der Checkliste.
+
+macht {\em \$newtitle\/} zum neuen Titel der Liste und gibt den alten Titel zurück.
+
+gibt den aktuellen Titel zurück
+
+setzt einen Text in der Liste auf {\em \$text\/}, defaultmässig oben. Ist {\em \$pos\/} auf 'b$|$bottom' gesetzt, erscheint der Text unten.
+
+fügt der Auswahlliste einen oder mehrere Einträge hinzu. werden die Einträge einzeln hinzugefügt, ist der Rückgabewert eine Referenznummer auf den Eintrag.
+
+entfernt den Eintrag mit der Referenznummer {\em \$refnr\/} aus der Auswahlliste.
+
+gibt den Eintrag selbst zurück.
+
+gibt eine Referenz auf ein Array zurück, dass den aktuellen Inhalt der Auswahlliste enthält.
+
+leert die Auswahlliste.
+
+\subsubsection{DlRadioList}%
+\index{DlRadioList}
+
+erstellt eine Liste von Radiobuttons mit dem Titel {\em \$title\/}. {\em \$varname\/} setzt den Namen der Rückgabethe {\em Variablen\/} manpage. {\em \$height\/} und {\em \$width\/} setzen die Geometrie der Radioliste.
+
+macht {\em \$newtitle\/} zum neuen Titel der Radioliste und gibt den alten Titel zurück.
+
+gibt den aktuellen Titel zurück
+
+setzt einen Text in der Liste auf {\em \$text\/}, defaultmässig oben. Ist {\em \$pos\/} auf 'b$|$bottom' gesetzt, erscheint der Text unten.
+
+installiert einen oder mehrere RadioButtons mit den übergebenen Namen. Werden die Buttons einzeln installiert, ist der Rückgabewert eine Referenznummer auf den Button, die auch dem Rückgabewert der Variablen {\em \$\$varname\/} entspricht.
+
+entfernt den RadioButton mit der Referenznummer {\em \$refnr\/}.
+
+\subsubsection{DlWidgetGroup}%
+\index{DlWidgetGroup}
+
+DlWidgetGroup dient eigentlich nur der Gruppierung verschiedener Widgets, die damit zusammengefasst werden.
+
+erzeugt eine neue Widgetgruppe mit dem Titel {\em \$title\/} und der Ausrichtung {\em \$orient\/}, gültige Werte für {\em \$orient\/} sind 'r$|$row$|$c$|$col'.  {\em \$height\/} und {\em \$width\/} setzen die Geometrie der Widgetgruppe.
+
+macht {\em \$newtitle\/} zum neuen Titel der Widgetgruppe und gibt den alten Titel zurück.
+
+gibt den aktuellen Titel zurück
+
+setzt einen Text in der Widgetgruppe auf {\em \$text\/}, defaultmässig oben. Ist {\em \$pos\/} auf 'b$|$bottom' gesetzt, erscheint der Text unten.
+
+fügt ein oder mehrere Widgets in die Widgetgruppe ein.
+
+\subsubsection{DlMessage}%
+\index{DlMessage}
+
+zeigt eine MessageBox mit dem Titet {\em \$title\/} und dem Text {\em \$text\/}. {\em \$typ\/} legt dabei die Art der MessageBox fest. Mögliche Typen sind: 
+
+'j$|$ja$|$y$|$yes' für yes$|$no-Boxen. Rückgabewert bei diesem Typ ist 'yes' oder 'no'.
+
+'b$|$break' für break$|$continue-Boxen. Rückgabewert bei diesem Typ ist 'break' oder 'continue'.\\
+anderenfalls gibt es nur einen 'Zurück'-Button und den Rückgabewert 'back'.
+
+Ein Verwendungsbeispiel aus der Shell
+\begin{verbatim}
+        /usr/bin/perl -e 'use DlDialog; 
+	DlMessage->show('Hallo Welt','Hier bin Ich')'
+\end{verbatim}
+
+\subsection{Beispielscript:}%
+\index{Beispielscript:}
+
+siehe beiliegendes 'test.dl'
+
+\subsection{AUTHORS}
+Thomas Hagedorn$<$tom@delix.de$>$.
+
+
+\end{document}

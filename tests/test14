@@ -1,0 +1,32 @@
+#!/bin/sh
+ARGS="$@"
+
+. `dirname "$0"`/dldialog_funcs||exit 10
+
+dldialog_start $ARGS
+
+export EXIT="NOK"
+
+result=$($DLDIALOG <<EOF
+dialog "TEST1" {
+    row "kjdghkdjsg" {
+       text "Text";
+    }
+#    list {
+#       listitem "12345678901234567890";
+#       listitem "1\tZeile 2";
+#       listitem "1\tZeile 2";
+#       listitem "12\tZeile 2";
+#       listitem "1234\tZeile 3";
+#       listitem "12345\tZeile 3";
+#       listitem "123456\tZeile 3";
+#       listitem "1234567\tZeile 3";
+#       listitem "12345678\tZeile 3";
+#       listitem "123456789\tZeile 3";
+#    }
+    button "OK" -exit;
+}
+EOF)
+
+eval "$result"
+echo $result

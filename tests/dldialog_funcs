@@ -1,0 +1,70 @@
+#*-*- sh -*-*
+#
+# Some basic helper functions for shell interactions
+# 
+#
+
+if [ -z "$DLDIALOG" ]; then
+    if [ -x ./src/dldialog ]; then
+	export PREF="./src"
+	export LD_LIBRARY_PATH="$PREF/DLD_TV/.libs:$LD_LIBRARY_PATH"
+	export LD_LIBRARY_PATH="$PREF/DLD_GEN/.libs:$LD_LIBRARY_PATH"
+	export LD_LIBRARY_PATH="$PREF/DLD_QT/.libs:$LD_LIBRARY_PATH"
+	export DLDIALOG=$PREF/dldialog
+    elif [ -x ../src/dldialog ]; then
+	export PREF="../src"
+	export LD_LIBRARY_PATH="$PREF/DLD_TV/.libs:$LD_LIBRARY_PATH"
+	export LD_LIBRARY_PATH="$PREF/DLD_GEN/.libs:$LD_LIBRARY_PATH"
+	export LD_LIBRARY_PATH="$PREF/DLD_QT/.libs:$LD_LIBRARY_PATH"
+	export DLDIALOG=$PREF/dldialog
+    elif [ -x `which dldialog` ]; then
+	export DLDIALOG=`which dldialog`
+	export PREF=`dirname "$0"`
+    fi
+fi
+
+set noclobber
+
+if [ -z "$DLDIALOG_INFIFO" ]; then
+  dld_waitforend="yes";
+fi   
+
+function dldialog_stop () {
+  if [ -n "$DLDIALOG_INFIFO" ]; then 
+     if [ "$dld_waitforend" = "yes" ]; then
+        $DLDIALOG --wait
+        dldirname=`dirname "$DLDIALOG_INFIFO"`
+        if [ -d $dldirname ]; then 
+          rm -f "$DLDIALOG_INFIFO"
+          rmdir $dldirname 2>/dev/null
+        fi
+        unset DLDIALOG_INFIFO;
+     else    
+        $DLDIALOG --stop
+     fi
+  fi
+}
+
+function dldialog_start () {
+  ret=$($DLDIALOG --start $@)
+  ERR="$?"
+  if [ "$ERR" != "0" ]; then
+    echo Exited with $ERR
+    exit 10;
+  fi
+  eval "$ret"
+  export DLDIALOG_INFIFO
+  trap dldialog_stop EXIT
+  trap dldialog_stop SIGCHLD
+  trap dldialog_stop SIGPIPE
+}
+
+
+function infobox () {
+  $($DLDIALOG  <<EOF
+  dialog "Bitte warten...         " {
+    text "$1";
+    gauge -exit -exec "$2" ;
+  }
+EOF)  
+}

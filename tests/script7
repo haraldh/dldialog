@@ -1,0 +1,40 @@
+"Hier das Script test4" {
+  col {
+	text "tests/test4:";
+	textbox -file "../tests/script7";
+	textbox "Zeile 1\nZeile 2\nZeile 3";
+        button "OK" -exit;
+  }
+  #
+  # skdjg hdakjfg hdfgd
+  #gfd
+  #fg
+  #dfg
+  #df
+  #g
+  #dfgdafgjkadf glöadkjf göladkfg jöadjkg hkldajgh adöfkgjadfgdaf
+  #gdafgjkadf gkdjfa gäadfgda
+  #gdafgöadfj glkjdfa glökdjaf gadfgad
+  #gdfgkld fagkj dflkögj daflkögj döflkgj dafölgkj dflgökj daölgkj df
+  #dfg
+  #df
+  #g
+  #dfgdafgjkadf glöadkjf göladkfg jöadjkg hkldajgh adöfkgjadfgdaf
+  #gdafgjkadf gkdjfa gäadfgda
+  #gdafgöadfj glkjdfa glökdjaf gadfgad
+  #gdfgkld fagkj dflkögj daflkögj döflkgj dafölgkj dflgökj daölgkj df
+  #dfg
+  #df
+  #g
+  #dfgdafgjkadf glöadkjf göladkfg jöadjkg hkldajgh adöfkgjadfgdaf
+  #gdafgjkadf gkdjfa gäadfgda
+  #gdafgöadfj glkjdfa glökdjaf gadfgad
+  #gdfgkld fagkj dflkögj daflkögj döflkgj dafölgkj dflgökj daölgkj df
+  #dfg
+  #df
+  #g
+  #dfgdafgjkadf glöadkjf göladkfg jöadjkg hkldajgh adöfkgjadfgdaf
+  #gdafgjkadf gkdjfa gäadfgda
+  #gdafgöadfj glkjdfa glökdjaf gadfgad
+  #gdfgkld fagkj dflkögj daflkögj döflkgj dafölgkj dflgökj daölgkj df
+}

@@ -1,0 +1,18 @@
+# This is a template file for internationalisation
+# of the program maketransfile.pl,
+# automatically generated at Mit Apr  7 01:31:02 CEST 1999
+# by maketransfile.pl (C) by Thomas Hagedorn tom@delix.de
+
+msgid "maketransfile Usage:"
+"maketransfile [-t|template progfilename] | [-f|file filetotranslate] "
+"for more informations try: maketransfile -h|help"
+msgstr "Aufruf von maketransfile:"
+"maketransfile [-t|template Programmname] | [-f|file Übersetzungstemplate] "
+"für mehr Informationen versuchen Sie: maketransfile -h|help"
+
+msgid "Help"
+msgstr "Hilfe"
+
+msgid " does not provide internationalisation"
+msgstr " unterstützt keine Internationalisierung"
+

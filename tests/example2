@@ -1,0 +1,60 @@
+#!/bin/bash
+ARGS="$@"
+
+. `dirname $0`/dldialog_funcs
+
+dldialog_start $ARGS
+
+export CHECK="1 2 3"
+
+exitbutton="w"
+
+i=0
+
+while [ "$exitbutton" = "w" ]; do
+
+  if [ ! "$CHECK" = "" ]; then
+    TEXT="The checkbutton(s) ${CHECK-nix} should be selected!";
+  else
+    TEXT="No checkbutton should be selected!";
+  fi
+
+    result=$($DLDIALOG  << EOF
+    dialog "" {
+	row {
+	    col {
+		text "Select and deselect buttons of your choice.";
+		text "Then press <continue>.\n";
+		text "$TEXT";
+	    }
+	    checklist -var CHECK {
+		checkbutton "Check &1";
+		checkbutton "Check &2";
+		checkbutton "Check &3";
+	    }
+	}
+       row 
+       { 
+         button "&Continue" -var exitbutton -set "w" -exit; 
+         text "    ";     # leerer Platz
+         button "&All correct - Finish" -var exitbutton -set "q" -exit;
+         text "    ";     # leerer Platz
+         button "&Wrong behaviour - Finish" -var exitbutton -set "f"
+-exit;
+       }
+    }
+EOF)
+
+#  echo "$i: $result"
+
+  exitbutton="error"
+
+  CHECK=""
+
+  eval "$result"
+
+done
+
+if [ ! "$exitbutton" = "q" ]; then
+    exit 10;
+fi

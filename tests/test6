@@ -1,0 +1,79 @@
+#!/bin/sh
+ARGS="$@"
+
+. `dirname "$0"`/dldialog_funcs||exit 10
+
+dldialog_start $ARGS
+
+export EXIT="NOK"
+
+result=$($DLDIALOG <<EOF
+dialog "Maindialog" {
+  text "This is the main dialog window";
+  button "FORK" -exec "$0";
+  button "HELP" -fork -exec "$DLDIALOG <<EOF
+  dialog \"HELP\" {
+    col {
+      text \"This can display some HELP text\";
+      button \"&OK\" -exit;
+    }
+  }
+EOF";
+  button "&OK" -var EXIT -set "OK" -exit;
+  dialog "TEST2" {
+  text "This is a child dialog";
+  text "";
+    row {
+      col { 
+        text "Combo";
+        text "Login:";
+        text "Password:";
+        text "Numeric:";
+      }
+      col {
+        ci=2;
+        combobox -var ci {
+	   comboitem "Test1";
+	   comboitem "Test2";
+	   comboitem "Test3";
+        }
+        input -var login ;
+        input -var passwd  -passwd -exit;
+        input -var num  -numeric -exit;
+      }
+    }
+      button "&OK" -exit;
+  }
+}  
+EOF)
+
+eval "$result"
+
+$DLDIALOG <<EOF
+dialog "Results" {
+  text "Here are the resulting variables:";
+  text "$result";
+  button "&OK" -exit;
+}
+EOF
+
+if [ "$EXIT" = "OK" ]; then  
+  export EXIT="Exit Status2: ";
+  result=$($DLDIALOG <<EOF
+    dialog "TEST 2" {
+      text "This is the main dialog window";
+      button "&OK" -var EXIT -add "OK" -exit;
+    }
+EOF)
+  eval "$result"
+  
+  $DLDIALOG <<EOF
+  dialog "Results" {
+    text "Here are the resulting variables:";
+    text "$result";
+    button "&OK" -exit;
+  }
+EOF
+fi
+
+

@@ -1,0 +1,16 @@
+Makefile
+Makefile.in
+configure
+libtool
+*~
+aclocal.m4
+config.guess
+*.log
+.directory
+config.h
+config.cache
+config.status
+stamp-h
+dldialog.spec
+*.gz
+config.h.in

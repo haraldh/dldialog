@@ -1,0 +1,48 @@
+/******************************************************************************
+**
+** $Id: dld_textbox.h,v 1.1 2001/03/14 02:33:19 saturn_de Exp $
+**
+**	This program is free software; you can redistribute it and/or
+**	modify it under the terms of the GNU General Public License
+**	as published by the Free Software Foundation; either version
+**	2 of the License, or (at your option) any later version.
+**
+** (C) (C) 1999,2000 Harald Hoyer <DLDialog@parzelle.de> - All rights reserved -
+**
+******************************************************************************/
+#ifndef DLD_TV_TEXTBOX_H
+#define DLD_TV_TEXTBOX_H
+
+#define Uses_TFileViewer
+#include "../dld_textbox.h"
+#include "dld_tvobj.h"
+#include "dld_list.h"
+#include "fileview.h"
+
+#include <tvision/tv.h>
+
+class DLD_TVTextBox: public DLD_TVObj, public DLD_TextBox, public TFileViewer
+{
+public:
+   DLD_TVTextBox(const string& name, DLD_TVDialog *pd);
+   ~DLD_TVTextBox();
+  
+   void create();
+
+   void set_filename(const string& fname);
+
+   void changeBounds( const TRect& bounds );
+   void setGeom( const TRect& bounds );
+ 
+   void calcBounds(TRect& bounds, TPoint delta );
+   void handleEvent(TEvent& event);
+
+private:
+   DLD_ScrollBar *hScrollBar, *vScrollBar;
+   bool doFile;
+   ///
+   TLabel *label;
+
+};
+
+#endif

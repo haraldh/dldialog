@@ -1,0 +1,29 @@
+#!/bin/sh
+ARGS="$@"
+
+. `dirname "$0"`/dldialog_funcs||exit 10
+
+dldialog_start $ARGS
+
+export EXIT="NOK"
+
+result=$($DLDIALOG <<EOF
+dialog "DLDadmin" -height 100 -width 100 {
+  button "hhgf";
+   textbox "
+ejkfhkdjf
+  dfjghfkdjg
+  jdfhgjkdfg
+  dkjfghdfjk
+  " -width 100 -height 100 ;
+   row -width 100 {
+      button "&Hilfe" -image "/home/saturn/dld/delix/system/dldsetup/final/usr/lib/delix/setup/icons/hilfe.xpm" -exec "/home/saturn/dld/delix/system/dldsetup/final/usr/lib/delix/setup/help-dldialog /home/saturn/dld/delix/system/dldsetup/final/usr/lib/delix/setup/600Systeminfo info";
+      col -width 100 { text "" -width 100;};
+      button "&Beenden" -image "/home/saturn/dld/delix/system/dldsetup/final/usr/lib/delix/setup/icons/exit.xpm" -var exitbutton -set "e" -exit;
+   }
+}
+EOF)
+
+eval "$result"
+echo $result	 
+	 

@@ -1,0 +1,289 @@
+#!/bin/sh
+ARGS="$@"
+
+DIRNAME=`pwd`/`dirname "$0"`
+
+. $DIRNAME/dldialog_funcs
+
+
+function dialog_top() {
+    title="$1";
+    image="$2";
+
+    if [ -n "$image" ]; then 
+       imagestr="image \"$image\""
+    fi    
+
+    cat <<EOF 
+    dialog "$title" -width 100  -height 100 {
+	row -width 100 -height 100 {
+	    col -height 100 {
+	        $imagestr;
+		col -height 100 { }
+		image "$DIRNAME/DLD.xpm";
+	    }
+EOF
+}
+
+function dialog_bottom() {
+    echo "}   row -width 100 {"
+    cat;
+    echo "}}"
+}
+
+
+HILFEBUTTON="button \"&Hilfe\" -image \"$DIRNAME/hilfe.xpm\""
+ZURUECKBUTTON="button \"< &Zurück\" -image \"$DIRNAME/zurueck.xpm\""
+WEITERBUTTON="button \"&Weiter >\" -image \"$DIRNAME/weiter.xpm\""
+ABBRECHENBUTTON="button \"&Abbrechen\" -image \"$DIRNAME/delete.xpm\""
+SPACEEATER="col -width 100 { text \"\" -width 100;}"
+SPACER="col {}"
+
+
+
+dldialog_start $ARGS||exit 10
+
+function start_dialog () {
+result=$($DLDIALOG <<EOF
+dialog "Start" -width 100 -height 100 {
+   row -width 100 -height 100 {
+      col -height 100 {
+	 col -height 100 { }
+	 image "$DIRNAME/DLD.xpm";
+      }
+      row "DLDAdmin" -width 100 -height 100 {
+	 col -width 33 -height 100 {
+	    button "&Konfiguration\nNummer 1" -movie "$DIRNAME/ani.gif" -sign -var EXEC -set "name" -exit;
+	    col -height 100 { }
+	    button "&Konfiguration\nNummer 2" -movie "$DIRNAME/ani.gif" -sign -var EXEC -set "name" -exit -disable;
+	    col -height 100 { }
+	    button "&Konfiguration\nNummer 3" -movie "$DIRNAME/ani.gif" -sign -var EXEC -set "name" -exit;
+	 }
+	 col -width 33 -height 100 {
+	    button "&Konfiguration\nNummer 4" -movie "$DIRNAME/ani.gif" -sign -var EXEC -set "name" -exit;
+	    col -height 100 { }
+	    button "&Konfiguration\nNummer 5" -movie "$DIRNAME/penguin2.gif" -sign -var EXEC -set "name" -exit -disable;
+	    col -height 100 { }
+	    button "&Konfiguration\nNummer 6" -movie "$DIRNAME/ani.gif" -sign -var EXEC -set "name" -exit;
+	 }
+	 col -width 33 -height 100 {
+	    button "&Konfiguration\nNummer 7" -movie "$DIRNAME/ani.gif" -sign -var EXEC -set "name" -exit;
+	    col -height 100 { }
+	    button "&Konfiguration\nNummer 8" -movie "$DIRNAME/ani.gif" -sign -var EXEC -set "name" -exit -disable;
+	    col -height 100 { }
+	    button "&Konfiguration\nNummer 9" -movie "$DIRNAME/ani.gif" -sign -var EXEC -set "name" -exit;
+	 }
+      }
+  }
+  row -width 100 {
+     button "&Ende" -image "$DIRNAME/exit.xpm" -var OK -set 0 -exit;
+   }
+}
+EOF
+)
+}
+
+WIZARD_WEITER=$(dialog_bottom <<EOF
+      BACK="0";
+      OK="0";
+      $HILFEBUTTON;
+      $SPACEEATER;
+      $ZURUECKBUTTON -var BACK -set 1 -exit;
+      $WEITERBUTTON -var OK -set 1 -exit;
+      $SPACER;
+      $ABBRECHENBUTTON -var OK -set 0 -exit;
+EOF
+)
+
+WIZARD_WEITER=$(dialog_bottom <<EOF
+      BACK="0";
+      OK="0";
+      $HILFEBUTTON;
+      $SPACEEATER;
+      $ZURUECKBUTTON -var BACK -set 1 -exit;
+      $WEITERBUTTON -var OK -set 1 -exit;
+      $SPACER;
+      $ABBRECHENBUTTON -var OK -set 0 -exit;
+EOF
+)
+
+
+function name_dialog () {
+result=$($DLDIALOG <<EOF
+    $(dialog_top "Wizard" "$DIRNAME/network_settings.xpm")
+    col "Überschrift" -width 100 -height 100 {
+	 row {
+	    movie "$DIRNAME/ani.gif";	    
+	    text "\nDies ist ein Beispiel-Wizard\n"
+	         "Dies ist ein Beispiel-Wizard\n";
+	 }
+	 row -width 100 { 
+	    col {
+	       text "Vorname: ";
+	       text "Nachname: ";
+	    }
+	    col -width 100 {
+	       input -var vorname;
+	       input -var nachname;
+	    }
+	 }
+      }
+    $WIZARD_WEITER
+EOF
+)
+}
+
+function net_dialog () {
+result=$($DLDIALOG <<EOF
+dialog "Wizard" -width 100 {
+   row -width 100 -height 100 {
+      col -height 100 {
+	 image "$DIRNAME/network_settings.xpm";	    
+	 col -height 100 { }
+	 image "$DIRNAME/DLD.xpm";
+      }
+      col "Netzwerkkarten:" -width 100  -height 100 {
+	 row {
+	    image "$DIRNAME/netzwerk.png";	    
+	    text "\nBitte wählen Sie eine Netzwerkkarte\n";
+	 }
+	 list -var netzwerk_karte -width 100 -height 100 {
+	    listitem " 3com 3c501" -exit -var module -set "3c501"  ;
+	    listitem " 3com 3c503" -exit -var module -set "3c503"  ;
+	    listitem " 3Com Etherlink Plus" -exit -var module -set "3c505"  ;
+	    listitem " 3Com EtherLink16" -exit -var module -set "3c507"  ;
+	    listitem " 3com 3c509" -exit -var module -set "3c509"  ;
+	    listitem " 3com 3c59x (Vortex)" -exit -var module -set "3c59x"  ;
+	    listitem " 3200 EISA Ethernet LAN" -exit -var module -set "ac3200"  ;
+	    listitem " Apricot 82596" -exit -var module -set "apricot"  ;
+	    listitem " Arcnet Unterstützung" -exit -var module -set "arcnet"  ;
+	    listitem " Allied Telesis AT1700" -exit -var module -set "at1700"  ;
+	    listitem " Digital 425,434,435,450,500" -exit -var module -set "de4x5"  ;
+	    listitem " D-Link DE-600 Pocket Adapter" -exit -var module -set "de600"  ;
+	    listitem " D-Link DE-620 Pocket Adapter" -exit -var module -set "de620"  ;
+	    listitem " Digital DEPCA und EtherWORKS" -exit -var module -set "depca"  ;
+	    listitem " Digi RightSwitch SE-X 4/6 Port Adapter" -exit -var module -set "dgrs"  ;
+	    listitem " Cabletron E2100" -exit -var module -set "e2100"  ;
+	    listitem " EtherExpress Pro/10" -exit -var module -set "eepro"  ;
+	    listitem " EtherExpress Pro/100" -exit -var module -set "eepro100"  ;
+	    listitem " Intel EtherExpress" -exit -var module -set "eexpress"  ;
+	    listitem " SMC83c170/175 EPIC-Serien" -exit -var module -set "epic100"  ;
+	    listitem " ICL EtherTeam 16i/32 Eisa" -exit -var module -set "eth16i"  ;
+	    listitem " Digital EtherWORKS 3" -exit -var module -set "ewrk3"  ;
+	    listitem " Fujitsu FMV-181/182/183/184" -exit -var module -set "fmv18x"  ;
+	    listitem " HP LAN" -exit -var module -set "hp"  ;
+	    listitem " HP10/100VG" -exit -var module -set "hp100"  ;
+	    listitem " HP PCLAN/plus" -exit -var module -set "hp-plus"  ;
+	    listitem " Shared Memory IBM Token Ring 16/4 Adapter" -exit -var module -set "ibmtr"  ;
+	    listitem " AMD LANCE/PCnet Ethernet" -exit -var module -set "lance"  ;
+	    listitem " NE2000 und kompatible" -exit -var module -set "ne"  ;
+	    listitem " PCI NE2000 Klone" -exit -var module -set "ne2k-pci"  ;
+	    listitem " NI5210 Ethernet" -exit -var module -set "ni52"  ;
+	    listitem " NI6510 Ethernet" -exit -var module -set "ni65"  ;
+	    listitem " AMD PCnet-PCI" -exit -var module -set "pcnet32"  ;
+	    listitem " RealTek RTL8129/8139 Fast Ethernet" -exit -var module -set "rtl8139"  ;
+	    listitem " SMC 9000 Serie" -exit -var module -set "smc9194"  ;
+	    listitem " SMC Ultra Ethernet" -exit -var module -set "smc-ultra"  ;
+	    listitem " Digital 2104x (Tulip)" -exit -var module -set "tulip"  ;
+	    listitem " WD8003, WD8013 und kompatible" -exit -var module -set "wd"  ;
+	    listitem " Andere Netzwerk-Karte"  -exit;
+	 }
+      }
+   }
+   row -width 100 {
+      BACK="0";
+      OK="1";
+      button "&Hilfe" -image "$DIRNAME/hilfe.xpm";
+      col -width 100 { text "" -width 100;};
+      button "< &Zurück" -image "$DIRNAME/zurueck.xpm" -var BACK -set 1 -exit;
+      button "&Weiter >" -image "$DIRNAME/weiter.xpm" -var OK -set 1 -exit;
+      col {};
+      button "&Abbrechen" -image "$DIRNAME/delete.xpm" -var OK -set 0 -exit;
+   }
+}
+EOF
+)
+}
+
+
+function ende_dialog {
+result=$($DLDIALOG <<EOF
+dialog "Wizard" -width 100 -height 100 {
+   row -width 100 -height 100 {
+      col -height 100 {
+	 image "$DIRNAME/network_settings.xpm";	    
+	 col -height 100 { }
+	 image "$DIRNAME/DLD.xpm";
+      }
+      col "Überschrift" -width 100 -height 100 {
+	 text "\nDies ist ein Beispiel-Wizard\n"
+	    "Dies ist ein Beispiel-Wizard\n";
+	 row -width 100 { 
+	    col {
+	       text "Vorname: ";
+	       text "Nachname: ";
+	    }
+	    col -width 100 {
+	       text "$vorname";
+	       text "$nachname";
+	    }
+	 }
+      }
+   }
+   row -width 100 {
+      BACK="0";
+      OK="0";
+      button "&Hilfe" -image "$DIRNAME/hilfe.xpm";
+      col -width 100 { text "" -width 100;};
+      button "< &Zurück" -image "$DIRNAME/zurueck.xpm" -var BACK -set 1 -exit;
+      button "&Fertigstellen" -image "$DIRNAME/exit.xpm" -var OK -set 1 -exit;
+      col {};
+      button "&Abbrechen" -image "$DIRNAME/delete.xpm" -var OK -set 0 -exit;
+   }
+}
+EOF
+)
+}
+
+zustand="start"
+quit="no"
+
+export vorname;
+export nachname;
+export netzwerk_karte;
+
+while [ "$quit" = "no" ]; do
+case $zustand in
+  start)  start_dialog;eval "$result";
+           zustand="$EXEC";
+           ;;
+  name)  name_dialog;eval "$result";
+           if [ "$BACK" = "1" ]; then 
+	      zustand="start"
+	   elif [ "$OK" = "1" ]; then 
+	      zustand="net"
+	   elif [ "$OK" = "0" ]; then 
+	      quit="yes"
+	   fi
+           ;;
+  net)  net_dialog;eval "$result";
+           if [ "$BACK" = "1" ]; then 
+	      zustand="name"
+	   elif [ "$OK" = "1" ]; then 
+	      zustand="ende"
+	   elif [ "$OK" = "0" ]; then 
+	      quit="yes"
+	   fi
+           ;;	   
+  ende)  ende_dialog;eval "$result";
+           if [ "$BACK" = "1" ]; then 
+	      zustand="net"
+	   elif [ "$OK" = "1" ]; then 
+	      quit="yes"
+	   elif [ "$OK" = "0" ]; then 
+	      quit="yes"
+	   fi
+           ;;
+  *) exit 0;;
+esac
+done

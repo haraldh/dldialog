@@ -1,0 +1,106 @@
+#!/bin/sh
+ARGS="$@"
+
+. `dirname "$0"`/dldialog_funcs
+
+($DLDIALOG -p <<EOF
+dialog "TEST" {col{row{# Comment // Comment
+		checklist "Checkbuttons" -exit -var testcheck -exit{
+		    checkbutton "Check 1" -var check_1 -set 1;
+		    checkbutton "Check 2" -var check_2 -set 1 -exit;
+		    checkbutton "Check 3" -var check_3 -set 1;
+		    }
+		
+# Ein paar Radiobuttons
+		radiolist "Radiobuttons" -var testradio -exit {
+		    radiobutton "Radio 1" -var radiobutton -set 1;
+		    radiobutton "Radio 2" -var radio -set 2;
+		    radiobutton "Radio 3" -var radio -set 3 -exit;
+		}
+		
+# Eine Auswahlliste
+		col "Multiselection list" {
+		list -multi -exit
+		    {
+			listitem "Line 1" -var text -set "kfgääfgöh#öh";
+			listitem "Line 2" -var liste -set 2;
+			listitem "Line 3" -var liste -set 3 -exit;
+			listitem "Line 4" -var liste -set 4;
+		    }
+		}
+	    }
+	    
+	    testvar1=0;row{gauge -var mygauge -exec "gauge.sh";}testvar2="testvalue";
+            gauge  -var mygauge -height 40 -exec "gauge.sh" -width 20 -height 20;
+	    testvar3="";
+	    testvar4 = "";
+# Die obligatorischen Abschlussbuttons
+	    row { button "OK" -height 20 -width 80 -var exit -set 0 -exit; //Comment Comment
+	    button "Abbrechen" -var valid -set 0 -exit	-height 20 -width 80;
+	    }
+	}
+	dialog "" {form "testform" {}}
+	combobox -exit{
+		comboitem "rrrr" -var ttt -set "kj"  -height 20 -width 80;
+		comboitem "rrrr" -height 20 -width 80 -exit;
+		comboitem "rrrr" -var ttt -add "kj" ;
+	}
+	
+	menuitem "&FILE/&EXIT" -exec "rrr" -exit;
+	menuitem "&FILE/&EXIT" -exit;
+	menuitem "&FILE/&EXIT" -exec "rrr";
+	menucheck "&FILE/&EXIT" -var tt -add 1 -global;
+	menucheck "&FILE/&EXIT" -var tt -set 1 -global;
+	input -var TTT -numeric;
+	input -var TTT -numeric -length 10;
+	input -var TTT -ip;
+	input -var TTT -passwd -width 20 ;
+	input -var TTT;
+	input -var TTT -width 20;
+	input -var TTT -height 40;
+	image "TEST.gif";
+	button "TEST" -image "TEST.gif";
+    text "Wählen Sie im Menü 'Directory' den Eintrag 'new' oder klicken Sie auf
+ das Ordnersymbol in der Iconleiste (3. von links).
+ Geben Sie 'Meintest' oder etwas ähnliches ein, aktivieren Sie 'Open
+ after Creation' und drücken Sie 'OK'.
+ Sie sehen jetzt rechts von Ihrem Homeverzeichniss eine fast leere
+ Spalte, das Verzeichniss, das Sie eben erzeugt haben.
+ Wählen Sie im Menü 'File' den Eintrag 'new File' oder klicken Sie auf
+ das Papiersymbol in der Iconleiste (2. v. links).
+ Geben Sie einen beliebigen Namen ein, aktivieren Sie 'Open in Editor'
+ und drücken Sie 'OK'.
+ Jetzt öffnet sich das Fenster des eingebauten Editors und Sie können 
+ beliebigen Text eingeben. Speichern Sie diesen Text.
+ Sie sehen den Dateieintrag jetzt in der rechten Spalte.
+ Ein einfacher Klick auf diesen Eintrag zeigt Ihnen in der Fusszeile
+ des Dateimanagers einige Informationen über die Grösse, Eigentums-
+ und Zugriffsrechte der Datei und das Bearbeitungsdatum.
+ Klicken Sie mit der rechten Maustaste auf den Dateieintrag, so öffnet
+ sich ein Menü mit dem Namen der Datei in der obersten Zeile.
+ Klicken Sie darauf, so öffnet sich ein weiteres Menü.
+ Klicken Sie dort auf 'Rename', so können Sie den Dateinamen ändern.
+";
+
+
+}
+EOF
+)>/tmp/test1.out ||exit 10
+
+if [ -z "$srcdir" ]; then 
+  srcdir=`dirname $0`
+fi  
+
+cmp $srcdir/test1.cmp /tmp/test1.out
+if [ "$?" = 0 ]; 
+then 
+   echo "Output seems ok"
+   rm -f /tmp/test1.out
+   exit 0;
+else
+   echo "Output differs"
+   diff -u $srcdir/test1.cmp /tmp/test1.out
+#   rm -f /tmp/test1.out
+   exit 1;
+fi
+

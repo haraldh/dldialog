@@ -1,0 +1,4 @@
+@setfilename dldialog.info
+@settitle DLDialog
+@c DUMMY FILE FOR AUTOMAKE
+@bye

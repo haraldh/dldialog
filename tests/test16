@@ -1,0 +1,22 @@
+#!/bin/sh
+ARGS="$@"
+
+. `dirname "$0"`/dldialog_funcs||exit 10
+
+dldialog_start $ARGS
+
+    result=$($DLDIALOG -q <<EOF
+    dialog "TEST"
+    {
+        col 
+        {
+        list -width 100 -height 100 { 
+
+          }
+
+        }
+    button "OK" -exit;
+    }
+EOF)
+
+

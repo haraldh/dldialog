@@ -1,0 +1,145 @@
+.if n .ds Q \&"
+.if t .ds Q ``
+.if n .ds U \&"
+.if t .ds U ''
+.TH "dldialog" 1 
+.tr \&
+.nr bi 0
+.nr ll 0
+.nr el 0
+.de DS
+..
+.de DE
+..
+.de Pp
+.ie \\n(ll>0 \{\
+.ie \\n(bi=1 \{\
+.nr bi 0
+.if \\n(t\\n(ll=0 \{.IP \\(bu\}
+.if \\n(t\\n(ll=1 \{.IP \\n+(e\\n(el.\}
+.\}
+.el .sp 
+.\}
+.el \{\
+.ie \\nh=1 \{\
+.LP
+.nr h 0
+.\}
+.el .PP 
+.\}
+..
+.SH NAME
+.Pp
+dldialog - display dialog boxes in text and graphics mode to interact with scripts
+.SH SYNOPSIS
+.Pp
+\fBdldialog\fP [ -b | -q ] 
+[ -g | -q | -t | -p ] 
+[ -dvh ] 
+[ -f \fIinfile\fP ] 
+[ -- EXTRAOPTIONS ] 
+.SH DESCRIPTION
+.Pp
+This documentation is no longer being maintained and may be inaccurate 
+or incomplete.  The Texinfo documentation is now the authoritative source.
+.Pp
+This manual page documents the calling syntax of \fB DLDialog\fP.
+.Pp
+\fBDLDialog\fP parses standard input or the 
+\fIinfile\fP and interprets it as described in the Texinfo documentation.
+.SH OPTIONS
+.Pp
+.nr ll +1
+.nr t\n(ll 2
+.if \n(ll>1 .RS
+.IP "\fI-b, --start\fP"
+.nr bi 1
+.Pp
+Start the dldialog server.
+.IP "\fI-e, --stop\fP"
+.nr bi 1
+.Pp
+Stop the dldialog server.
+.IP "\fI-d, --debug\fP"
+.nr bi 1
+.Pp
+Display debugging output.
+.IP "\fI-f, --file infile\fP"
+.nr bi 1
+.Pp
+Read input from \fIinfile\fP, rather than from stdin.
+.IP "\fI-g, --generic\fP"
+.nr bi 1
+.Pp
+Load a generic interface library specified by the 
+\fIDLD_PRELOAD\fP environment variable.
+.IP "\fI-h, --help\fP"
+.nr bi 1
+.Pp
+Display small help and exit.
+.IP "\fI-p, --parse\fP"
+.nr bi 1
+.Pp
+Parse only to check input.
+.IP "\fI-q, --qt\fP"
+.nr bi 1
+.Pp
+Use Qt (X11) interface.
+.IP "\fI-t, --tv\fP"
+.nr bi 1
+.Pp
+Use tvision (terminal) interface (default).
+.IP "\fI-v, --version\fP"
+.nr bi 1
+.Pp
+Display version information and exit.
+.IP "\fIEXTRAOPTIONS\fP"
+.nr bi 1
+.Pp
+All options after -- are passed to the used module. It´s useful to pass e.g. a -geometry argument 
+to the qt modul.
+.if \n(ll>1 .RE
+.nr ll -1
+.SH ENVIRONMENT
+.Pp
+.nr ll +1
+.nr t\n(ll 2
+.if \n(ll>1 .RS
+.IP "\fIDLD_PRELOAD\fP"
+.nr bi 1
+.Pp
+Use this to preload a specific interface, rather than the default ones.
+.if \n(ll>1 .RE
+.nr ll -1
+.SH BUGS
+.Pp
+Report them to http://www.delix.de.
+.SH AUTHORS
+.Pp
+.DS
+.sp 
+.ft RR
+.nf
+Main author(s):
+===============
+
+Harald Hoyer    E-Mail:
+                        Harald@delix.de
+                        Harald@redhat.de
+                        Harald@redhat.com
+                        Hoyer@hot.spotline.de
+                        HarryH@Royal.Net
+                HTTP:
+                        http://www.delix.de/~harald
+                        http://hot.spotline.de
+
+Perl modules: 
+=============
+
+Thomas Hagedorn <Thomas.Hagedorn@delix.de>
+ 
+.DE
+.fi 
+.ec
+.ft P
+.sp

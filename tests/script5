@@ -1,0 +1,16 @@
+dialog {
+    col "ksjh sdfkjh " {
+	text "Then press <continue>.\n";
+        text "$TEXT";
+	row "kjrfh k" {
+         button "B1" -var exitbutton -set "w" -exit; 
+         button "B2" -var exitbutton -set "q" -exit;
+         button "B3" -var exitbutton -set "f" -exit;
+        }
+	row "lkjdfösklj ökj "{
+         button "C1" -var exitbutton -set "w" -exit; 
+         button "C2" -var exitbutton -set "q" -exit;
+         button "C3" -var exitbutton -set "f" -exit;
+        }
+    }
+}

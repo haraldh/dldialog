@@ -1,0 +1,148 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dldialog 1.0\n"
+"POT-Creation-Date: 2001-02-15 11:30+0100\n"
+"PO-Revision-Date: 1999-04-14 13:38+02:00\n"
+"Last-Translator: Harald Hoyer <harald@delix.de>\n"
+"Language-Team: de <harald@delix.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: src/dldialog.cc:88
+msgid "Usage: "
+msgstr "Aufruf: "
+
+#: src/dldialog.cc:88
+msgid ""
+" [OPTIONS]\n"
+"\n"
+"OPTIONS:\n"
+"\t-f, --file \tread input from file, rather than from stdin\n"
+msgstr ""
+" [Optionen]\n"
+"\n"
+"Optionen:\n"
+"        -f, --file      lese von Datei <file> anstatt von der "
+"Standardeingabe\n"
+
+#: src/dldialog.cc:92
+msgid "\t-q, --qt \tstart with Qt (X11) interface\n"
+msgstr "        -q, --qt        starte mit der QT (X11) Schnittstelle\n"
+
+#: src/dldialog.cc:95
+msgid "\t-t, --tv \tstart with tvision (terminal) interface\n"
+msgstr ""
+"        -t, --tv        starte mit der tvision (Terminal) Schnittstelle\n"
+
+#: src/dldialog.cc:97
+msgid ""
+"\t-T, --title \tsets the window title to the next argument\n"
+"\t-p, --parse \tparse only to check input\n"
+"\t-b, --start \tstart dldialog server\n"
+"\t-e, --stop \tstop dldialog server\n"
+"\t-w, --wait \twait for dldialog server to end\n"
+"\t-d, --debug \tdisplays debugging output\n"
+"\t-v, --version \tdisplay version information and exit\n"
+"\t-h, --help \tdisplay this help and exit\n"
+"\n"
+msgstr ""
+"        -T, --title     setzt den Fenstertitel auf das nächste Argument\n"
+"        -p, --parse     parst nur die Eingabe um den Syntax zu checken\n"
+"        -b, --start     startet den dldialog Server\n"
+"        -e, --stop      stoppt den dldialog Server\n"
+"        -w, --wait      wartet bis der dldialog Server sich beendet hat\n"
+"        -d, --debug     zeigt zusätzliche debugging Informationen an\n"
+"        -v, --version   zeigt Versionsinformationen an und beendet dldialog\n"
+"        -h, --help      zeigt diesen Hilfetext an und beendet dldialog\n"
+"\n"
+
+#: src/dldialog.cc:316 src/dldialog.cc:385
+msgid " tried!"
+msgstr " versucht!"
+
+#: src/dldialog.cc:324
+msgid "Sending start"
+msgstr "Sende start"
+
+#: src/dldialog.cc:331 src/dldialog.cc:364
+msgid "Waiting for ok"
+msgstr "Warte auf ok"
+
+#: src/dldialog.cc:357
+msgid "Sending stop"
+msgstr "Sende Stop"
+
+#: src/dldialog.cc:393
+msgid "Sending client {"
+msgstr "Klient: sende {"
+
+#: src/dldialog.cc:431
+msgid "Sending }"
+msgstr "Klient: sende }"
+
+#: src/dldialog.cc:447
+msgid "Getting output pipe"
+msgstr "Hole Ausgabe-Pipe"
+
+#: src/dldialog.cc:452
+msgid " is no output pipe"
+msgstr " ist keine Ausgabe-Pipe"
+
+#: src/dldialog.cc:459
+msgid "Opening output pipe "
+msgstr "Öffne Ausgabe-Pipe "
+
+#: src/dldialog.cc:466
+msgid "Reading output pipe "
+msgstr "Lese von Ausgabe-Pipe "
+
+#: src/dldialog.cc:473
+msgid "Deleting output pipe "
+msgstr "Lösche Ausgabe-Pipe "
+
+#: src/dldialog.cc:527 src/dldialog.cc:842
+msgid "dldialog version "
+msgstr "dldialog Version "
+
+#: src/dldialog.cc:528 src/dldialog.cc:843
+msgid ""
+"\tby Harald Hoyer (HarryH@Royal.Net)\n"
+"\tfor delix Computer GmbH (http://www.delix.de)\n"
+msgstr ""
+"        von Harald Hoyer (harald@delix.de)\n"
+"        für die delix Computer GmbH (http://www.delix.de)\n"
+
+#: src/dldialog.cc:549
+msgid "DLD_PRELOAD not specified!"
+msgstr "DLD_PRELOAD wurde nicht definiert!"
+
+#: src/dldialog.cc:562 src/dldialog.cc:580 src/dldialog.cc:593
+msgid "Another mode was already selected!"
+msgstr "Ein anderer Modus wurde schon ausgewählt (-q|-t)!"
+
+#: src/dldialog.cc:565
+msgid "QT support not compiled in!"
+msgstr "QT-Modus Unterstützung wurde nicht aktiviert beim Kompilieren!"
+
+#: src/dldialog.cc:583
+msgid "TVision support not compiled in!"
+msgstr "TVision-Modus Unterstützung wurde nicht aktiviert beim Kompilieren!"
+
+#: src/dldialog.cc:617 src/dldialog.cc:889
+msgid "Try `"
+msgstr "Versuche `"
+
+#: src/DLD_QT/dld_image.cc:116
+msgid " could not be loaded"
+msgstr " konnte nicht geladen werden"
+
+#. *new TStatusItem ("~Alt-X~ to Cancel!",
+#. kbAltX, cmDLDQuit) +
+#: src/DLD_TV/dld_tvapp.cc:180
+msgid "SPACE selects - TAB to move -"
+msgstr "LEERTASTE zum auswaehlen - TABULATOR zum wechseln -"

@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Start the server
+result=$(dldialog --start $@)
+eval "$result"
+export DLDIALOG_INFIFO
+
+export OK="0";
+
+while [ "$OK" != "1" ]; do
+
+  result=$(dldialog <<EOF
+  dialog "Maindialog" {
+    hostname="$hostname";
+    domain="$domain";
+    text "";
+      row {
+        col {
+          text "Hostname:";
+          text "Domainname:";
+        }
+        col {
+          input -var hostname -length 20 -exit;
+          input -var domain -length 20;
+        }
+      }
+      button "&OK" -var OK -set "1" -exit;
+  }
+EOF)
+
+  eval "$result"
+
+  if [ -z "$domain" ]; then
+    export domain=`echo $hostname|(IFS='.' read a b;echo $b)`;
+  fi
+
+done
+
+dldialog --stop

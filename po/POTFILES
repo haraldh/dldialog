@@ -1,0 +1,3 @@
+	../src/dldialog.cc \
+	../src/DLD_QT/dld_image.cc \
+	../src/DLD_TV/dld_tvapp.cc

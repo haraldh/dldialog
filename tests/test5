@@ -1,0 +1,29 @@
+#!/bin/sh
+ARGS="$@"
+
+DIRNAME=`pwd`/`dirname "$0"`
+
+. $DIRNAME/dldialog_funcs
+
+dldialog_start $ARGS||exit 10
+
+result=$($DLDIALOG <<EOF
+dialog "TEST2" -width 100 -height 100 {
+   row {
+     button "TEXT";
+     button "TEXT";
+     button "TEXT";
+   }     
+   row {
+     button "TEXT";
+     button "TEXT";
+     button "TEXT";
+   }     
+   row {
+     button "TEXT";
+     button "TEXT";
+     button "TEXT";
+   }     
+}
+EOF
+)

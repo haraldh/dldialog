@@ -1,0 +1,16 @@
+#!/usr/bin/dldialog -qf
+// A sample dialog
+dialog "Hier das Beispiel Nummer 4" {
+
+  c2="2";
+  row {
+    text "Eine ComboBox";
+    combobox "fkduhg" -var c0{
+       comboitem "Item 1" -var c1 -set 1;
+       comboitem "Item 2" -var c2 -set 2;
+       comboitem "Item 3   ......" -var c3 -set 3;
+    }
+  }
+  textbox -file "../tests/example4";
+  button "OK" -exit;
+}

@@ -1,0 +1,55 @@
+#!../src/dldialog -pf
+dialog {col{row{# Comment // Comment
+		checklist "Checkbuttons" -var testcheck{
+		    checkbutton "Check 1" -var check_1 -set 1;
+		    checkbutton "Check 2" -var check_2 -set 1;
+		    checkbutton "Check 3" -var check_3 -set 1;}
+		
+# Ein paar Radiobuttons
+		radiolist "Radiobuttons" -var testradio {
+		    radiobutton "Radio 1" -var radiobutton -set 1;
+		    radiobutton "Radio 2" -var radio -set 2;
+		    radiobutton "Radio 3" -var radio -set 3;
+		}
+		
+# Eine Auswahlliste
+		col "Multiselection list" {
+		list -multi
+		    {
+			listitem "Line 1" -var text -set "kfgääfgöh#öh";
+			listitem "Line 2" -var liste -set 2;
+			listitem "Line 3" -var liste -set 3;
+			listitem "Line 4" -var liste -set 4;
+		    }
+		}
+	    }
+	    
+	    testvar1=0;row{gauge -var mygauge -exec "gauge.sh";}testvar2="testvalue";
+            gauge  -var mygauge -height 40 -exec "gauge.sh" -width 20 -height 20;
+	    testvar3="";
+	    
+# Die obligatorischen Abschlussbuttons
+	    row { button "OK" -height 20 -width 80 -var exit -set 0 -exit; //Comment Comment
+	    button "Abbrechen" -var valid -set 0 -exit	-height 20 -width 80;
+	    }
+	}
+	dialog "" {form "testform" {}}
+	combobox{
+		comboitem "rrrr" -var ttt -set "kj"  -height 20 -width 80;
+		comboitem "rrrr" -height 20 -width 80;
+		comboitem "rrrr" -var ttt -add "kj" ;
+	}
+	menuitem "&FILE/&EXIT" -exec "rrr" -exit;
+	menuitem "&FILE/&EXIT" -exit;
+	menuitem "&FILE/&EXIT" -exec "rrr";
+	menucheck "&FILE/&EXIT" -var tt -add 1 -global;
+	menucheck "&FILE/&EXIT" -var tt -set 1 -global;
+	input -var TTT -numeric;
+	input -var TTT -ip;
+	input -var TTT;
+	input -var TTT -width 20;
+	input -var TTT -height 40;
+
+
+
+}

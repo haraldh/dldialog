@@ -1,0 +1,37 @@
+#!/bin/sh
+ARGS="$@"
+
+. `dirname $0`/dldialog_funcs
+
+dldialog_start $ARGS
+
+result=$($DLDIALOG <<EOF
+dialog "NFS Verzeichnis Mounten" -height 100 -width 100 { 
+    row -width 100 -height 100 { 
+       col -height 100 { 
+	  image "./../icons/kde_network_drive_mount.xpm";
+	  col -height 100 {} 
+	  image "./../icons/DLD.xpm"; 
+       } 
+       col "NFS Optionen" -width 100 -height 100 { 
+	  text "Bitte geben Sie die Werte der gewünschten Optionen an" ;
+	  row -width 100 { 
+	     text "(rsize) Blockgröße in Bytes für Lesezugriff (1024) "-width 100; 
+	     input  -numeric -var OP1; 
+	  } 
+       } 
+    } 
+    row -width 100 { 
+       button "&Hilfe" -image "./../icons/hilfe.xpm" -exec "help-dldialog nix";
+       col -width 100 { text "" -width 100; } 
+       button "< &Zurück" -image "./../icons/zurueck.xpm" -var exitbutton -set "z" -exit; 
+       button "&Weiter >" -image "./../icons/weiter.xpm" -var exitbutton -set "w" -exit; 
+       col {} button "&Abbruch" -image "./../icons/delete.xpm" -var exitbutton -set "a" -exit; 
+    } 
+}
+EOF)
+
+eval "$result"
+done
+
+exit $[$EXIT-1]

@@ -1,0 +1,80 @@
+Summary: A program to build simple and complex dialog boxes
+Summary(de): Ein Programm zum Aufbau einfacher und komplexer Dialogboxen
+Name: dldialog
+Version: @VERSION@
+Release: 1
+Copyright: Harald Hoyer (GPL)
+Group: Utilities/Terminal
+Source: dldialog-%{PACKAGE_VERSION}.tar.gz
+Packager: Harald Hoyer
+BuildRoot: /tmp/dldialog-root
+
+%description
+DLDialog is a utility that allows you to easily build user interfaces with
+simple scripts.
+You can call DLDialog from within a shell script to ask the user questions
+or present choices in a more user friendly manner.
+DLDialog can be started in two modes. One is for textual presentation using
+the tvision library and the other one for graphical presentation using X11
+and the qt library to display the dialogs.
+
+%description -l de
+DLDialog dient dazu Benutzereingaben grafisch aufzubereiten. Es kann von 
+beliebigen Shells aufgerufen werden, um dem Benutzer Fragen zu stellen oder
+benutzerfreundlich Auswahlboxen zu präsentieren. DLDialog kann in zwei 
+Modi gestartet werden, zum einen im Textmodus, wobei hier die TVision
+Bibliothek verwendet wird, und zum anderen im X-Window Mode, unter Benutzung
+der QT Bibliothek.
+
+%changelog
+* Tue Feb 15 2001 Harald Hoyer <harald@redhat.de>
+
+* Tue Feb 29 2000 Harald Hoyer <harald@redhat.de>
+- various changes for the red hat distribution
+
+%prep
+%setup
+
+%build
+CXXFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=/usr
+make
+
+%install
+rm -rf $RPM_BUILD_ROOT
+mkdir -p $RPM_BUILD_ROOT/usr
+%makeinstall
+
+mv $RPM_BUILD_ROOT%/usr/doc/dldialog-@VERSION@ $RPM_BUILD_ROOT/%{_docdir}/dldialog
+
+%post
+/sbin/ldconfig
+/sbin/install-info /usr/info/dldialog.info.gz /usr/info/dir \
+	--entry="* dldialog: (dldialog).  A program to build simple and complex dialog boxes."
+	
+%postun
+/sbin/ldconfig
+
+%preun
+if [ $1 = 0 ]; then
+	/sbin/install-info --delete /usr/info/dldialog.info.gz /usr/info/dir \
+	--entry="* dldialog: (dldialog).  A program to build simple and complex dialog boxes."
+fi
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(-,root,root)
+%doc $RPM_BUILD_ROOT%{_docdir}/dldialog/*
+%doc tests/test1 tests/test2 tests/test4 tests/test6 tests/test8
+%doc tests/DLD.xpm tests/DLD-start.xpm tests/pnglogo.png
+%doc tests/dldialog_funcs
+%doc /usr/lib/perl5/site_perl/*.pod
+/usr/bin/*
+/usr/man/man?/*
+/usr/info/*.info*
+/usr/share/*
+/usr/lib/libdld_gen*
+/usr/lib/perl5/site_perl/*.pm
+/usr/lib/libdld_tv*
+/usr/lib/libdld_qt*

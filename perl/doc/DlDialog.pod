@@ -1,0 +1,451 @@
+=head1 NAME
+
+	DlDialog.pm - Eine Wrapper-Suite für dldialog in Perl
+
+=head1 SYNOPSIS
+
+DlDialog ist eine Wrapper-Suite für den objektorienierten Aufbau von DlDialog-Widgets in Perl  und stellt dazu verschiedene Objekte bereit, die den Umgang und die Ablaufsteuerung weitgehend vereinfachen. Die Suite teilt sich dabei in 3 Beriche :
+
+=head2 Basisklassen
+
+Für den Grundlegenden Dialogaufbau stehen 3 Klassen zur Verfügung
+
+	DlDialog
+
+gibt die Referenz auf ein L<DlDialog>-Objekt zurück, das automatisch mit den erforderlichen <Hilfe, Zurück, Weiter, Ok, Abbrechen>-Buttons versehen wird.
+Das L<DlDialog>-Objekt selbst verwaltet nur verschiedene Widgets und WidgetGruppen.
+
+	DlWizzard
+
+gibt die Referenz auf einen L<DlWizzard>-Objekt zurück, das einen L<DlDialog>-Stack verwaltet, der die Abwicklung von Konfigurations- oder Abfragedialogen im Wizzard-Stil steuert. Auf dem Stapel werden L<DlDialog>-Objekte gesammelt, die in einer Kette abgearbeitet werden, eine einheitliche L<Hilfe>datei verwalten und mit den jeweils sinnvollen Steuerbuttons ausgestatet sind. Eingegebene Variablen bleiben beim Vor- und Zurückblättern erhalten und jeder einzelne Dialog kann eine L<Callback>routine zugeordnet bekommen, die aufgerufen wird, wenn der Dialog verlassen wird.
+
+=head2 Widgetklassen
+
+Um die Dialoge mit Inhalt zu füllen, stehen verschiedene Widgetklassen zur Verfügung. Dies sind in alphabetischer Reihenfolge
+
+	DlButton
+	DlButtonGroup
+	DlCheckList
+	DlComboBox
+	DlInputField
+	DlList
+	DlRadioList
+	DlWidgetGroup
+
+=head2 Hilfsklassen
+
+Dies sind Klassen, die von DlDialog-Objekten direkt verwaltet werden oder auch ohne Erstellung einer Instanz direkt aufgerufen werden können.
+
+	DlHelp
+
+verwaltet eine L<Hilfe>datei mit Kapiteln und Inhaltsverzeichniss.
+
+	DlMessage
+
+gibt einen einfachen Dialog aus für Mitteilungen oder Bestätigungen.
+
+=head1 Gebrauch
+
+Mit der Anweisung
+
+	use DlDialog;  oder
+	use DlWizzard;
+
+werden im Perlscript alle Klassen zur Verfügung gestellt.
+
+=head1 Die Basisklassen im einzelnen
+
+=head2 DlDialog
+
+Ein DlDialog-Objekt wird mit I<show()> zur Anzeige gebracht und ist standardmäßig mit einem <Ok> und einem <Zurück>-Button ausgestattet. Wird der Dialog mit einer Hilfedatei verfnüpft, kommt noch ein <Hilfe>-Button dazu.
+
+Das Handling der Hilfedatei wird komplett innerhalb der Funktion abgewickelt, der Programmierer braucht also nur mit I<setHelp(F<helpfile>)> die Hilfe initiieren und vergessen.
+
+Der Aufruf von DlDialog->show gibt den Zustand des Dialogs als <SCALAR> zurück. Mögliche Zustande sind: 
+
+	'ok', 'back', 'cancel'
+
+L<Variablen>, die den einzelnen Widgets zugewiesen werden, sind nach der Beenigung des Dialogs in Scope des Aufrufers gültige Perlvarialblen.
+
+=head4	new($title, $orientation)
+
+Der Konstruktor legt eine neues DlDialogobjekt an, das den Titel I<$title> enthält und eine Referenz auf das erzeugte Objekt zurückgibt. I<$orientation> gibt die Ausrichtung des Dialogs an. Gültige Parameter sind 'r|row','c|col','f|form', Gross- und Kleinschreibung wird ignoriert, default ist 'col'.
+
+B<Rückgabewert:> Referenz auf das Objekt.
+
+=head4 setTitle($newtitle)
+
+Setzt den Titel des Dialogs auf I<$newtitle>.
+B<Rückgabewert:> Der alte Titel des Dialogs.
+
+=head4 getTitle()
+
+B<Rückgabewert:> Der Titel des Dialogs.
+
+=head4 setText($text)
+
+Setzt den einleitenden Text des Dialogs auf I<$text>.
+
+=head4 setImage($imagefile)
+
+Setzt das Bild auf der linken Seite des Dialogs auf I<$imagefile> und gibt das zuvor gesetzte Bild zurück. Default ist "DLD.xpm".
+
+=head4 getImage()
+
+Gibt das aktuell gesetzte Bild zurück.
+
+=head4 addGroup($a_widget, $pos)
+
+fügt dem Dialog das Widget I<$a_widget> als Nummer I<$pos> hinzu. Dies können DlWidgetGroup oder jedes andere Widget sein, die über eine Funktion B<getCode> verfügen, die einen gültigen dldialog-code zurückgibt. Ist I<$pos> nicht angegeben, wird das Widget hinten angefügt.
+
+B<Rückgabewert:> Referenznummer auf die hinzugefügte Gruppe.
+
+=head4 removeGroup($ref_nr)
+
+entfernt das Widget mit der Referenznummer (I<$ref_nr> aus dem Dialog.
+
+B<Rückgabewert:> Referenznummer der entfernten Gruppe oder 0 bei Fehlschlag.
+
+=head4 setHelp($helpfile)
+
+verknüpft den Dialog mit einer Hilfedatei. './' und '~/' werden expandiert. 
+
+=head2 DlWizzard
+
+Das Konzept des DlWizzards wurde entwickelt, um die Abwicklung von Dialogen im Wizzard-Stil zu automatisieren und den Entwickler freizusetzen, sich auf den Inhalt der Dialoge zu konzentrieren. Ein weiterer Vortiel ist, dass die Gestaltung der Steuerbuttons und der Grundaufbau der Dialoge zentral verwaltet und dadurch einheitlich gestaltet ist.
+
+Der DlWizzard verwaltet einen Stack mit 'finite machines' DlDialog-Objekten.
+B<Hilfe> B<Zurück> B<Weiter> B<Ok> B<Abbrechen>  sind intelligent angebracht wie Till vorgeschlagen hat.
+
+Der DlWizzard kann mit einer einfach aufgebauten L<Hilfe>datei verknüpft werden, die für alle  Dialoge zentral verwaltet wird.
+
+Über L<Callback>routinen können die gesetzten Werte nach jedem '-exit' verarbeitet werden.
+
+Einzelne Dialoge können beliebig ein- und ausgeblendet werden.
+
+Der Aufbau einzelner Dialoge kann dynamisch gestaltet werden.
+
+
+
+=head3 Die einzelnen Funktionen von DlWizzard
+
+=head4	DlWizzard->new()
+
+gibt die Referenz auf einen neuen Wizard zurück
+
+=head4 DlWizzard->store(@dialoglist)
+
+Fügt dem Wizzard einen oder mehrere Dialoge hinzu. Werden die Dialoge einzeln hinzugefügt, gibt die Funktion eine Referenznummer zurück, die für die Funktionen B<hide> und B<unhide> benötigt werden.
+
+=head4	DlWizzard->setHelp($helpfile)
+
+bindet eine zentrale Hilfedatei I<$helpfile> ein. in die einzelnen Dialoge sollte dann keine separate Hilfe eingebunden werden. (siehe L<Hilfe>)
+
+=head4 DlWizzard->hide(@refnrs)
+
+schaltet einzelne oder mehrere Dialoge im Wizzard aus (z.B. um bei speziellen Eingaben sinnlose Seiten zu überspringen).
+
+=head4 DlWizzard->unhide(@refnrs)
+
+schaltet einen oder mehrere Dialoge wieder ein.
+
+=head4 DlWizzard->proceed()
+
+startet den Wizzard. Der Rückgabewert entspricht dem Beendigungszustand des letzten Dialoges und  hat den Wert 'cancel' oder 'ok'. 
+
+=head2 Callback
+
+	 B<setCallback($callbackref)>
+
+Setzt die Callbackfunktion des Dialogs, die von DlWizzard beim Verlassen des DlDialogobjektes aufgerufen wird. 
+I<$callbackref> ist dabei eine Referenz auf eine Funktion, die im Hauptprogramm (dort , wo der DlWizzard aufgerufen wird, als anonyme Subroutine deklariert ist.
+
+	 $callbackref = sub {
+	do_this($widgetvar1);
+	do_that...}
+
+Innerhalb des Blocks kann auf alle L<Variablen> des Dialogs zugegriffen werden
+
+=head2 Variablen
+
+Den einzelnen Widgets können beim Einrichten Variablen zugeordnet werden indem der Variablenname als String übergeben wird. Ist im Scope des Aufrufers die Variable mit einem Wert versehen, so ist dieser Wert auch im Dialog bekannt. Umgekehrt sind die im Dialog zugeordneten Werte nach Beendigung des Dialogs im Scope des Aufrufers gesetzt. Zum Vergleich der Werte sollten die Referenzwerte verwendetwerden, die beim Einrichten eines Widgets zurückgegeben werden. B<Beispiel:>
+
+	$myradiolist = new DlRadioList('Titel','radiovar');
+	$choice1 = $myradiolist->insertButton('1. Wahl');
+	$choice2 = $myradiolist->insertButton('2. Wahl');
+	...
+
+Nach Abarbeitung des Dialogs lässt sich der Zustand mit 
+
+	if ($radiovar eq $choice1) {print "Sie haben die 1. Wahl getroffen\n"}
+
+verarbeiten. Mit der Syntax 'radiovar=3' lässt sich ein Defaultwert setzen, der jedoch bei jedem neuen Aufruf des Dialogs den gewählten Wert wieder überschreibt. Normalerweise sollten defaultwerte über die zugehörige Perl-variable gesetzt werden.(z.B. $radiavar=$choice2). 
+
+B<Wichtig:> Da die Variablen beim Beenden eines Dialoges nur dann modifiziert werden, wenn ein Wert gesetzt wurde, sollten Variablen, die keine Werte in den Dialog transportieren, vor dem Aufruf mit undef oder einer Leerstringzuweisung entladen werden. (liegt an dldialog :-( )
+
+=head2 Hilfe
+
+Der Aufbau der Hilfedatei ist entsprechend Tills Vorschlag mit einfachen Tags gesteuert. B<Beispiel:>
+
+	<Title> Titel des Hilfedialogs bis zum Ende der Zeile
+	<Einführung>
+	Dies ist der Einführungstext bis zum nächsten Tag.
+	<Details> 
+	Der Tag wird jedoch nur zum Beginn einer Zeile erkannt, 
+	dieser <Tag> wird im Text normal wiedergegeben
+	<about> die Zeile hinter einem gültigen Tag wird ignoriert
+	...
+
+erzeugt einen Hilfedialog mit dem gewünschten Titel, einer Combobox, in der die Kapitel 'Einführung', 'Details' und 'about' zur Auswahl angeboten werden.
+Im darunterliegenden Fenster wird der Text des gewählten Kapitels, defaultmässig das erste Kapitel, angezeigt. Die Auswahl wird beim L<DlWizzard> über alle Dialoge hinweg gespeichert.
+Eingebunden wird die Hilfe mit
+
+	DlDialog->setHelp($helpfile)
+
+bzw.
+
+	DlWizzard->setHelp($helpfile)
+
+=head1 Die Widgetklassen
+
+=head2 DlButton($text, $varname, $font, $fontsize, $fontcolor)
+
+gibt die Referenz auf einen Button zurück, der mit I<$text> beschriftet wird und bei Betätigung die Variable I<$$varname> auf '1' setzt. Mit I<$font, $fontsize, $fontcolor> können Schriftart, Schriftgrösse und Schriftfarbe des Buttons festgelegt werden.
+
+=head2 DlButtonGroup
+
+=head3	new($orient, $title, $titlepos, $varname, $height, $width)
+
+erstellt eine ButtonGruppe mit dem Titel I$<title>. I<$orient> setzt die Ausrichtung der ButtonGruppe, gültige Werte sind 'r|row|c|col'. I<$titlepos> bestimmt die Anordnung des Titels, gültige Werte sind 't|top|b|bottom|l|left|r|right'. I<$varname> setzt den Namen der RückgabeL<Variablen>. I<$height> und I<$width> setzen die Geometrie der ButtonGruppe.
+
+=head3 insertButton(@buttonlist)
+
+installiert einen oder mehrere Buttons mit den übergebenen Namen. Werden die Buttons einzeln installiert, ist der Rückgabewert eine Referenznummer auf den Button, die auch dem Rückgabewert der Variablen I<$$varname> entspricht. z.B:
+
+	$bgroup = new DlButtonGroup('Titel','pressed');
+	$chaos_pressed = $bgroup->insertButton('Chaos');
+	...
+	if ($pressed eq $chaos_pressed) {print "Sie lieben das Chaos?\n"}
+
+=head3 removeButton($refnr) 
+
+entfernt den Button mit der Referenznummer I<$refnr>.
+
+=head3 setTitle($newtitle)
+
+macht I<$newtitle> zum neuen Titel der ButtonGruppe und gibt den alten Titel zurück.
+
+=head3 getTitle()
+
+gibt den aktuellen Titel zurück
+
+=head3 setText($text, $pos)
+
+setzt einen Text in der ButtonGruppe auf I<$text>, defaultmässig vor den Buttons. Ist I<$pos> auf 'b|bottom|back' gesetzt, erscheint der Text nach den Buttons.
+
+=head3 setImage($ref, $image)
+
+setzt das Bild I<$image> für den mit I<$ref> referenzierten Button.
+
+=head2 DlChecklist
+
+=head3	new($title, $varname, $height, $width)
+
+erstellt eine Checkliste mit dem Titel I<$title>. I<$varname> setzt den Namen der RückgabeL<Variablen>. I<$height> und I<$width> setzen die Geometrie der Checkliste.
+
+=head3 setTitle($newtitle)
+
+macht I<$newtitle> zum neuen Titel der Checkliste und gibt den alten Titel zurück.
+
+=head3 getTitle()
+
+gibt den aktuellen Titel zurück
+
+=head3 setText($text, $pos)
+
+setzt einen Text in der Checkliste auf I<$text>, defaultmässig oben. Ist I<$pos> auf 'b|bottom' gesetzt, erscheint der Text nach den CheckButtons.
+
+=head3 insertButton(@buttonlist)
+
+installiert einen oder mehrere CheckButtons mit den übergebenen Namen. Werden die Buttons einzeln installiert, ist der Rückgabewert eine Referenznummer auf den Button, die auch dem Rückgabewert der Variablen I<$$varname> entspricht.
+
+=head3 removeButton($refnr) 
+
+entfernt den CheckButton mit der Referenznummer I<$refnr>.
+
+=head2 DlComboBox
+
+=head3	new($title, $varname, $height, $width)
+
+erstellt eine Combobox mit dem Titel I<$title>. I<$varname> setzt den Namen der RückgabeL<Variablen>. I<$height> und I<$width> setzen die Geometrie der Checkliste.
+
+=head3 setTitle($newtitle)
+
+macht I<$newtitle> zum neuen Titel der Combobox und gibt den alten Titel zurück.
+
+=head3 getTitle()
+
+gibt den aktuellen Titel zurück
+
+=head3 setText($text, $pos)
+
+setzt einen Text in der Combobox auf I<$text>, defaultmässig oben. Ist I<$pos> auf 'b|bottom' gesetzt, erscheint der Text unten.
+
+=head3 insertItem{@items}
+
+fügt der Combobox einen oder mehrere Einträge hinzu. werden die Einträge einzeln hinzugefügt, ist der Rückgabewert eine Referenznummer auf den Eintrag.
+
+=head3 removeItem($refnr)
+
+entfernt den Eintrag mit der Referenznummer I<$refnr> aus der Combobox.
+
+=head3	getItem($refnr)
+
+gibt den Text des Eintrags mit der Referenznummer I<$refnr> zurück.
+
+=head3 clearItems()
+
+leert die Combobox.
+
+=head2 DlInputField
+
+=head3	new($title, $titlepos, $varname, $exit, $typ, $height, $width)
+
+erstellt ein Eingabefeld mit dem Titel I<$title>, I<$titlepos> gibt die Positiondes Titels an, gültige Werte sind 't|top|b|bottom|l|left|r|right'.
+I<$varname> setzt den Namen der RückgabeL<Variablen>. Ist I<$exit> gesetzt (nicht_null), beendet ein <Enter> nach der Eingabe den Dialog. Im LDlWizzard> wird der Dialog jedoch nicht weitergeschaltet, so dass die Eingabe in der L<Callback>funktion verarbeitet werden und ggf. der Dialog entsprechend verändert werden kann.
+I<$typ> gibt den Typ des Eingabefeldes an, gültige Werte sind hier 'p|passwd|n|numeric|i|ip'. Diese Angaben können auch kombiniert werden und sollten dann mit Leerstellen getrennt in I<$typ> übergeben werden (z.B. $typ = 'numeric passwd'). I<$height> und I<$width> setzen die Geometrie der Checkliste.
+Die Eingabe wird über die Variable I<$$varname> zurückgegeben.
+
+=head2 DlList
+
+=head3 	new($title, $varname, $multi, $exit, $height, $width)
+
+erstellt eine Auswahlliste mit dem Titel  I<$title>. I<$varname> setzt den Namen der RückgabeL<Variablen>. Ist I<$multi> gesetzt (nicht_null), ist eine mehrfachauswahl möglich. Ist I<$exit> gesetzt (nicht_null), beendet ein Doppelclick auf einen Listeneintrag den Dialog. Im LDlWizzard> wird der Dialog jedoch nicht weitergeschaltet, so dass die Eingabe in der L<Callback>funktion verarbeitet werden und ggf. der Dialog entsprechend verändert werden kann. I<$height> und I<$width> setzen die Geometrie der Checkliste.
+
+=head3 setTitle($newtitle)
+
+macht I<$newtitle> zum neuen Titel der Liste und gibt den alten Titel zurück.
+
+=head3 getTitle()
+
+gibt den aktuellen Titel zurück
+
+=head3 setText($text, $pos)
+
+setzt einen Text in der Liste auf I<$text>, defaultmässig oben. Ist I<$pos> auf 'b|bottom' gesetzt, erscheint der Text unten.
+
+=head3 setFont($index, $font)
+
+setzt den Zeichesatz des mit I<$index> indizierten Listeneintrags, ist I<$index> nicht angegeben, wird der Zeichensatz I<$font> als Standardzeichensatz gesetzt.
+
+=head3 setFontSize($index, $fontsize)
+
+setzt den Zeichesatz des mit I<$index> indizierten Listeneintrags auf die angegebene Größe,  ist I<$index> nicht angegeben, wird I<$fontsize> als Standardgröße gesetzt.
+
+=head3 setColor($index, $color)
+
+setzt die Schriftfarbe des mit I<$index> indizierten Listeneintrags, ist I<$index> nicht angegeben, wird I<$color> als Standardfarbe verwenden. I<$color> kann dabei mit den üblichen Farbbezeichnungen 'darkblue' , 'yellow'... oder als hexadezimal codierte Farbe wie in HTML, z.B. '#F0459F' angegeben werden. 
+
+=head3 setImage($index, $color)
+
+setzt ein Bild vor dem mit I<$index> indizierten Listeneintrag.
+
+=head3 insertItem{@items}
+
+fügt der Auswahlliste einen oder mehrere Einträge hinzu. werden die Einträge einzeln hinzugefügt, ist der Rückgabewert eine Referenznummer auf den Eintrag.
+
+=head3 removeItem($refnr)
+
+entfernt den Eintrag mit der Referenznummer I<$refnr> aus der Auswahlliste.
+
+=head3 getItem($refnr)
+
+gibt den Eintrag selbst zurück.
+
+=head3 getList()
+
+gibt eine Referenz auf ein Array zurück, dass den aktuellen Inhalt der Auswahlliste enthält.
+
+=head3 clear()
+
+leert die Auswahlliste.
+
+=head2 DlRadioList
+
+=head3	new($title, $varname, $height, $width)
+
+erstellt eine Liste von Radiobuttons mit dem Titel I<$title>. I<$varname> setzt den Namen der RückgabeL<Variablen>. I<$height> und I<$width> setzen die Geometrie der Radioliste.
+
+=head3 setTitle($newtitle)
+
+macht I<$newtitle> zum neuen Titel der Radioliste und gibt den alten Titel zurück.
+
+=head3 getTitle()
+
+gibt den aktuellen Titel zurück
+
+=head3 setText($text, $pos)
+
+setzt einen Text in der Liste auf I<$text>, defaultmässig oben. Ist I<$pos> auf 'b|bottom' gesetzt, erscheint der Text unten.
+
+=head3 insertButton(@buttonlist)
+
+installiert einen oder mehrere RadioButtons mit den übergebenen Namen. Werden die Buttons einzeln installiert, ist der Rückgabewert eine Referenznummer auf den Button, die auch dem Rückgabewert der Variablen I<$$varname> entspricht.
+
+=head3 removeButton($refnr) 
+
+entfernt den RadioButton mit der Referenznummer I<$refnr>.
+
+
+=head2 DlWidgetGroup
+
+DlWidgetGroup dient eigentlich nur der Gruppierung verschiedener Widgets, die damit zusammengefasst werden.
+
+=head3 new($orient, $title, $height, $width)
+
+erzeugt eine neue Widgetgruppe mit dem Titel I<$title> und der Ausrichtung I<$orient>, gültige Werte für I<$orient> sind 'r|row|c|col'.  I<$height> und I<$width> setzen die Geometrie der Widgetgruppe.
+
+=head3 setTitle($newtitle)
+
+macht I<$newtitle> zum neuen Titel der Widgetgruppe und gibt den alten Titel zurück.
+
+=head3 getTitle()
+
+gibt den aktuellen Titel zurück
+
+=head3 setText($text, $pos)
+
+setzt einen Text in der Widgetgruppe auf I<$text>, defaultmässig oben. Ist I<$pos> auf 'b|bottom' gesetzt, erscheint der Text unten.
+
+=head3 setImage($image, $pos)
+
+fügt der WidgetGroup ein Bild hinzu. I<$pos> ist dabei optional, gültige Werte für I<$pos> sind 't|top|b|bottom', default 'top'.
+
+=head3 insertElement(@widgets)
+
+fügt ein oder mehrere Widgets in die Widgetgruppe ein.
+
+=head2 DlMessage
+
+=head3 DlMessage->show($title,$text,$typ,$height,$width)
+
+zeigt eine MessageBox mit dem Titet I<$title> und dem Text I<$text>. I<$typ> legt dabei die Art der MessageBox fest. Mögliche Typen sind: 
+
+'j|ja|y|yes' für yes|no-Boxen. Rückgabewert bei diesem Typ ist 'yes' oder 'no'.
+
+'b|break' für break|continue-Boxen. Rückgabewert bei diesem Typ ist 'break' oder 'continue'.
+
+anderenfalls gibt es nur einen 'Zurück'-Button und den Rückgabewert 'back'.
+
+Ein Verwendungsbeispiel aus der Shell
+
+	/usr/bin/perl -e 'use DlDialog; DlMessage->show('Hallo Welt','Hier bin Ich')'
+
+=head1 Beispielscript:
+
+siehe beiliegendes 'test.dl'
+
+=head1 AUTHORS 
+
+Thomas Hagedorn<tom@delix.de>.
+

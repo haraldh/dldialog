@@ -1,0 +1,48 @@
+This is Info file dldialog.info, produced by Makeinfo version 1.68 from
+the input file /tmp/sgmltmp.dldialog16257.info.2.
+
+   \input texinfo
+
+
+Indirect:
+dldialog.info-1: 142
+dldialog.info-2: 45301
+
+Tag Table:
+(Indirect)
+Node: Top142
+Node: Introduction551
+Node: Installation1163
+Node: How to obtain DLDialog1376
+Node: Requirements1686
+Node: Compilation and installation2506
+Node: Normal compilation procedure2751
+Node: More options for configure3303
+Node: INSTALL4374
+Node: The Manual Page12316
+Node: NAME12544
+Node: SYNOPSIS12717
+Node: DESCRIPTION13022
+Node: OPTIONS13475
+Node: ENVIRONMENT14346
+Node: BUGS14571
+Node: DLDialog Program Syntax14700
+Node: General Syntax15141
+Node: Common options16592
+Node: Container Commands17856
+Node: Simple Commands22329
+Node: Script Example31320
+Node: Questions and answers34904
+Node: What is this start stop for?35392
+Node: How can I display a status box (info box)?36717
+Node: How can I specify the geometry of the dialog in qt mode?37775
+Node: How can I change elements depending on others?38342
+Node: How can I configure my xterm to display nice colours?39847
+Node: Why does my dialog start up so minimised?40331
+Node: Why can't I see my list?40631
+Node: NEWS42364
+Node: The Change Log45301
+Node: The TODO List61526
+Node: COPYING62013
+
+End Tag Table

@@ -1,0 +1,22 @@
+Items in order of priority:
+---------------------------
+
+* is_exit in allen Elementen, check of Elemente gleich aktiviert werden!
+
+* gauge: parsen von Output ... Variablen setzen
+
+* -focus
+
+* -deactivate
+
+* QLabel for checklist, radiolist
+
+* menuitem, menucheck: QT/TV
+
+* tooltips / jumplabel
+
+* shortcut autogeneration: parser, dld_obj
+
+
+
+

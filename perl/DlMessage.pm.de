@@ -1,0 +1,25 @@
+# This is a translation file for internationalisation
+# of the program DlMessage.pm for german language,
+# automatically generated at Mit Apr  7 22:13:50 CEST 1999
+# by maketransfile.pl (C) by Thomas Hagedorn tom@delix.de
+
+# DlMessage.pm in line nr: 22
+msgid "&Yes"
+msgstr "&Ja"
+
+# DlMessage.pm in line nr: 23
+msgid "&No"
+msgstr "&Nein"
+
+# DlMessage.pm in line nr: 24
+msgid "Brea&k"
+msgstr "&Abbruch"
+
+# DlMessage.pm in line nr: 25
+msgid "&Continue"
+msgstr "&Weiter"
+
+# DlMessage.pm in line nr: 26
+msgid "&Back"
+msgstr "&Zurück"
+

@@ -1,0 +1,101 @@
+Changes in release 1.3.0:
+* many many variable fixes
+
+Changes in release 1.1.7:
+* you can move now with cursor up and down instead of tab
+
+Changes in release 1.1.6:
+* combobox in text should work
+
+Changes in release 1.1.1:
+* movie and -movie added: cause of resize bugs in dld_image(QT)
+* gauge exits dialog only if the forked child exits
+* listitems can have images
+
+Changes in release 1.1.0:
+* buttons can now have multiple lines of text
+* dld_col and dld_row with title: bug fixed
+
+Changes in release 1.0.12:
+* animated pictures now supported with qmovie class
+* list variables are now handled correctly
+* buttons can now be disabled
+
+Changes in release 1.0.11:
+
+Changes in release 1.0.10:
+* handle X11-window closes in qt mode correctly
+* can now start without controlling terminal (e.g. X-filemanager)
+* can now parse lines with inifinite length
+* better string conversion for tv
+
+Changes in release 1.0.9:
+* list non-multi (tv) fixed
+* col, row, form cosmetic changes
+* gauge (qt) cosmetic changes
+* button images (qt) cosmetic changes
+
+Changes in release 1.0.8:
+* Gauge fixes
+* image fixes
+* configure fixes (--with-qt, --with-tv and qimgio testing)
+* parser fixes
+* no more zombies. 
+
+Changes in release 1.0.6:
+* qt and tv are nearly complete
+* more verbose error messages from the parser
+* images in qt
+* several improvements
+* gauge exec now can parse floats and overreads non-digits
+
+Changes in release 1.0.2:
+* better geometry handling
+* more verbose parser messages. 
+
+Changes in release 1.0.0:
+* small fixes
+* gettext support (i18n) for dldialog and for scripts
+
+Changes in release 0.27.0:
+* TV and QT are now fully implemented (except menus)
+
+Changes in release 0.23.0:
+* exit dialog if -exit in listitem´s is set and item is double-clicked
+
+Changes in release 0.19.2:
+* tvision module stabilised
+* new tags for input
+* -multi in lists
+* the RPM has been split
+
+Changes in release 0.16:
+* set variables immediatly in lists, radio and checks
+* gauge variables contain negative exit status of child if non-null
+
+Changes in release 0.15:
+* Now more secure with /tmp/.dldialog_ttyXXX Dir
+* More security, due to dynamic strings (no buffer overflows)
+* Better terminal behaviour
+
+Changes in release 0.13:
+* server-client protocol now mainly with sockets
+* test/dldialog_funcs added to easily program with bash
+
+Changes in release 0.12:
+* small testsuite, try make check
+* setsid 
+* made dldialog multiparsing safe
+* removed dlclose cause it segfaulted
+* fixes for glibc-2.0.111 and egcs-1.1.1
+* --parse now works with libdld_gen.so
+
+Changes in release 0.11:
+* Major interface change
+* tvision port nearly complete
+
+Changes in release 0.6:
+* added list, listitem
+* updated doc
+* preset of radiolist, checklist and list with -var
+* updated tvision interface

@@ -1,0 +1,115 @@
+#!/bin/bash
+ARGS="$@"
+
+. `dirname $0`/dldialog_funcs
+
+    export device
+
+    # set defaults:
+    device=${device:-"bj10e"}
+
+result=$($DLDIALOG $ARGS <<EOF
+	 dialog "Treiberauswahl" 
+	  {  
+	     text "Um einen Drucker einzurichten, werden einige Informationen\n"
+	       "benötigt.\n\n"
+	       "Bitte wählen Sie aus der folgenden Liste Ihr Druckermodell.\n"
+	       "Ist Ihr Drucker nicht vorhanden, dann drücken Sie bitte\n"
+	       "den Knopf 'Manuell'.";
+	       
+	     list "Druckermodell" -height 100 
+	       {
+		  listitem "uniprint   Canon BJC 610" -var device -set "uniprint";
+		  listitem "bjc600     Canon BJC-210" -var device -set "bjc600";
+		  listitem "bjc600     Canon BJC-240" -var device -set "bjc600";
+		  listitem "bjc600     Canon BJC-70" -var device -set "bjc600";
+		  listitem "bj10e      Canon BubbleJet BJ10e" -var device -set "bj10e";
+		  listitem "bj200      Canon BubbleJet BJ200" -var device -set "bj200";
+		  listitem "bj200      Canon BubbleJet BJC-210" -var device -set "bj200";
+		  listitem "bj200      Canon BubbleJet BJC-240" -var device -set "bj200";
+		  listitem "bj200      Canon BubbleJet BJC-250" -var device -set "bj200";
+		  listitem "bjc600     Canon BubbleJet BJC-4000" -var device -set "bjc600";
+		  listitem "bjc600     Canon BubbleJet BJC-4100" -var device -set "bjc600";
+		  listitem "bjc600     Canon BubbleJet BJC-4200" -var device -set "bjc600";
+		  listitem "bjc600     Canon BubbleJet BJC-4550" -var device -set "bjc600";
+		  listitem "bjc600     Canon BubbleJet BJC-600" -var device -set "bjc600";
+		  listitem "bjc600     Canon BubbleJet BJC-610" -var device -set "bjc600";
+		  listitem "bj200      Canon BubbleJet BJC-70" -var device -set "bj200";
+		  listitem "bjc800     Canon BubbleJet BJC-7000" -var device -set "bjc800";
+		  listitem "bjc800     Canon BubbleJet BJC-800" -var device -set "bjc800";
+		  listitem "bjc600     Canon MultiPASS C2500 colour" -var device -set "bjc600";
+		  listitem "eps9high   EPSON-Kompatibler 9-Nadel-Drucker" -var device -set "eps9high";
+		  listitem "stcolor    Epson Stylus 500" -var device -set "stcolor";
+		  listitem "stcolor    Epson Stylus 600" -var device -set "stcolor";
+		  listitem "stcolor    Epson Stylus 800" -var device -set "stcolor";
+		  listitem "stcolor    Epson Stylus Color" -var device -set "stcolor";
+		  listitem "uniprint   Epson Stylus Color" -var device -set "uniprint";
+		  listitem "uniprint   Epson Stylus Color 1520" -var device -set "uniprint";
+		  listitem "uniprint   Epson Stylus Color 500" -var device -set "uniprint";
+		  listitem "uniprint   Epson Stylus Color 600" -var device -set "uniprint";
+		  listitem "uniprint   Epson Stylus Color 800" -var device -set "uniprint";
+		  listitem "stcolor    Epson Stylus Color II" -var device -set "stcolor";
+		  listitem "uniprint   Epson Stylus Color II" -var device -set "uniprint";
+		  listitem "deskjet    HP DeskJet" -var device -set "deskjet";
+		  listitem "pjxl300    HP DeskJet 1200C" -var device -set "pjxl300";
+		  listitem "pjxl300    HP DeskJet 1600C" -var device -set "pjxl300";
+		  listitem "cdj500     HP DeskJet 400" -var device -set "cdj500";
+		  listitem "djet500    HP DeskJet 500" -var device -set "djet500";
+		  listitem "cdj500     HP DeskJet 500C" -var device -set "cdj500";
+		  listitem "cdeskjet   HP DeskJet 500C" -var device -set "cdeskjet";
+		  listitem "cdjmono    HP DeskJet 500C" -var device -set "cdjmono";
+		  listitem "cdjmono    HP DeskJet 510" -var device -set "cdjmono";
+		  listitem "cdjmono    HP DeskJet 520" -var device -set "cdjmono";
+		  listitem "cdj500     HP DeskJet 540C" -var device -set "cdj500";
+		  listitem "cdjmono    HP DeskJet 540C" -var device -set "cdjmono";
+		  listitem "cdj550     HP DeskJet 550C" -var device -set "cdj550";
+		  listitem "uniprint   HP DeskJet 550C" -var device -set "uniprint";
+		  listitem "cdj550     HP DeskJet 560C" -var device -set "cdj550";
+		  listitem "cdj550     HP DeskJet 600" -var device -set "cdj550";
+		  listitem "lj4dith    HP DeskJet 600" -var device -set "lj4dith";
+		  listitem "ljet4      HP DeskJet 600" -var device -set "ljet4";
+		  listitem "pjxl300    HP DeskJet 600" -var device -set "pjxl300";
+		  listitem "cdj550     HP DeskJet 660C" -var device -set "cdj550";
+		  listitem "cdj550     HP DeskJet 660C" -var device -set "cdj550";
+		  listitem "cdj550     HP DeskJet 682C" -var device -set "cdj550";
+		  listitem "cdj550     HP DeskJet 683C" -var device -set "cdj550";
+		  listitem "cdj500     HP DeskJet 690C" -var device -set "cdj500";
+		  listitem "cdj500     HP DeskJet 693C" -var device -set "cdj500";
+		  listitem "cdj550     HP DeskJet 693C" -var device -set "cdj550";
+		  listitem "cdjmono    HP DeskJet 693C" -var device -set "cdjmono";
+		  listitem "cdj550     HP DeskJet 694C" -var device -set "cdj550";
+		  listitem "cdj550     HP DeskJet 850" -var device -set "cdj550";
+		  listitem "cdj550     HP DeskJet 870Cse" -var device -set "cdj550";
+		  listitem "ljet4      HP DeskJet 870Cse" -var device -set "ljet4";
+		  listitem "deskjet    HP DeskJet Plus" -var device -set "deskjet";
+		  listitem "djet500    HP DeskJet Portable" -var device -set "djet500";
+		  listitem "ljet4      HP LaserJet 5" -var device -set "ljet4";
+		  listitem "ljet4      HP LaserJet 5L" -var device -set "ljet4";
+		  listitem "ljet4      HP LaserJet 6L" -var device -set "ljet4";
+		  listitem "ljet2p     HP LaserJet IIp" -var device -set "ljet2p";
+		  listitem "Postscript HP Laserjet 4 MP" -var device -set "Postscript";
+		  listitem "pjxl300    HP PaintJet XL300" -var device -set "pjxl300";
+		  listitem "ljet3      Mannesmann Tally MT 981" -var device -set "ljet3";
+		  listitem "uniprint   NEC P2X" -var device -set "uniprint";
+		  listitem "ljetplus   NEC SuperScript 860" -var device -set "ljetplus";
+		  listitem "ljet4      Oki OL410ex LED printer" -var device -set "ljet4";
+		  listitem "r4081      Ricoh 4081 laser printer" -var device -set "r4081";
+		  listitem "r4081      Ricoh 6000 laser printer" -var device -set "r4081";
+		  listitem "uniprint   SUN rasterfile" -var device -set "uniprint";
+		  listitem "eps9high   Star NL-10" -var device -set "eps9high";
+	       }
+	     row 
+	       {
+		  row { }  row { }  row { } row { }
+		  row { }  row { }  row { } row { }
+		  button "&Manuell..." -var exitbutton -set "m" -exit; 
+	       }
+	     row 
+	       { 
+		  button "&Hilfe" -exec "help-dialog add-printer"; 
+		  row { } 
+		  button "&Weiter >"  -var exitbutton -set "w" -exit; 
+		  button "&Abbruch" -var exitbutton -set "a" -exit; 
+	       }
+	  } 
+EOF)

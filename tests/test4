@@ -1,0 +1,63 @@
+#!/bin/sh
+ARGS="$@"
+
+. `dirname "$0"`/dldialog_funcs
+
+
+textvar=`/sbin/fdisk -l 2>/dev/null`
+
+listitems=`cat /proc/partitions|(read line;read line;read a b d partition; while [ -n "$partition" ];do echo listitem '"'$partition $a $b $d'" -var part -set "'$partition'";';read a b d partition;done)`
+
+echo "$listitems" >&2
+
+fdiskstr=`/sbin/fdisk -l`;
+export part="no value";
+
+dldialog_start $ARGS
+
+$($DLDIALOG <<EOF
+  dialog "Info" {
+    text  "Gleich wird das System etwas machen.";
+    text "";
+    button "OK" -exit;
+  }
+EOF)
+
+function do_it() {
+$DLDIALOG <<EOF
+	   dialog "Info zu $part" {
+		 text "Blah blah $part";
+		 text ""; //Spacer
+		 button "OK" -exit;
+	   }
+EOF
+}
+
+declare -fx do_it;
+
+result=$($DLDIALOG <<EOF
+  dialog "kldgj" -width 100 -height 100 {
+    row {
+       list "Formatiere" -height 100 {
+	  $listitems
+       }
+       textbox "$fdiskstr" -width 100;
+    }
+    row {
+       button "Info" -exec "do_it;";
+       button "Formatieren" -exit;
+       button "OK" -exit;
+    }
+  }
+EOF)
+
+
+eval "$result"
+
+$($DLDIALOG <<EOF
+  dialog "Info" {
+    text "Formatiere $part";
+    text "";
+    button "OK" -exit;
+  }
+EOF)

@@ -1,0 +1,10 @@
+Makefile.in
+Makefile
+dld_parser_yacc.cc
+dld_parser_lexx.cc
+dld_parser_yacc.h
+*.o
+*.lo
+.deps
+.libs
+dldialog

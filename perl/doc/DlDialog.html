@@ -1,0 +1,1293 @@
+    <HTML> 
+	<HEAD> 
+	    <TITLE>DlDialog.pm - Eine Wrapper-Suite für dldialog in Perl
+
+</TITLE> 
+	</HEAD>
+
+	<BODY>
+
+<!-- INDEX BEGIN -->
+
+<UL>
+
+	<LI><A HREF="#NAME">NAME</A>
+	<LI><A HREF="#SYNOPSIS">SYNOPSIS</A>
+	<UL>
+
+		<LI><A HREF="#Basisklassen">Basisklassen</A>
+		<LI><A HREF="#Widgetklassen">Widgetklassen</A>
+		<LI><A HREF="#Hilfsklassen">Hilfsklassen</A>
+	</UL>
+
+	<LI><A HREF="#Gebrauch">Gebrauch</A>
+	<LI><A HREF="#Die_Basisklassen_im_einzelnen">Die Basisklassen im einzelnen</A>
+	<UL>
+
+		<LI><A HREF="#DlDialog">DlDialog</A>
+		<UL>
+
+				<LI><A HREF="#new_title_orientation_">new($title, $orientation)</A>
+				<LI><A HREF="#setTitle_newtitle_">setTitle($newtitle)</A>
+				<LI><A HREF="#getTitle_">getTitle()</A>
+				<LI><A HREF="#setText_text_">setText($text)</A>
+				<LI><A HREF="#setImage_imagefile_">setImage($imagefile)</A>
+				<LI><A HREF="#getImage_">getImage()</A>
+				<LI><A HREF="#addGroup_a_widget_pos_">addGroup($a_widget, $pos)</A>
+				<LI><A HREF="#removeGroup_ref_nr_">removeGroup($ref_nr)</A>
+				<LI><A HREF="#setHelp_helpfile_">setHelp($helpfile)</A>
+			</UL>
+
+		<LI><A HREF="#DlWizzard">DlWizzard</A>
+		<UL>
+
+			<LI><A HREF="#Die_einzelnen_Funktionen_von_DlW">Die einzelnen Funktionen von DlWizzard</A>
+			<UL>
+
+				<LI><A HREF="#DlWizzard_new_">DlWizzard->new()</A>
+				<LI><A HREF="#DlWizzard_store_dialoglist_">DlWizzard->store(@dialoglist)</A>
+				<LI><A HREF="#DlWizzard_setHelp_helpfile_">DlWizzard->setHelp($helpfile)</A>
+				<LI><A HREF="#DlWizzard_hide_refnrs_">DlWizzard->hide(@refnrs)</A>
+				<LI><A HREF="#DlWizzard_unhide_refnrs_">DlWizzard->unhide(@refnrs)</A>
+				<LI><A HREF="#DlWizzard_proceed_">DlWizzard->proceed()</A>
+			</UL>
+
+		<LI><A HREF="#Callback">Callback</A>
+		<LI><A HREF="#Variablen">Variablen</A>
+		<LI><A HREF="#Hilfe">Hilfe</A>
+	</UL>
+
+	<LI><A HREF="#Die_Widgetklassen">Die Widgetklassen</A>
+	<UL>
+
+		<LI><A HREF="#DlButton_text_varname_font_">DlButton($text, $varname, $font, $fontsize, $fontcolor)</A>
+		<LI><A HREF="#DlButtonGroup">DlButtonGroup</A>
+		<UL>
+
+			<LI><A HREF="#new_orient_title_titlepos_">new($orient, $title, $titlepos, $varname, $height, $width)</A>
+			<LI><A HREF="#insertButton_buttonlist_">insertButton(@buttonlist)</A>
+			<LI><A HREF="#removeButton_refnr_">removeButton($refnr) </A>
+			<LI><A HREF="#setTitle_newtitle_">setTitle($newtitle)</A>
+			<LI><A HREF="#getTitle_">getTitle()</A>
+			<LI><A HREF="#setText_text_pos_">setText($text, $pos)</A>
+			<LI><A HREF="#setImage_ref_image_">setImage($ref, $image)</A>
+		</UL>
+
+		<LI><A HREF="#DlChecklist">DlChecklist</A>
+		<UL>
+
+			<LI><A HREF="#new_title_varname_height_">new($title, $varname, $height, $width)</A>
+			<LI><A HREF="#setTitle_newtitle_">setTitle($newtitle)</A>
+			<LI><A HREF="#getTitle_">getTitle()</A>
+			<LI><A HREF="#setText_text_pos_">setText($text, $pos)</A>
+			<LI><A HREF="#insertButton_buttonlist_">insertButton(@buttonlist)</A>
+			<LI><A HREF="#removeButton_refnr_">removeButton($refnr) </A>
+		</UL>
+
+		<LI><A HREF="#DlComboBox">DlComboBox</A>
+		<UL>
+
+			<LI><A HREF="#new_title_varname_height_">new($title, $varname, $height, $width)</A>
+			<LI><A HREF="#setTitle_newtitle_">setTitle($newtitle)</A>
+			<LI><A HREF="#getTitle_">getTitle()</A>
+			<LI><A HREF="#setText_text_pos_">setText($text, $pos)</A>
+			<LI><A HREF="#insertItem_items_">insertItem{@items}</A>
+			<LI><A HREF="#removeItem_refnr_">removeItem($refnr)</A>
+			<LI><A HREF="#getItem_refnr_">getItem($refnr)</A>
+			<LI><A HREF="#clearItems_">clearItems()</A>
+		</UL>
+
+		<LI><A HREF="#DlInputField">DlInputField</A>
+		<UL>
+
+			<LI><A HREF="#new_title_titlepos_varname_">new($title, $titlepos, $varname, $exit, $typ, $height, $width)</A>
+		</UL>
+
+		<LI><A HREF="#DlList">DlList</A>
+		<UL>
+
+			<LI><A HREF="#new_title_varname_multi_e">new($title, $varname, $multi, $exit, $height, $width)</A>
+			<LI><A HREF="#setTitle_newtitle_">setTitle($newtitle)</A>
+			<LI><A HREF="#getTitle_">getTitle()</A>
+			<LI><A HREF="#setText_text_pos_">setText($text, $pos)</A>
+			<LI><A HREF="#setFont_index_font_">setFont($index, $font)</A>
+			<LI><A HREF="#setFontSize_index_fontsize_">setFontSize($index, $fontsize)</A>
+			<LI><A HREF="#setColor_index_color_">setColor($index, $color)</A>
+			<LI><A HREF="#insertItem_items_">insertItem{@items}</A>
+			<LI><A HREF="#removeItem_refnr_">removeItem($refnr)</A>
+			<LI><A HREF="#getItem_refnr_">getItem($refnr)</A>
+			<LI><A HREF="#getList_">getList()</A>
+			<LI><A HREF="#clear_">clear()</A>
+		</UL>
+
+		<LI><A HREF="#DlRadioList">DlRadioList</A>
+		<UL>
+
+			<LI><A HREF="#new_title_varname_height_">new($title, $varname, $height, $width)</A>
+			<LI><A HREF="#setTitle_newtitle_">setTitle($newtitle)</A>
+			<LI><A HREF="#getTitle_">getTitle()</A>
+			<LI><A HREF="#setText_text_pos_">setText($text, $pos)</A>
+			<LI><A HREF="#insertButton_buttonlist_">insertButton(@buttonlist)</A>
+			<LI><A HREF="#removeButton_refnr_">removeButton($refnr) </A>
+		</UL>
+
+		<LI><A HREF="#DlWidgetGroup">DlWidgetGroup</A>
+		<UL>
+
+			<LI><A HREF="#new_orient_title_height_w">new($orient, $title, $height, $width)</A>
+			<LI><A HREF="#setTitle_newtitle_">setTitle($newtitle)</A>
+			<LI><A HREF="#getTitle_">getTitle()</A>
+			<LI><A HREF="#setText_text_pos_">setText($text, $pos)</A>
+			<LI><A HREF="#setImage_image_pos_">setImage($image, $pos)</A>
+			<LI><A HREF="#insertElement_widgets_">insertElement(@widgets)</A>
+		</UL>
+
+		<LI><A HREF="#DlMessage">DlMessage</A>
+		<UL>
+
+			<LI><A HREF="#DlMessage_show_title_text_ty">DlMessage->show($title,$text,$typ,$height,$width)</A>
+		</UL>
+
+	<LI><A HREF="#Beispielscript_">Beispielscript:</A>
+	<LI><A HREF="#AUTHORS">AUTHORS </A>
+</UL>
+<!-- INDEX END -->
+
+<HR>
+<P>
+<H1><A NAME="NAME">NAME
+
+</A></H1>
+<PRE>        DlDialog.pm - Eine Wrapper-Suite für dldialog in Perl
+</PRE>
+
+<P>
+
+<P>
+<HR>
+<H1><A NAME="SYNOPSIS">SYNOPSIS
+
+</A></H1>
+DlDialog ist eine Wrapper-Suite für den objektorienierten Aufbau von
+DlDialog-Widgets in Perl und stellt dazu verschiedene Objekte bereit, die
+den Umgang und die Ablaufsteuerung weitgehend vereinfachen. Die Suite teilt
+sich dabei in 3 Beriche :
+
+
+<P>
+
+<P>
+<HR>
+<H2><A NAME="Basisklassen">Basisklassen
+
+</A></H2>
+Für den Grundlegenden Dialogaufbau stehen 3 Klassen zur Verfügung
+
+
+<P>
+
+<PRE>        DlDialog
+</PRE>
+
+<P>
+
+gibt die Referenz auf ein <A HREF="#DlDialog">DlDialog</A>-Objekt zurück, das automatisch mit den erforderlichen &lt;Hilfe, Zurück, Weiter, Ok, Abbrechen&gt;-Buttons versehen wird. Das <A HREF="#DlDialog">DlDialog</A>-Objekt selbst verwaltet nur verschiedene Widgets und WidgetGruppen.
+
+
+<P>
+
+<PRE>        DlWizzard
+</PRE>
+
+<P>
+
+gibt die Referenz auf einen <A HREF="#DlWizzard">DlWizzard</A>-Objekt zurück, das einen <A HREF="#DlDialog">DlDialog</A>-Stack verwaltet, der die Abwicklung von Konfigurations- oder
+Abfragedialogen im Wizzard-Stil steuert. Auf dem Stapel werden <A HREF="#DlDialog">DlDialog</A>-Objekte gesammelt, die in einer Kette abgearbeitet werden, eine
+einheitliche <A HREF="#Hilfe">Hilfe</A>datei verwalten und mit den jeweils sinnvollen Steuerbuttons ausgestatet
+sind. Eingegebene Variablen bleiben beim Vor- und Zurückblättern erhalten
+und jeder einzelne Dialog kann eine <A HREF="#Callback">Callback</A>routine zugeordnet bekommen, die aufgerufen wird, wenn der Dialog verlassen
+wird.
+
+
+<P>
+
+<P>
+<HR>
+<H2><A NAME="Widgetklassen">Widgetklassen
+
+</A></H2>
+Um die Dialoge mit Inhalt zu füllen, stehen verschiedene Widgetklassen zur
+Verfügung. Dies sind in alphabetischer Reihenfolge
+
+
+<P>
+
+<PRE>        DlButton
+        DlButtonGroup
+        DlCheckList
+        DlComboBox
+        DlInputField
+        DlList
+        DlRadioList
+        DlWidgetGroup
+</PRE>
+
+<P>
+
+<P>
+<HR>
+<H2><A NAME="Hilfsklassen">Hilfsklassen
+
+</A></H2>
+Dies sind Klassen, die von DlDialog-Objekten direkt verwaltet werden oder
+auch ohne Erstellung einer Instanz direkt aufgerufen werden können.
+
+
+<P>
+
+<PRE>        DlHelp
+</PRE>
+
+<P>
+
+verwaltet eine <A HREF="#Hilfe">Hilfe</A>datei mit Kapiteln und Inhaltsverzeichniss.
+
+
+<P>
+
+<PRE>        DlMessage
+</PRE>
+
+<P>
+
+gibt einen einfachen Dialog aus für Mitteilungen oder Bestätigungen.
+
+
+<P>
+
+<P>
+<HR>
+<H1><A NAME="Gebrauch">Gebrauch
+
+</A></H1>
+Mit der Anweisung
+
+
+<P>
+
+<PRE>        use DlDialog;  oder
+        use DlWizzard;
+</PRE>
+
+<P>
+
+werden im Perlscript alle Klassen zur Verfügung gestellt.
+
+
+<P>
+
+<P>
+<HR>
+<H1><A NAME="Die_Basisklassen_im_einzelnen">Die Basisklassen im einzelnen
+
+</A></H1>
+<P>
+<HR>
+<H2><A NAME="DlDialog">DlDialog
+
+</A></H2>
+Ein DlDialog-Objekt wird mit <EM>show()</EM> zur Anzeige gebracht und ist standardmäßig mit einem &lt;Ok&gt; und einem
+&lt;Zurück&gt;-Button ausgestattet. Wird der Dialog mit einer Hilfedatei
+verfnüpft, kommt noch ein &lt;Hilfe&gt;-Button dazu.
+
+
+<P>
+
+Das Handling der Hilfedatei wird komplett innerhalb der Funktion
+abgewickelt, der Programmierer braucht also nur mit <EM>setHelp(<EM>helpfile</EM>)</EM> die Hilfe initiieren und vergessen.
+
+
+<P>
+
+Der Aufruf von DlDialog-&gt;show gibt den Zustand des Dialogs als
+&lt;SCALAR&gt; zurück. Mögliche Zustande sind: 
+
+
+<P>
+
+<PRE>        'ok', 'back', 'cancel'
+</PRE>
+
+<P>
+
+<A HREF="#Variablen">Variablen</A>, die den einzelnen Widgets zugewiesen werden, sind nach der Beenigung des
+Dialogs in Scope des Aufrufers gültige Perlvarialblen.
+
+
+<P>
+
+<P>
+<HR>
+<H4><A NAME="new_title_orientation_">new($title, $orientation)
+
+</A></H4>
+Der Konstruktor legt eine neues DlDialogobjekt an, das den Titel <EM>$title</EM> enthält und eine Referenz auf das erzeugte Objekt zurückgibt. <EM>$orientation</EM> gibt die Ausrichtung des Dialogs an. Gültige Parameter sind
+'r|row','c|col','f|form', Gross- und Kleinschreibung wird ignoriert,
+default ist 'col'.
+
+
+<P>
+
+<STRONG>Rückgabewert:</STRONG> Referenz auf das Objekt.
+
+
+<P>
+
+<P>
+<HR>
+<H4><A NAME="setTitle_newtitle_">setTitle($newtitle)
+
+</A></H4>
+Setzt den Titel des Dialogs auf <EM>$newtitle</EM>.
+<STRONG>Rückgabewert:</STRONG> Der alte Titel des Dialogs.
+
+
+<P>
+
+<P>
+<HR>
+<H4><A NAME="getTitle_">getTitle()
+
+</A></H4>
+<STRONG>Rückgabewert:</STRONG> Der Titel des Dialogs.
+
+
+<P>
+
+<P>
+<HR>
+<H4><A NAME="setText_text_">setText($text)
+
+</A></H4>
+Setzt den einleitenden Text des Dialogs auf <EM>$text</EM>.
+
+
+<P>
+
+<P>
+<HR>
+<H4><A NAME="setImage_imagefile_">setImage($imagefile)
+
+</A></H4>
+Setzt das Bild auf der linken Seite des Dialogs auf <EM>$imagefile</EM> und gibt das zuvor gesetzte Bild zurück. Default ist ``DLD.xpm''.
+
+
+<P>
+
+<P>
+<HR>
+<H4><A NAME="getImage_">getImage()
+
+</A></H4>
+Gibt das aktuell gesetzte Bild zurück.
+
+
+<P>
+
+<P>
+<HR>
+<H4><A NAME="addGroup_a_widget_pos_">addGroup($a_widget, $pos)
+
+</A></H4>
+fügt dem Dialog das Widget <EM>$a_widget</EM> als Nummer <EM>$pos</EM> hinzu. Dies können DlWidgetGroup oder jedes andere Widget sein, die über
+eine Funktion <STRONG>getCode</STRONG> verfügen, die einen gültigen dldialog-code zurückgibt. Ist <EM>$pos</EM> nicht angegeben, wird das Widget hinten angefügt.
+
+
+<P>
+
+<STRONG>Rückgabewert:</STRONG> Referenznummer auf die hinzugefügte Gruppe.
+
+
+<P>
+
+<P>
+<HR>
+<H4><A NAME="removeGroup_ref_nr_">removeGroup($ref_nr)
+
+</A></H4>
+entfernt das Widget mit der Referenznummer (<EM>$ref_nr</EM> aus dem Dialog.
+
+
+<P>
+
+<STRONG>Rückgabewert:</STRONG> Referenznummer der entfernten Gruppe oder 0 bei Fehlschlag.
+
+
+<P>
+
+<P>
+<HR>
+<H4><A NAME="setHelp_helpfile_">setHelp($helpfile)
+
+</A></H4>
+verknüpft den Dialog mit einer Hilfedatei. './' und '~/' werden expandiert. 
+
+
+<P>
+
+<P>
+<HR>
+<H2><A NAME="DlWizzard">DlWizzard
+
+</A></H2>
+Das Konzept des DlWizzards wurde entwickelt, um die Abwicklung von Dialogen
+im Wizzard-Stil zu automatisieren und den Entwickler freizusetzen, sich auf
+den Inhalt der Dialoge zu konzentrieren. Ein weiterer Vortiel ist, dass die
+Gestaltung der Steuerbuttons und der Grundaufbau der Dialoge zentral
+verwaltet und dadurch einheitlich gestaltet ist.
+
+
+<P>
+
+Der DlWizzard verwaltet einen Stack mit 'finite machines'
+DlDialog-Objekten.
+<STRONG>Hilfe</STRONG>  <STRONG>Zurück</STRONG>  <STRONG>Weiter</STRONG>  <STRONG>Ok</STRONG>  <STRONG>Abbrechen</STRONG>  sind intelligent angebracht wie Till vorgeschlagen hat.
+
+
+<P>
+
+Der DlWizzard kann mit einer einfach aufgebauten <A HREF="#Hilfe">Hilfe</A>datei verknüpft werden, die für alle Dialoge zentral verwaltet wird.
+
+
+<P>
+
+Über <A HREF="#Callback">Callback</A>routinen können die gesetzten Werte nach jedem '-exit' verarbeitet werden.
+
+
+<P>
+
+Einzelne Dialoge können beliebig ein- und ausgeblendet werden.
+
+
+<P>
+
+Der Aufbau einzelner Dialoge kann dynamisch gestaltet werden.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="Die_einzelnen_Funktionen_von_DlW">Die einzelnen Funktionen von DlWizzard
+
+</A></H3>
+<P>
+<HR>
+<H4><A NAME="DlWizzard_new_">DlWizzard->new()
+
+</A></H4>
+gibt die Referenz auf einen neuen Wizard zurück
+
+
+<P>
+
+<P>
+<HR>
+<H4><A NAME="DlWizzard_store_dialoglist_">DlWizzard->store(@dialoglist)
+
+</A></H4>
+Fügt dem Wizzard einen oder mehrere Dialoge hinzu. Werden die Dialoge
+einzeln hinzugefügt, gibt die Funktion eine Referenznummer zurück, die für
+die Funktionen <STRONG>hide</STRONG> und <STRONG>unhide</STRONG> benötigt werden.
+
+
+<P>
+
+<P>
+<HR>
+<H4><A NAME="DlWizzard_setHelp_helpfile_">DlWizzard->setHelp($helpfile)
+
+</A></H4>
+bindet eine zentrale Hilfedatei <EM>$helpfile</EM> ein. in die einzelnen Dialoge sollte dann keine separate Hilfe eingebunden
+werden. (siehe <A HREF="#Hilfe">Hilfe</A>)
+
+
+<P>
+
+<P>
+<HR>
+<H4><A NAME="DlWizzard_hide_refnrs_">DlWizzard->hide(@refnrs)
+
+</A></H4>
+schaltet einzelne oder mehrere Dialoge im Wizzard aus (z.B. um bei
+speziellen Eingaben sinnlose Seiten zu überspringen).
+
+
+<P>
+
+<P>
+<HR>
+<H4><A NAME="DlWizzard_unhide_refnrs_">DlWizzard->unhide(@refnrs)
+
+</A></H4>
+schaltet einen oder mehrere Dialoge wieder ein.
+
+
+<P>
+
+<P>
+<HR>
+<H4><A NAME="DlWizzard_proceed_">DlWizzard->proceed()
+
+</A></H4>
+startet den Wizzard. Der Rückgabewert entspricht dem Beendigungszustand des
+letzten Dialoges und hat den Wert 'cancel' oder 'ok'. 
+
+
+<P>
+
+<P>
+<HR>
+<H2><A NAME="Callback">Callback
+
+</A></H2>
+<PRE>         B&lt;setCallback($callbackref)&gt;
+</PRE>
+
+<P>
+
+Setzt die Callbackfunktion des Dialogs, die von DlWizzard beim Verlassen
+des DlDialogobjektes aufgerufen wird. 
+<EM>$callbackref</EM> ist dabei eine Referenz auf eine Funktion, die im Hauptprogramm (dort , wo
+der DlWizzard aufgerufen wird, als anonyme Subroutine deklariert ist.
+
+
+<P>
+
+<PRE>         $callbackref = sub {
+        do_this($widgetvar1);
+        do_that...}
+</PRE>
+
+<P>
+
+Innerhalb des Blocks kann auf alle <A HREF="#Variablen">Variablen</A> des Dialogs zugegriffen werden
+
+
+<P>
+
+<P>
+<HR>
+<H2><A NAME="Variablen">Variablen
+
+</A></H2>
+Den einzelnen Widgets können beim Einrichten Variablen zugeordnet werden
+indem der Variablenname als String übergeben wird. Ist im Scope des
+Aufrufers die Variable mit einem Wert versehen, so ist dieser Wert auch im
+Dialog bekannt. Umgekehrt sind die im Dialog zugeordneten Werte nach
+Beendigung des Dialogs im Scope des Aufrufers gesetzt. Zum Vergleich der
+Werte sollten die Referenzwerte verwendetwerden, die beim Einrichten eines
+Widgets zurückgegeben werden. <STRONG>Beispiel:</STRONG>
+
+
+
+
+<P>
+
+<PRE>        $myradiolist = new DlRadioList('Titel','radiovar');
+        $choice1 = $myradiolist-&gt;insertButton('1. Wahl');
+        $choice2 = $myradiolist-&gt;insertButton('2. Wahl');
+        ...
+</PRE>
+
+<P>
+
+Nach Abarbeitung des Dialogs lässt sich der Zustand mit 
+
+
+<P>
+
+<PRE>        if ($radiovar eq $choice1) {print &quot;Sie haben die 1. Wahl getroffen\n&quot;}
+</PRE>
+
+<P>
+
+verarbeiten. Mit der Syntax 'radiovar=3' lässt sich ein Defaultwert setzen,
+der jedoch bei jedem neuen Aufruf des Dialogs den gewählten Wert wieder
+überschreibt. Normalerweise sollten defaultwerte über die zugehörige
+Perl-variable gesetzt werden.(z.B. $radiavar=$choice2). 
+
+
+<P>
+
+<STRONG>Wichtig:</STRONG> Da die Variablen beim Beenden eines Dialoges nur dann modifiziert werden,
+wenn ein Wert gesetzt wurde, sollten Variablen, die keine Werte in den
+Dialog transportieren, vor dem Aufruf mit undef oder einer
+Leerstringzuweisung entladen werden. (liegt an dldialog :-( )
+
+
+<P>
+
+<P>
+<HR>
+<H2><A NAME="Hilfe">Hilfe
+
+</A></H2>
+Der Aufbau der Hilfedatei ist entsprechend Tills Vorschlag mit einfachen
+Tags gesteuert. <STRONG>Beispiel:</STRONG>
+
+
+
+
+<P>
+
+<PRE>        &lt;Title&gt; Titel des Hilfedialogs bis zum Ende der Zeile
+        &lt;Einführung&gt;
+        Dies ist der Einführungstext bis zum nächsten Tag.
+        &lt;Details&gt; 
+        Der Tag wird jedoch nur zum Beginn einer Zeile erkannt, 
+        dieser &lt;Tag&gt; wird im Text normal wiedergegeben
+        &lt;about&gt; die Zeile hinter einem gültigen Tag wird ignoriert
+        ...
+</PRE>
+
+<P>
+
+erzeugt einen Hilfedialog mit dem gewünschten Titel, einer Combobox, in der
+die Kapitel 'Einführung', 'Details' und 'about' zur Auswahl angeboten
+werden. Im darunterliegenden Fenster wird der Text des gewählten Kapitels,
+defaultmässig das erste Kapitel, angezeigt. Die Auswahl wird beim <A HREF="#DlWizzard">DlWizzard</A> über alle Dialoge hinweg gespeichert. Eingebunden wird die Hilfe mit
+
+
+<P>
+
+<PRE>        DlDialog-&gt;setHelp($helpfile)
+</PRE>
+
+<P>
+
+bzw.
+
+
+<P>
+
+<PRE>        DlWizzard-&gt;setHelp($helpfile)
+</PRE>
+
+<P>
+
+<P>
+<HR>
+<H1><A NAME="Die_Widgetklassen">Die Widgetklassen
+
+</A></H1>
+<P>
+<HR>
+<H2><A NAME="DlButton_text_varname_font_">DlButton($text, $varname, $font, $fontsize, $fontcolor)
+
+</A></H2>
+gibt die Referenz auf einen Button zurück, der mit <EM>$text</EM> beschriftet wird und bei Betätigung die Variable <EM>$$varname</EM> auf '1' setzt. Mit <EM>$font, $fontsize, $fontcolor</EM> können Schriftart, Schriftgrösse und Schriftfarbe des Buttons festgelegt
+werden.
+
+
+<P>
+
+<P>
+<HR>
+<H2><A NAME="DlButtonGroup">DlButtonGroup
+
+</A></H2>
+<P>
+<HR>
+<H3><A NAME="new_orient_title_titlepos_">new($orient, $title, $titlepos, $varname, $height, $width)
+
+</A></H3>
+erstellt eine ButtonGruppe mit dem Titel I$&lt;title&gt;. <EM>$orient</EM> setzt die Ausrichtung der ButtonGruppe, gültige Werte sind 'r|row|c|col'. <EM>$titlepos</EM> bestimmt die Anordnung des Titels, gültige Werte sind
+'t|top|b|bottom|l|left|r|right'. <EM>$varname</EM> setzt den Namen der Rückgabe<A HREF="#Variablen">Variablen</A>. <EM>$height</EM> und <EM>$width</EM> setzen die Geometrie der ButtonGruppe.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="insertButton_buttonlist_">insertButton(@buttonlist)
+
+</A></H3>
+installiert einen oder mehrere Buttons mit den übergebenen Namen. Werden
+die Buttons einzeln installiert, ist der Rückgabewert eine Referenznummer
+auf den Button, die auch dem Rückgabewert der Variablen <EM>$$varname</EM> entspricht. z.B:
+
+
+<P>
+
+<PRE>        $bgroup = new DlButtonGroup('Titel','pressed');
+        $chaos_pressed = $bgroup-&gt;insertButton('Chaos');
+        ...
+        if ($pressed eq $chaos_pressed) {print &quot;Sie lieben das Chaos?\n&quot;}
+</PRE>
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="removeButton_refnr_">removeButton($refnr) 
+
+</A></H3>
+entfernt den Button mit der Referenznummer <EM>$refnr</EM>.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setTitle_newtitle_">setTitle($newtitle)
+
+</A></H3>
+macht <EM>$newtitle</EM> zum neuen Titel der ButtonGruppe und gibt den alten Titel zurück.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="getTitle_">getTitle()
+
+</A></H3>
+gibt den aktuellen Titel zurück
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setText_text_pos_">setText($text, $pos)
+
+</A></H3>
+setzt einen Text in der ButtonGruppe auf <EM>$text</EM>, defaultmässig vor den Buttons. Ist <EM>$pos</EM> auf 'b|bottom|back' gesetzt, erscheint der Text nach den Buttons.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setImage_ref_image_">setImage($ref, $image)
+
+</A></H3>
+setzt das Bild <EM>$image</EM> für den mit <EM>$ref</EM> referenzierten Button.
+
+
+<P>
+
+<P>
+<HR>
+<H2><A NAME="DlChecklist">DlChecklist
+
+</A></H2>
+<P>
+<HR>
+<H3><A NAME="new_title_varname_height_">new($title, $varname, $height, $width)
+
+</A></H3>
+erstellt eine Checkliste mit dem Titel <EM>$title</EM>. <EM>$varname</EM> setzt den Namen der Rückgabe<A HREF="#Variablen">Variablen</A>. <EM>$height</EM> und <EM>$width</EM> setzen die Geometrie der Checkliste.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setTitle_newtitle_">setTitle($newtitle)
+
+</A></H3>
+macht <EM>$newtitle</EM> zum neuen Titel der Checkliste und gibt den alten Titel zurück.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="getTitle_">getTitle()
+
+</A></H3>
+gibt den aktuellen Titel zurück
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setText_text_pos_">setText($text, $pos)
+
+</A></H3>
+setzt einen Text in der Checkliste auf <EM>$text</EM>, defaultmässig oben. Ist <EM>$pos</EM> auf 'b|bottom' gesetzt, erscheint der Text nach den CheckButtons.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="insertButton_buttonlist_">insertButton(@buttonlist)
+
+</A></H3>
+installiert einen oder mehrere CheckButtons mit den übergebenen Namen.
+Werden die Buttons einzeln installiert, ist der Rückgabewert eine
+Referenznummer auf den Button, die auch dem Rückgabewert der Variablen <EM>$$varname</EM> entspricht.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="removeButton_refnr_">removeButton($refnr) 
+
+</A></H3>
+entfernt den CheckButton mit der Referenznummer <EM>$refnr</EM>.
+
+
+<P>
+
+<P>
+<HR>
+<H2><A NAME="DlComboBox">DlComboBox
+
+</A></H2>
+<P>
+<HR>
+<H3><A NAME="new_title_varname_height_">new($title, $varname, $height, $width)
+
+</A></H3>
+erstellt eine Combobox mit dem Titel <EM>$title</EM>. <EM>$varname</EM> setzt den Namen der Rückgabe<A HREF="#Variablen">Variablen</A>. <EM>$height</EM> und <EM>$width</EM> setzen die Geometrie der Checkliste.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setTitle_newtitle_">setTitle($newtitle)
+
+</A></H3>
+macht <EM>$newtitle</EM> zum neuen Titel der Combobox und gibt den alten Titel zurück.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="getTitle_">getTitle()
+
+</A></H3>
+gibt den aktuellen Titel zurück
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setText_text_pos_">setText($text, $pos)
+
+</A></H3>
+setzt einen Text in der Combobox auf <EM>$text</EM>, defaultmässig oben. Ist <EM>$pos</EM> auf 'b|bottom' gesetzt, erscheint der Text unten.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="insertItem_items_">insertItem{@items}
+
+</A></H3>
+fügt der Combobox einen oder mehrere Einträge hinzu. werden die Einträge
+einzeln hinzugefügt, ist der Rückgabewert eine Referenznummer auf den
+Eintrag.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="removeItem_refnr_">removeItem($refnr)
+
+</A></H3>
+entfernt den Eintrag mit der Referenznummer <EM>$refnr</EM> aus der Combobox.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="getItem_refnr_">getItem($refnr)
+
+</A></H3>
+gibt den Text des Eintrags mit der Referenznummer <EM>$refnr</EM> zurück.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="clearItems_">clearItems()
+
+</A></H3>
+leert die Combobox.
+
+
+<P>
+
+<P>
+<HR>
+<H2><A NAME="DlInputField">DlInputField
+
+</A></H2>
+<P>
+<HR>
+<H3><A NAME="new_title_titlepos_varname_">new($title, $titlepos, $varname, $exit, $typ, $height, $width)
+
+</A></H3>
+erstellt ein Eingabefeld mit dem Titel <EM>$title</EM>, <EM>$titlepos</EM> gibt die Positiondes Titels an, gültige Werte sind
+'t|top|b|bottom|l|left|r|right'.
+<EM>$varname</EM> setzt den Namen der Rückgabe<A HREF="#Variablen">Variablen</A>. Ist <EM>$exit</EM> gesetzt (nicht_null), beendet ein &lt;Enter&gt; nach der Eingabe den Dialog. Im LDlWizzard&gt; wird der Dialog
+jedoch nicht weitergeschaltet, so dass die Eingabe in der <A HREF="#Callback">Callback</A>funktion verarbeitet werden und ggf. der Dialog entsprechend verändert
+werden kann.
+<EM>$typ</EM> gibt den Typ des Eingabefeldes an, gültige Werte sind hier
+'p|passwd|n|numeric|i|ip'. Diese Angaben können auch kombiniert werden und
+sollten dann mit Leerstellen getrennt in <EM>$typ</EM> übergeben werden (z.B. <CODE>$typ</CODE> = 'numeric passwd'). <EM>$height</EM> und <EM>$width</EM> setzen die Geometrie der Checkliste. Die Eingabe wird über die Variable <EM>$$varname</EM> zurückgegeben.
+
+
+<P>
+
+<P>
+<HR>
+<H2><A NAME="DlList">DlList
+
+</A></H2>
+<P>
+<HR>
+<H3><A NAME="new_title_varname_multi_e">new($title, $varname, $multi, $exit, $height, $width)
+
+</A></H3>
+erstellt eine Auswahlliste mit dem Titel  <EM>$title</EM>. <EM>$varname</EM> setzt den Namen der Rückgabe<A HREF="#Variablen">Variablen</A>. Ist <EM>$multi</EM> gesetzt (nicht_null), ist eine mehrfachauswahl möglich. Ist <EM>$exit</EM> gesetzt (nicht_null), beendet ein Doppelclick auf einen Listeneintrag den
+Dialog. Im LDlWizzard&gt; wird der Dialog jedoch nicht weitergeschaltet, so
+dass die Eingabe in der <A HREF="#Callback">Callback</A>funktion verarbeitet werden und ggf. der Dialog entsprechend verändert
+werden kann. <EM>$height</EM> und <EM>$width</EM> setzen die Geometrie der Checkliste.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setTitle_newtitle_">setTitle($newtitle)
+
+</A></H3>
+macht <EM>$newtitle</EM> zum neuen Titel der Liste und gibt den alten Titel zurück.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="getTitle_">getTitle()
+
+</A></H3>
+gibt den aktuellen Titel zurück
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setText_text_pos_">setText($text, $pos)
+
+</A></H3>
+setzt einen Text in der Liste auf <EM>$text</EM>, defaultmässig oben. Ist <EM>$pos</EM> auf 'b|bottom' gesetzt, erscheint der Text unten.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setFont_index_font_">setFont($index, $font)
+
+</A></H3>
+setzt den Zeichesatz des mit <EM>$index</EM> indizierten Listeneintrags, ist <EM>$index</EM> nicht angegeben, wird der Zeichensatz <EM>$font</EM> als Standardzeichensatz gesetzt.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setFontSize_index_fontsize_">setFontSize($index, $fontsize)
+
+</A></H3>
+setzt den Zeichesatz des mit <EM>$index</EM> indizierten Listeneintrags auf die angegebene Größe, ist <EM>$index</EM> nicht angegeben, wird <EM>$fontsize</EM> als Standardgröße gesetzt.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setColor_index_color_">setColor($index, $color)
+
+</A></H3>
+setzt die Schriftfarbe des mit <EM>$index</EM> indizierten Listeneintrags, ist <EM>$index</EM> nicht angegeben, wird <EM>$color</EM> als Standardfarbe verwenden. <EM>$color</EM> kann dabei mit den üblichen Farbbezeichnungen 'darkblue' , 'yellow'... oder
+als hexadezimal codierte Farbe wie in HTML, z.B. '#F0459F' angegeben
+werden. 
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="insertItem_items_">insertItem{@items}
+
+</A></H3>
+fügt der Auswahlliste einen oder mehrere Einträge hinzu. werden die
+Einträge einzeln hinzugefügt, ist der Rückgabewert eine Referenznummer auf
+den Eintrag.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="removeItem_refnr_">removeItem($refnr)
+
+</A></H3>
+entfernt den Eintrag mit der Referenznummer <EM>$refnr</EM> aus der Auswahlliste.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="getItem_refnr_">getItem($refnr)
+
+</A></H3>
+gibt den Eintrag selbst zurück.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="getList_">getList()
+
+</A></H3>
+gibt eine Referenz auf ein Array zurück, dass den aktuellen Inhalt der
+Auswahlliste enthält.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="clear_">clear()
+
+</A></H3>
+leert die Auswahlliste.
+
+
+<P>
+
+<P>
+<HR>
+<H2><A NAME="DlRadioList">DlRadioList
+
+</A></H2>
+<P>
+<HR>
+<H3><A NAME="new_title_varname_height_">new($title, $varname, $height, $width)
+
+</A></H3>
+erstellt eine Liste von Radiobuttons mit dem Titel <EM>$title</EM>. <EM>$varname</EM> setzt den Namen der Rückgabe<A HREF="#Variablen">Variablen</A>. <EM>$height</EM> und <EM>$width</EM> setzen die Geometrie der Radioliste.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setTitle_newtitle_">setTitle($newtitle)
+
+</A></H3>
+macht <EM>$newtitle</EM> zum neuen Titel der Radioliste und gibt den alten Titel zurück.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="getTitle_">getTitle()
+
+</A></H3>
+gibt den aktuellen Titel zurück
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setText_text_pos_">setText($text, $pos)
+
+</A></H3>
+setzt einen Text in der Liste auf <EM>$text</EM>, defaultmässig oben. Ist <EM>$pos</EM> auf 'b|bottom' gesetzt, erscheint der Text unten.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="insertButton_buttonlist_">insertButton(@buttonlist)
+
+</A></H3>
+installiert einen oder mehrere RadioButtons mit den übergebenen Namen.
+Werden die Buttons einzeln installiert, ist der Rückgabewert eine
+Referenznummer auf den Button, die auch dem Rückgabewert der Variablen <EM>$$varname</EM> entspricht.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="removeButton_refnr_">removeButton($refnr) 
+
+</A></H3>
+entfernt den RadioButton mit der Referenznummer <EM>$refnr</EM>.
+
+
+<P>
+
+<P>
+<HR>
+<H2><A NAME="DlWidgetGroup">DlWidgetGroup
+
+</A></H2>
+DlWidgetGroup dient eigentlich nur der Gruppierung verschiedener Widgets,
+die damit zusammengefasst werden.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="new_orient_title_height_w">new($orient, $title, $height, $width)
+
+</A></H3>
+erzeugt eine neue Widgetgruppe mit dem Titel <EM>$title</EM> und der Ausrichtung <EM>$orient</EM>, gültige Werte für <EM>$orient</EM> sind 'r|row|c|col'.  <EM>$height</EM> und <EM>$width</EM> setzen die Geometrie der Widgetgruppe.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setTitle_newtitle_">setTitle($newtitle)
+
+</A></H3>
+macht <EM>$newtitle</EM> zum neuen Titel der Widgetgruppe und gibt den alten Titel zurück.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="getTitle_">getTitle()
+
+</A></H3>
+gibt den aktuellen Titel zurück
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setText_text_pos_">setText($text, $pos)
+
+</A></H3>
+setzt einen Text in der Widgetgruppe auf <EM>$text</EM>, defaultmässig oben. Ist <EM>$pos</EM> auf 'b|bottom' gesetzt, erscheint der Text unten.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="setImage_image_pos_">setImage($image, $pos)
+
+</A></H3>
+fügt der WidgetGroup ein Bild hinzu. <EM>$pos</EM> ist dabei optional, gültige Werte für <EM>$pos</EM> sind 't|top|b|bottom', default 'top'.
+
+
+<P>
+
+<P>
+<HR>
+<H3><A NAME="insertElement_widgets_">insertElement(@widgets)
+
+</A></H3>
+fügt ein oder mehrere Widgets in die Widgetgruppe ein.
+
+
+<P>
+
+<P>
+<HR>
+<H2><A NAME="DlMessage">DlMessage
+
+</A></H2>
+<P>
+<HR>
+<H3><A NAME="DlMessage_show_title_text_ty">DlMessage->show($title,$text,$typ,$height,$width)
+
+</A></H3>
+zeigt eine MessageBox mit dem Titet <EM>$title</EM> und dem Text <EM>$text</EM>. <EM>$typ</EM> legt dabei die Art der MessageBox fest. Mögliche Typen sind: 
+
+
+<P>
+
+'j|ja|y|yes' für yes|no-Boxen. Rückgabewert bei diesem Typ ist 'yes' oder
+'no'.
+
+
+<P>
+
+'b|break' für break|continue-Boxen. Rückgabewert bei diesem Typ ist 'break'
+oder 'continue'.
+
+
+<P>
+
+anderenfalls gibt es nur einen 'Zurück'-Button und den Rückgabewert 'back'.
+
+
+<P>
+
+Ein Verwendungsbeispiel aus der Shell
+
+
+<P>
+
+<PRE>        /usr/bin/perl -e 'use DlDialog; DlMessage-&gt;show('Hallo Welt','Hier bin Ich')'
+</PRE>
+
+<P>
+
+<P>
+<HR>
+<H1><A NAME="Beispielscript_">Beispielscript:
+
+</A></H1>
+siehe beiliegendes 'test.dl'
+
+
+<P>
+
+<P>
+<HR>
+<H1><A NAME="AUTHORS">AUTHORS 
+
+</A></H1>
+Thomas <A HREF="MAILTO:Hagedorn<tom@delix.de>.">Hagedorn<tom@delix.de>.</A>
+
+
+<P>
+
+</DL>
+    </BODY>
+
+    </HTML>

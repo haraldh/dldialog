@@ -1,0 +1,113 @@
+#!/usr/bin/perl -I/home/tom/Delix-CVS/dld/delix/dldialog/perl
+####################################################
+#
+use DlWizzard;
+use Socket;
+use IPC::Open2;
+
+sub start_server {                 # starte dldialog-Server, falls erforderlich
+  unless ($ENV{DLDIALOG_INFIFO}) {
+    if ($ENV{XRUNS} eq 'yes') { $dialog_flag  = '-q' }
+    else { $dialog_flag  = '-t' }
+    $ret = `dldialog --start $dialog_flag -- -geometry 600x400`;
+    if ($ret =~ /=\"(.+)\"/) {
+      $ENV{DLDIALOG_INFIFO} = "$1";
+      print "started at $ENV{DLDIALOG_INFIFO}\n";
+    }
+  }
+}
+
+sub stop_server {                             ### stopt den dldialog-server
+  socket(SOCK, PF_UNIX, SOCK_STREAM, 0) or die "socket: $!";
+  connect(SOCK, sockaddr_un($ENV{DLDIALOG_INFIFO})) or die "connect $!";
+  $dialog = "  dld_stop;\n";
+  print "Killing $ENV{DLDIALOG_INFIFO}\n";
+  print SOCK $dialog;
+  exit 0;
+}
+
+
+# Callback für Dialog 1
+$callme1 = sub {
+  if ($mybutton_pressed) {
+    undef $mybutton_pressed;
+    $dialog1->removeGroup($b1);
+    $dir = $fswidget->getdir('/home/tom','','rpm','he','d');
+    print "Ergebniss: $dir:\n";
+    print "show_select is $show_select: sort_select is $sort_select\nfile_filter is $file_filter:\n";
+    $wizzard->unhide($d4);
+  }
+  $dialog2->setTitle("Grunddaten für $prename $myname");
+};     # dieses Semicolon ist zwingend erforderlich
+
+# Callback für Dialog 2
+$callme2 = sub {
+  if (($mycat) && ($mycat =~ /$dld_buyer/)) {
+    $wizzard->unhide($d3);
+    $wizzard->hide($d4);
+  }
+  if (($mycat) && (($mycat =~ /$net_support/) || ($mycat =~ /$lin_support/))) {
+    $wizzard->unhide($d4);
+    unless ($mycat =~ /$dld_buyer/) { $wizzard->hide($d3) }
+  }
+};
+
+$callme3 = sub {
+  if ($button_restore) {
+    undef $button_restore;
+    $dialog1->addGroup($mybutton,$b1);
+    $dir = $fswidget->getfile();
+    print "Ergebniss: $dir:\n";
+  }
+};
+
+$callme4 = sub {
+  print "this is the last Callback function\n";
+};
+
+
+$wizzard = new DlWizzard();
+$wizzard->setHelp("./test.hlp");
+# Dialog 1 zusammensetzen
+$dialog1 = new DlDialog("Kundendatei");
+$mybutton = new DlButton('Dieser Button entfernt sich bei Betätigung\nund startet einen DateiAuswahlDialog','mybutton_pressed');
+my $inputgroup = new DlWidgetGroup('col', 'Anschrift',100,30);
+my $subgroup = new DlWidgetGroup('row');
+$inputgroup->setText('Bitte geben Sie die Anschrift\n des Kunden ein');
+my $namefield = new DlInputField('Name','links','myname');
+my $prenamefield = new DlInputField('Vorname','links','prename');
+my $plzfield = new DlInputField('Postleitzahl','links','myplz','','n');
+my $townfield = new DlInputField('Ortsname','links','mytown','n');
+my $streetfield = new DlInputField('Strasse und Hausnummer','l','mystreet','true');
+$subgroup->insertElement($plzfield,$townfield);
+$inputgroup->insertElement($namefield,$prenamefield,$subgroup,$streetfield);
+$b1 = $dialog1->addGroup($mybutton);
+$dialog1->addGroup($inputgroup);
+#Dialog 2 zusammensetzen
+$dialog2 = new DlDialog("der Zweite");
+my $secondgroup = new DlWidgetGroup('col','Kategorie');
+my $check_cat = new DlCheckList("Kundenkategorie",'mycat');
+$dld_buyer = $check_cat->insertButton('DLD-Käufer');
+$net_support = $check_cat->insertButton('Netzwerk-Kunde');
+$lin_support = $check_cat->insertButton('Linux Support');
+$secondgroup->insertElement($check_cat);
+$dialog2->addGroup($secondgroup);
+#Dialog 3 zusammensetzen
+$dialog3 = new DlDialog("Käufer");
+$dialog3->addGroup(DlButton->new('Wiederherstellung des Buttons von Seite 1\nund startet einen DateiAuswahlDialog','button_restore'));
+
+$dialog4 = new DlDialog("Support");
+#Wizzard zusammenbauen
+$d1 = $wizzard->store($dialog1,$callme1);
+$d2 = $wizzard->store($dialog2,$callme2);
+$d3 = $wizzard->store($dialog3,$callme3);
+$d4 = $wizzard->store($dialog4,$callme4);
+
+$fswidget = new DlFileSelect('Hallo Test');
+$showselect = '';
+$mycat = $net_support;
+start_server();
+my $result = $wizzard->proceed();
+print "Der Wizzard wurde beendet mit $result\nund showselect ist $showselect:\n";
+stop_server();
+

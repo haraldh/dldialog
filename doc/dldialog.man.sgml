@@ -1,0 +1,151 @@
+<!-- -*- sgml -*- -->
+<!--
+/******************************************************************************
+**
+** $Id: dldialog.man.sgml,v 1.1 2001/03/14 02:31:35 saturn_de Exp $
+**
+**	This program is free software; you can redistribute it and/or
+**	modify it under the terms of the GNU General Public License
+**	as published by the Free Software Foundation; either version
+**	2 of the License, or (at your option) any later version.
+**
+** by Harald Hoyer (HarryH@Royal.Net) 
+** for delix Computer GmbH (http://www.delix.de)
+** 
+******************************************************************************/
+-->
+<!doctype linuxdoc system>
+<linuxdoc>
+<manpage title="dldialog" sectnum="1">
+<!-- -*- sgml -*- -->
+<!--
+/******************************************************************************
+**
+** $Id: dldialog.man.sgml,v 1.1 2001/03/14 02:31:35 saturn_de Exp $
+**
+**	This program is free software; you can redistribute it and/or
+**	modify it under the terms of the GNU General Public License
+**	as published by the Free Software Foundation; either version
+**	2 of the License, or (at your option) any later version.
+**
+** by Harald Hoyer (HarryH@Royal.Net) 
+** for delix Computer GmbH (http://www.delix.de)
+** 
+******************************************************************************/
+-->
+	<sect1><heading>NAME</heading>
+        <p>
+	  dldialog - display dialog boxes in text and graphics mode to interact with scripts
+</p></sect1>
+	<sect1><heading>SYNOPSIS</heading>
+        <p>
+	<bf>dldialog</bf> &lsqb; -b &verbar; -q &rsqb; 
+            &lsqb; -g &verbar; -q &verbar; -t &verbar; -p &rsqb; 
+            &lsqb; -dvh &rsqb; 
+            &lsqb; -f <it>infile</it> &rsqb; 
+            &lsqb; -- EXTRAOPTIONS &rsqb; 
+</p></sect1>
+	<sect1><heading>DESCRIPTION</heading>
+        <p>
+	This documentation is no longer being maintained and may be inaccurate 
+	or incomplete.  The Texinfo documentation is now the authoritative source.
+        </p><p>
+	This manual page documents the calling syntax of <bf> DLDialog</bf>.
+        </p><p><bf>DLDialog</bf> parses standard input or the 
+	<it>infile</it> and interprets it as described in the Texinfo documentation.
+</p></sect1>
+	<sect1><heading>OPTIONS</heading>
+	  <p>
+	<descrip>
+	      <tag><it>-b, --start</it></tag><p>
+	    Start the dldialog server.</p>
+	      <tag><it>-e, --stop</it></tag><p>
+	    Stop the dldialog server.</p>
+	      <tag><it>-d, --debug</it></tag><p>
+	    Display debugging output.</p>
+	      <tag><it>-f, --file infile</it></tag><p>
+	    Read input from <it>infile</it>, rather than from stdin.</p>
+	      <tag><it>-g, --generic</it></tag><p>
+	    Load a generic interface library specified by the 
+            <it>DLD_PRELOAD</it> environment variable.</p>
+	      <tag><it>-h, --help</it></tag><p>
+	    Display small help and exit.</p>
+	      <tag><it>-p, --parse</it></tag><p>
+	    Parse only to check input.</p>
+	      <tag><it>-q, --qt</it></tag><p>
+	    Use Qt (X11) interface.</p>
+	      <tag><it>-t, --tv</it></tag><p>
+	    Use tvision (terminal) interface (default).</p>
+	      <tag><it>-v, --version</it></tag><p>
+	    Display version information and exit.</p>
+	      <tag><it>EXTRAOPTIONS</it></tag><p>
+	    All options after -- are passed to the used module. It´s useful to pass e.g. a -geometry argument 
+            to the qt modul.</p>
+	    </descrip></p>
+</sect1>
+	<sect1><heading>ENVIRONMENT</heading>
+	  <p>
+	<descrip>
+	      <tag><it>DLD&lowbar;PRELOAD</it></tag><p>
+	    Use this to preload a specific interface, rather than the default ones.</p>
+	    </descrip></p></sect1>
+	<sect1><heading>BUGS</heading>
+	  <p>
+	Report them to http://www.delix.de.
+</p></sect1>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-set-face: t
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs: /usr/lib/sgml/iso-entities-8879.1986/iso-entities.cat
+sgml-local-ecat-files:nil
+End:
+-->
+    <sect1><heading>AUTHORS</heading>
+      <p>
+        <verb>
+Main author(s):
+===============
+
+Harald Hoyer	E-Mail:
+			Harald@delix.de
+			Harald@redhat.de
+			Harald@redhat.com
+			Hoyer@hot.spotline.de
+			HarryH@Royal.Net
+		HTTP:
+			http://www.delix.de/~harald
+			http://hot.spotline.de
+
+Perl modules: 
+=============
+
+Thomas Hagedorn <Thomas.Hagedorn@delix.de>
+ </verb>
+</manpage>
+</linuxdoc>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-set-face: t
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs: /usr/lib/sgml/iso-entities-8879.1986/iso-entities.cat
+sgml-local-ecat-files:nil
+End:
+-->
+

@@ -1,0 +1,70 @@
+                 dldialog - a shell interface to user dialogs
+                 ============================================
+
+                     dldialog was mainly developed for the 
+
+  ========================================================================
+ | Deutsche Linux Distribution (DLD) of delix Computer GmbH (www.delix.de)|
+  ========================================================================
+
+dldialog offers the capability to draw a variety of widgets, in order to
+ease the human user in feeding input to the script. The program is designed
+to be particularly useful to implement system administration scripts.
+
+Requirements:
+=============
+- qt-1.33 or newer versions 
+- qimgio with png extension if you want to display png images with qt
+- tvision 0.5.6 or newer versions
+- libdl
+- gettext, if you want i18n (internationalisation)
+- automake version 1.4 or newer versions
+- Autoconf version 2.13 or newer versions
+- libtool version 1.2 or newer versions
+- kdoc (ftp.kde.org part of kdevelop) for documentation purposes
+- sgml-tools version >= 1.0.8 for documentation purposes
+
+Normal compilation procedure:
+=============================
+
+> aclocal
+> autoheader
+> automake -a
+> autoconf
+> ./configure --prefix=/usr
+
+If you do have kdoc installed:
+> make
+
+else:
+> cd src;make
+
+For installing:
+> su -c "make install"
+
+If you want to deinstall it just do a:
+> su -c "make uninstall"
+
+More options for `configure':
+=============================
+  --without-qt                   if you want to build dldialog without qt
+  --with-qt-dir=<dir>            where the root of qt is installed 
+  --with-qt-includes=<dir>       where the qt includes are. 
+  --with-qt-libraries=<dir>      where the qt library is installed.
+  --without-tv                   if you want to build dldialog without tvision
+  --with-tvision-dir=<dir>       where the root of tv is installed 
+  --with-tvision-includes=<dir>  where the tv includes are. 
+  --with-tvision-libraries=<dir> where the tv library is installed.
+
+Read the `INSTALL' file for generic informations on installing this program.
+
+For more informations about dldialog please read the html documentation in the
+`doc' directory.
+
+If you compile dldialog with qt it requires the Qt library, 
+which is copyright Troll Tech AS.
+Freely distributable programs may generally use Qt Free Edition free of charge, 
+see README.QT for details. 
+	    
+- Harald Hoyer <DLDialog@parzelle.de>
+	

@@ -1,0 +1,9 @@
+<title> Hilfetext zum Beispielprogramm
+<Einführung>
+Dieses Beispielprogramm ist nur dazu da, die Flexibilität
+des Widgetsets zu demonstrieren. 
+<Todo>
+was noch zu tun ist, ist die Einbinding von Gauges, Bildern und ein Wrapper,
+um 'rohe' Dialoge in dldialog-Syntax einzugeben. 
+<wie weiter>
+jetzt gibts dann bald einige dldadmin-Scripte mit DlWizzard.pm

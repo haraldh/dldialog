@@ -1,0 +1,136 @@
+#!/bin/sh
+ARGS="$@"
+
+. `dirname $0`/dldialog_funcs
+
+dldialog_start $ARGS
+export rlist="2" rlist2;
+export clist="2" clist2;
+export EXIT="0";
+
+export rb1 rb2="RB2" rb3
+export cb1 cb2="CB2" cb3
+export line="TESTLINE";
+export li1 li2="LI2" li3;
+export llist="2" 
+export llist2;
+export cbox="2"
+export cbox2;
+export cbi1 cbi2="CBI2" cbi3;
+
+($DLDIALOG <<EOF
+dialog "MainDialog" -width 100 {
+    row {
+        col -width 100 {
+            radiolist "Radiobuttons" {
+                radiobutton "Radio 1" -var rb1 -set "RB1";
+                radiobutton "Radio 2" -var rb2 -set "RB2" ;
+                radiobutton "Radio 3" -var rb3 -set "RB3";
+            }
+            radiolist "Radiobuttons" -var rlist {
+                radiobutton "ListRadio 1" ;
+                radiobutton "ListRadio 2" ;
+                radiobutton "ListRadio 3" ;
+            }
+
+            radiolist "Radiobuttons" -var rlist2 {
+                radiobutton "ListRadio 1" ;
+                radiobutton "ListRadio 2" ;
+                radiobutton "ListRadio 3" ;
+            }
+        }
+
+        col -width 100 {
+            checklist {
+                checkbutton "Check 1" -var cb1 -set "CB1";
+                checkbutton "Check 2" -var cb2 -set "CB2" ;
+                checkbutton "Check 3" -var cb3 -set "CB3";
+            }
+
+            checklist -var clist {
+                checkbutton "ListCheck 1" ;
+                checkbutton "ListCheck 2" ;
+                checkbutton "ListCheck 3" ;
+            }
+
+            checklist -var clist2 {
+                checkbutton "ListCheck 1" ;
+                checkbutton "ListCheck 2" ;
+                checkbutton "ListCheck 3" ;
+            }
+
+        }
+        col -width 100 {
+            list -width 100 -height 100 {
+                listitem "Item 1" -var li1 -set "LI1";
+                listitem "Item 2" -var li2 -set "LI2" ;
+                listitem "Item 3" -var li3 -set "LI3";
+            }
+            list -width 100 -height 100 -var llist {
+                listitem "ListItem 1" ;
+                listitem "ListItem 2" ;
+                listitem "ListItem 3" ;
+            }
+            
+            list -width 100 -height 100 -var llist2 {
+                listitem "ListItem 1" ;
+                listitem "ListItem 2" ;
+                listitem "ListItem 3" ;
+            }            
+        }
+        col  -width 100 {
+            combobox {
+                comboitem "Item 1" -var cbi1 -set "CBI1";
+                comboitem "Item 2" -var cbi2 -set "CBI2" ;
+                comboitem "Item 3" -var cbi3 -set "CBI3";
+            }
+            combobox -var cbox {
+                comboitem "Item 1";
+                comboitem "Item 2" ;
+                comboitem "Item 3";
+            }
+            combobox -var cbox2 {
+                comboitem "Item 1";
+                comboitem "Item 2";
+                comboitem "Item 3";
+            }
+            combobox {
+            }
+	    llist3="1 2 3";
+            list -width 100 -height 100 -var llist3 -multi {
+                listitem "ListItem 1" ;
+                listitem "ListItem 2" ;
+                listitem "ListItem 3" ;
+            }            
+            list -width 100 -height 100 -var llist4 -multi {
+                listitem "ListItem 1" ;
+                listitem "ListItem 2" ;
+                listitem "ListItem 3" ;
+            }            
+        }
+    }
+    text "";
+    input -var line -exit;
+    text "";
+    row {
+	button "&Ende" -exit -var EXIT -set "1";
+    }
+}
+EOF
+)>/tmp/test2.out ||exit 10
+
+if [ -z "$srcdir" ]; then 
+  srcdir=`dirname $0`
+fi  
+
+cmp $srcdir/test2.cmp /tmp/test2.out
+if [ "$?" = 0 ]; 
+then 
+   echo "Output seems ok" >&2
+   rm -f /tmp/test2.out
+   exit 0;
+else
+   echo "Output differs" >&2
+   diff -u  $srcdir/test2.cmp /tmp/test2.out
+   exit 1;
+fi

@@ -1,0 +1,68 @@
+#! dldialog -f
+dialog "TEST" {
+	text "Hier steht ein ellenlanger Hilfetext" ;
+	button "OK" -exit;
+	LISTVAR="2" ;
+	TESTVAR="2" ;
+      textbox "ksljdf lsökdfj lsdfkj ösldfj sd
+      sdjf slfj sd
+      #fsdfs
+      fkjsd fäasdlfjg daöfg jöadflgj ödaflkgj dlöafkgjdaf
+      gdakfgj adkfg
+      adfgdaf gökad fg
+      adfg adöglk adöflgk adgöjdag köajdhg akdög höadg öladkj gökjhf
+SFHASÖHGSP IEDG SDFÖGH JLKÖDFKGJ ÖSLDFKGJ SDF";
+#      input  -var INPUTVAR -ip;
+	button "OK" -exit;
+}
+
+dialog "TEST 2" {
+	text "Hallo hallo" ;
+	button "OK" -exit;
+	LISTVAR="2" ;
+	TESTVAR="2" ;
+      textbox "ksljdf lsökdfj lsdfkj ösldfj sd
+      sdjf slfj sd
+      #fsdfs
+      fkjsd fäasdlfjg daöfg jöadflgj ödaflkgj dlöafkgjdaf
+      gdakfgj adkfg
+      adfgdaf gökad fg
+      adfg adöglk adöflgk adgöjdag köajdhg akdög höadg öladkj gökjhf
+SFHASÖHGSP IEDG SDFÖGH JLKÖDFKGJ ÖSLDFKGJ SDF";
+#      input  -var INPUTVAR -ip;
+	button "OK" -exit;
+}
+
+dialog "TEST 3" {
+	text "Hallo hallo" ;
+	button "OK" -exit;
+	LISTVAR="2" ;
+	TESTVAR="2" ;
+      textbox "ksljdf lsökdfj lsdfkj ösldfj sd
+      sdjf slfj sd
+      #fsdfs
+      fkjsd fäasdlfjg daöfg jöadflgj ödaflkgj dlöafkgjdaf
+      gdakfgj adkfg
+      adfgdaf gökad fg
+      adfg adöglk adöflgk adgöjdag köajdhg akdög höadg öladkj gökjhf
+SFHASÖHGSP IEDG SDFÖGH JLKÖDFKGJ ÖSLDFKGJ SDF";
+#      input  -var INPUTVAR -ip;
+	button "OK" -exit;
+}
+
+dialog "TEST 4" {
+	text "Hallo hallo" ;
+	button "OK" -exit;
+	LISTVAR="2" ;
+	TESTVAR="2" ;
+      textbox "ksljdf lsökdfj lsdfkj ösldfj sd
+      sdjf slfj sd
+      #fsdfs
+      fkjsd fäasdlfjg daöfg jöadflgj ödaflkgj dlöafkgjdaf
+      gdakfgj adkfg
+      adfgdaf gökad fg
+      adfg adöglk adöflgk adgöjdag köajdhg akdög höadg öladkj gökjhf
+SFHASÖHGSP IEDG SDFÖGH JLKÖDFKGJ ÖSLDFKGJ SDF";
+#      input  -var INPUTVAR -ip;
+	button "OK" -exit;
+}

@@ -1,0 +1,116 @@
+#!/bin/sh
+ARGS="$@"
+
+. `dirname "$0"`/dldialog_funcs||exit 10
+
+dldialog_start $ARGS
+
+export EXIT="NOK"
+
+result=$($DLDIALOG <<EOF
+dialog "TEST1" {
+  EXIT="ESCAPE!"; 
+  col {
+     col -height 50 -width 100 {
+	checklist "&CheckButtons" -var mainc {
+	   checkbutton "Button &1" -var cmbutt1 -set 1;
+	   checkbutton "Button &2" -var cmbutt2 -set 2;
+	   checkbutton "Button &3" -var cmbutt3 -set 3;
+	   checkbutton "Button &4" -var cmbutt4 -set 4;
+	}
+	text "TEST";
+	text "12345678901234567890\n"
+	  "1\t\t\tZeile 2\n"
+	  "kdlfgjd\t\t\tZeile 3\n"
+	  "dfklgjdfklg\t\t\tZeile 4\n" ;
+     }
+     row {
+	button "&Ok" -var EXIT -add "OK" -exit;
+	button "&Abbrechen" -var EXIT -add "Abbrechen" -exit;
+     }
+  }
+   
+  EXIT="AFTER "; 
+   dialog "Options" {
+      row -height 50 -width 100 {
+	 button "&Ok" -exit;
+	 button "&Abbrechen" -exit;
+      }
+      button "&Ok" -width 1 -var EXIT -add "Options" -exit;
+   }  
+   
+   dialog "Options3" {
+      checklist "&CheckButtons" -height 100 -width 100 -var checkvar {
+	 checkbutton "Button &1" -var cbutt -set 1;
+	 checkbutton "Button &2" -var cbutt -set 2;
+	 checkbutton "Button &3" -var cbutt -set 3;
+	 checkbutton "Button &4" -var cbutt -set 4;
+	 checkbutton "Button &5" -var cbutt -set 5;
+	 checkbutton "Button &6" -var cbutt -set 6;
+      }
+      row "TESTROW" {
+	 radiolist "&RadioButtons" -var radiovar {
+	    radiobutton "Button &1";
+	    radiobutton "Button &2";
+	    radiobutton "Button &3";
+	    radiobutton "Button &4";
+	 }
+	 radiolist "&RadioButtons" {
+	    radiobutton "TEST Button &1" -var rbutt -set 1;
+	    radiobutton "TEST Button &2" -var rbutt -set 2;
+	    radiobutton "TEST Button &3" -var rbutt -set 3;
+	    radiobutton "TEST Button &4" -var rbutt -set 4;
+	 }
+      }
+   }
+   dialog "Options 2" {
+      col -height 100 -width 100 {
+	 row "ROW"  -height 20 -width 100 {
+	    col "COL" -height 1  -width 20 {
+	       button "&OK" -exit;
+	       button "&Abbrechen" -exit;
+	    }
+	    col "COL" -height 50 -width 30 {
+	       button "&OK" -exit;
+	       button "&Abbrechen" -exit;
+	    }
+	    col "COL" -height 100 -width 50 {
+	       button "&OK" -exit;
+	       button "&Abbrechen" -exit;
+	    }
+	 }  
+	 row "ROW"  -height 30 {   
+	    col "COL" -height 1  -width 20 {
+	       button "&OK" -exit;
+	       button "&Abbrechen" -exit;
+	    }
+	    col "COL" -height 50 -width 30 {
+	       button "&OK" -exit;
+	       button "&Abbrechen" -exit;
+	    }
+	    col "COL" -height 100 -width 50 {
+	       button "&OK" -exit;
+	       button "&Abbrechen" -exit;
+	    }
+	 }  
+	 row "ROW"  -height 50 {   
+	    col "COL" -height 1  -width 20 {
+	       button "&OK" -exit;
+	       button "&Abbrechen" -exit;
+	    }
+	    col "COL" -height 50  -width 30 {
+	       button "&OK" -exit;
+	       button "&Abbrechen" -exit;
+	    }
+	    col "COL" -height 100 -width 50 {
+	       button "&OK" -exit;
+	       button "&Abbrechen" -exit;
+	    }
+	 }  
+      }
+   }
+}
+EOF)
+
+eval "$result"
+echo $result

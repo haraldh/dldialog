@@ -1,0 +1,7 @@
+#!/bin/sh
+ARGS="$@"
+
+. `dirname $0`/dldialog_funcs
+
+dldialog_start -t 
+./dltest.pl 2>/dev/null >/dev/null

@@ -1,0 +1,1320 @@
+This is Info file dldialog.info, produced by Makeinfo version 1.68 from
+the input file /tmp/sgmltmp.dldialog16257.info.2.
+
+   \input texinfo
+
+
+File: dldialog.info,  Node: Top,  Next: Introduction,  Up: (dir)
+
+The DLDialog Handbook
+*********************
+
+     Harald Hoyer, `harald@delix.de'
+     Version 1.3.2, 17.09.1999
+
+   This Handbook describes DLDialog Version 1.3.2
+
+* Menu:
+
+* Introduction::
+* Installation::
+* The Manual Page::
+* DLDialog Program Syntax::
+* Questions and answers::
+* NEWS::
+* The Change Log::
+* The TODO List::
+* COPYING::
+
+
+File: dldialog.info,  Node: Introduction,  Next: Installation,  Prev: Top,  Up: Top
+
+Introduction
+************
+
+   `Please don[acute ]t forget to read the frequently asked questions!
+Thank You!'
+
+   DLDialog was mainly developed for the `Deutsche Linux Distribution
+(DLD) of delix Computer GmbH'.
+
+   DLDialog offers the capability to draw a variety of widgets, in
+order to ease the human user in feeding input to the script.  The
+program is designed to be particularly useful to implement system
+administration scripts.  I hope you will enjoy this program.
+
+   `Harald Hoyer' harald@delix.de Hoyer@Royal.Net
+
+
+File: dldialog.info,  Node: Installation,  Next: The Manual Page,  Prev: Introduction,  Up: Top
+
+Installation
+************
+
+* Menu:
+
+* How to obtain DLDialog::
+* Requirements::
+* Compilation and installation::
+
+
+File: dldialog.info,  Node: How to obtain DLDialog,  Next: Requirements,  Up: Installation
+
+How to obtain DLDialog
+======================
+
+   DLDialog is part of dldadmin of the delix Deutsche Linux Distribution
+urlnam (http://www.delix.de).  DLDialog can be found in urlnam
+(http://www.delix.de/~harald/).
+
+
+File: dldialog.info,  Node: Requirements,  Next: Compilation and installation,  Prev: How to obtain DLDialog,  Up: Installation
+
+Requirements
+============
+
+   In order to successfully compile DLDialog, you need:
+   * qt-1.33 or newer versions
+
+   * qimgio with png extension, if you want to display png images with
+     qt
+
+   * tvision 0.5.6 or newer versions
+
+   * libdl
+
+   * gettext, if you want i18n (internationalisation)
+
+   * automake version 1.4 or newer versions
+
+   * Autoconf version 2.13 or newer versions
+
+   * libtool version 1.2 or newer versions
+
+   * kdoc (ftp.kde.org part of kdevelop) for documentation purposes
+
+   * sgml-tools version [gt    ]= 1.0.8 for documentation purposes
+
+   Some of the required libraries as well as DLDialog itself can be
+found on urlnam (http://www.delix.de/~harald/).
+
+
+File: dldialog.info,  Node: Compilation and installation,  Prev: Requirements,  Up: Installation
+
+Compilation and installation
+============================
+
+* Menu:
+
+* Normal compilation procedure::
+* More options for configure::
+* INSTALL::
+
+
+File: dldialog.info,  Node: Normal compilation procedure,  Next: More options for configure,  Up: Compilation and installation
+
+Normal compilation procedure
+----------------------------
+
+     [dollar] aclocal
+     [dollar] autoheader
+     [dollar] automake -a
+     [dollar] autoconf
+     [dollar] ./configure --prefix=/usr
+
+   If you do have kdoc installed:
+     [dollar] make
+
+   else:
+     [dollar] cd src;make
+
+   To install type:
+     [dollar] su -c "make install"
+
+   If you want to deinstall it just do a:
+     [dollar] su -c "make uninstall"
+
+
+File: dldialog.info,  Node: More options for configure,  Next: INSTALL,  Prev: Normal compilation procedure,  Up: Compilation and installation
+
+More options for configure
+--------------------------
+
+   *   -without-qt                                if you want to build
+     DLDialog without qt
+
+   *   -with-qt-dir=[lt    ]dir[gt    ]            where the root of qt
+     is installed
+
+   *   -with-qt-includes=[lt    ]dir[gt    ]       where the qt
+     includes are.
+
+   *   -with-qt-libraries=[lt    ]dir[gt    ]      where the qt library
+     is installed.
+
+   *   -without-tv                         if you want to build
+     DLDialog without tvision
+
+   *   -with-tvision-dir=[lt    ]dir[gt    ]       where the root of tv
+     is installed
+
+   *   -with-tvision-includes=[lt    ]dir[gt    ]  where the tv
+     includes are.
+
+   *   -with-tvision-libraries=[lt    ]dir[gt    ] where the tv library
+     is installed.
+
+   See also the files README and INSTALL that come with the
+distribution.
+
+   `Again:' Should you run into problems, please report them to me.
+
+
+File: dldialog.info,  Node: INSTALL,  Prev: More options for configure,  Up: Compilation and installation
+
+INSTALL
+-------
+
+   Basic Installation ==================
+
+   These are generic installation instructions.
+
+   The `configure' shell script attempts to guess correct values for
+various system-dependent variables used during compilation.  It uses
+those values to create a `Makefile' in each directory of the package.
+It may also create one or more `.h' files containing system-dependent
+definitions.  Finally, it creates a shell script `config.status' that
+you can run in the future to recreate the current configuration, a file
+`config.cache' that saves the results of its tests to speed up
+reconfiguring, and a file `config.log' containing compiler output
+(useful mainly for debugging `configure').
+
+   If you need to do unusual things to compile the package, please try
+to figure out how `configure' could check whether to do them, and mail
+diffs or instructions to the address given in the `README' so they can
+be considered for the next release.  If at some point `config.cache'
+contains results you don't want to keep, you may remove or edit it.
+
+   The file `configure.in' is used to create `configure' by a program
+called `autoconf'.  You only need `configure.in' if you want to change
+it or regenerate `configure' using a newer version of `autoconf'.
+
+   The simplest way to compile this package is:
+
+   1. `cd' to the directory containing the package's source code and
+type      `./configure' to configure the package for your system.  If
+you're      using `csh' on an old version of System V, you might need
+to type      `sh ./configure' instead to prevent `csh' from trying to
+execute      `configure' itself.
+
+   Running `configure' takes awhile.  While running, it prints some
+messages telling which features it is checking for.
+
+   2. Type `make' to compile the package.
+
+   3. Optionally, type `make check' to run any self-tests that come with
+    the package.
+
+   4. Type `make install' to install the programs and any data files and
+    documentation.
+
+   5. You can remove the program binaries and object files from the
+source code directory by typing `make clean'.  To also remove the
+files that `configure' created (so you can compile the package for
+a different kind of computer), type `make distclean'.  There is
+also a `make maintainer-clean' target, but that is intended mainly
+for the package's developers.  If you use it, you may have to get
+all sorts of other programs in order to regenerate files that came
+with the distribution.
+
+   Compilers and Options =====================
+
+   Some systems require unusual options for compilation or linking that
+the `configure' script does not know about.  You can give `configure'
+initial values for variables by setting them in the environment.  Using
+a Bourne-compatible shell, you can do that on the command line like
+this:      CC=c89 CFLAGS=-O2 LIBS=-lposix ./configure
+
+   Or on systems that have the `env' program, you can do it like this:
+   env CPPFLAGS=-I/usr/local/include LDFLAGS=-s ./configure
+
+   Compiling For Multiple Architectures
+====================================
+
+   You can compile the package for more than one kind of computer at the
+same time, by placing the object files for each architecture in their
+own directory.  To do this, you must use a version of `make' that
+supports the `VPATH' variable, such as GNU `make'.  `cd' to the
+directory where you want the object files and executables to go and run
+the `configure' script.  `configure' automatically checks for the
+source code in the directory that `configure' is in and in `..'.
+
+   If you have to use a `make' that does not supports the `VPATH'
+variable, you have to compile the package for one architecture at a time
+in the source code directory.  After you have installed the package for
+one architecture, use `make distclean' before reconfiguring for another
+architecture.
+
+   Installation Names ==================
+
+   By default, `make install' will install the package's files in
+`/usr/local/bin', `/usr/local/man', etc.  You can specify an
+installation prefix other than `/usr/local' by giving `configure' the
+option `-prefix=PATH'.
+
+   You can specify separate installation prefixes for
+architecture-specific files and architecture-independent files.  If you
+give `configure' the option `-exec-prefix=PATH', the package will use
+PATH as the prefix for installing programs and libraries.
+Documentation and other data files will still use the regular prefix.
+
+   In addition, if you use an unusual directory layout you can give
+options like `-bindir=PATH' to specify different values for particular
+kinds of files.  Run `configure -help' for a list of the directories
+you can set and what kinds of files go in them.
+
+   If the package supports it, you can cause programs to be installed
+with an extra prefix or suffix on their names by giving `configure' the
+option `-program-prefix=PREFIX' or `-program-suffix=SUFFIX'.
+
+   Optional Features =================
+
+   Some packages pay attention to `-enable-FEATURE' options to
+`configure', where FEATURE indicates an optional part of the package.
+They may also pay attention to `-with-PACKAGE' options, where PACKAGE
+is something like `gnu-as' or `x' (for the X Window System).  The
+`README' should mention any `-enable-' and `-with-' options that the
+package recognizes.
+
+   For packages that use the X Window System, `configure' can usually
+find the X include and library files automatically, but if it doesn't,
+you can use the `configure' options `-x-includes=DIR' and
+`-x-libraries=DIR' to specify their locations.
+
+   Specifying the System Type ==========================
+
+   There may be some features `configure' can not figure out
+automatically, but needs to determine by the type of host the package
+will run on.  Usually `configure' can figure that out, but if it prints
+a message saying it can not guess the host type, give it the
+`-host=TYPE' option.  TYPE can either be a short name for the system
+type, such as `sun4', or a canonical name with three fields:
+CPU-COMPANY-SYSTEM
+
+   See the file `config.sub' for the possible values of each field.  If
+`config.sub' isn't included in this package, then this package doesn't
+need to know the host type.
+
+   If you are building compiler tools for cross-compiling, you can also
+use the `-target=TYPE' option to select the type of system they will
+produce code for and the `-build=TYPE' option to select the type of
+system on which you are compiling the package.
+
+   Sharing Defaults ================
+
+   If you want to set default values for `configure' scripts to share,
+you can create a site shell script called `config.site' that gives
+default values for variables like `CC', `cache_file', and `prefix'.
+`configure' looks for `PREFIX/share/config.site' if it exists, then
+`PREFIX/etc/config.site' if it exists.  Or, you can set the
+`CONFIG_SITE' environment variable to the location of the site script.
+A warning: not all `configure' scripts look for a site script.
+
+   Operation Controls ==================
+
+   `configure' recognizes the following options to control how it
+operates.
+
+   `-cache-file=FILE'      Use and save the results of the tests in
+FILE instead of      `./config.cache'.  Set FILE to `/dev/null' to
+disable caching, for      debugging `configure'.
+
+   `-help'      Print a summary of the options to `configure', and exit.
+
+   `-quiet' `-silent' `-q'      Do not print messages saying which
+checks are being made.  To      suppress all normal output, redirect it
+to `/dev/null' (any error      messages will still be shown).
+
+   `-srcdir=DIR'      Look for the package's source code in directory
+DIR.  Usually      `configure' can determine that directory
+automatically.
+
+   `-version'      Print the version of Autoconf used to generate the
+`configure'      script, and exit.
+
+   `configure' also accepts some other, not widely useful, options.
+
+
+File: dldialog.info,  Node: The Manual Page,  Next: DLDialog Program Syntax,  Prev: Installation,  Up: Top
+
+The Manual Page
+***************
+
+* Menu:
+
+* NAME::
+* SYNOPSIS::
+* DESCRIPTION::
+* OPTIONS::
+* ENVIRONMENT::
+* BUGS::
+
+
+File: dldialog.info,  Node: NAME,  Next: SYNOPSIS,  Up: The Manual Page
+
+NAME
+====
+
+   dldialog - display dialog boxes in text and graphics mode to
+interact with scripts
+
+
+File: dldialog.info,  Node: SYNOPSIS,  Next: DESCRIPTION,  Prev: NAME,  Up: The Manual Page
+
+SYNOPSIS
+========
+
+   `dldialog' [lsqb  ] -b [verbar] -q [rsqb  ] [lsqb  ] -g [verbar] -q
+[verbar] -t [verbar] -p [rsqb  ] [lsqb  ] -dvh [rsqb  ] [lsqb  ] -f
+`infile' [rsqb  ] [lsqb  ] - EXTRAOPTIONS [rsqb  ]
+
+
+File: dldialog.info,  Node: DESCRIPTION,  Next: OPTIONS,  Prev: SYNOPSIS,  Up: The Manual Page
+
+DESCRIPTION
+===========
+
+   This documentation is no longer being maintained and may be
+inaccurate or incomplete.  The Texinfo documentation is now the
+authoritative source.
+
+   This manual page documents the calling syntax of ` DLDialog'.
+
+   `DLDialog' parses standard input or the `infile' and interprets it
+as described in the Texinfo documentation.
+
+
+File: dldialog.info,  Node: OPTIONS,  Next: ENVIRONMENT,  Prev: DESCRIPTION,  Up: The Manual Page
+
+OPTIONS
+=======
+
+``-b, --start''
+     Start the dldialog server.
+
+``-e, --stop''
+     Stop the dldialog server.
+
+``-d, --debug''
+     Display debugging output.
+
+``-f, --file infile''
+     Read input from `infile', rather than from stdin.
+
+``-g, --generic''
+     Load a generic interface library specified by the
+     `DLD[lowbar]PRELOAD' environment variable.
+
+``-h, --help''
+     Display small help and exit.
+
+``-p, --parse''
+     Parse only to check input.
+
+``-q, --qt''
+     Use Qt (X11) interface.
+
+``-t, --tv''
+     Use tvision (terminal) interface (default).
+
+``-v, --version''
+     Display version information and exit.
+
+``EXTRAOPTIONS''
+     All options after - are passed to the used module. It´s useful to
+     pass e.g. a -geometry argument to the qt modul.
+
+
+File: dldialog.info,  Node: ENVIRONMENT,  Next: BUGS,  Prev: OPTIONS,  Up: The Manual Page
+
+ENVIRONMENT
+===========
+
+``DLD[lowbar]PRELOAD''
+     Use this to preload a specific interface, rather than the default
+     ones.
+
+
+File: dldialog.info,  Node: BUGS,  Prev: ENVIRONMENT,  Up: The Manual Page
+
+BUGS
+====
+
+   Report them to http://www.delix.de.
+
+
+File: dldialog.info,  Node: DLDialog Program Syntax,  Next: Questions and answers,  Prev: The Manual Page,  Up: Top
+
+DLDialog Program Syntax
+***********************
+
+   In the following text, contents in brackets [lt    ][gt    ] is
+defined at other locations in this text and contents in square brackets
+[lsqb  ]] is optional.
+
+* Menu:
+
+* General Syntax::
+* Common options::
+* Container Commands::
+* Simple Commands::
+* Script Example::
+
+
+File: dldialog.info,  Node: General Syntax,  Next: Common options,  Up: DLDialog Program Syntax
+
+General Syntax
+==============
+
+``//'` [lsqb  ][lt    ]comment[gt    ][rsqb  ]''
+     DLDialog ignores the rest of the line after //.
+
+``[num   ]'` [lsqb  ][lt    ]comment[gt    ][rsqb  ]''
+     DLDialog ignores the rest of the line after [num   ].
+
+```[lcub  ]'[lt    ]block[gt    ]`[rcub  ]'''
+     block consists of multiple combinations of commands surrounded by
+     braces.
+
+``[lt    ]name[gt    ]''
+     name is a single word or several words surrounded by parenthesis.
+     A [amp   ] will specify the next letter as the shortcut for this
+     item.
+
+``"'`[lt    ]string[gt    ]'`"'
+     "'`[lt    ]string[gt    ]'`"' Strings are concatenated like in
+     ANSI C.
+
+``[lt    ]varname[gt    ]''
+     varname is a single word beginning with an alphabetic letter,
+     which contains no special characters.
+
+``[lt    ]value[gt    ]''
+     value is a [lt    ]varname[gt    ], a [lt    ]name[gt    ] or a
+     number.
+
+``[lt    ]executable[gt    ]''
+     executable is a filename that has the executable flag set and can
+     be executed by e.g. `sh -c "[lt    ]executable[gt    ]"'.
+
+     This file will be executed and the standard output of this file
+     will be parsed and executed as a DLDialog program.
+
+     Variables set with the executable will have global effect.
+
+``[lt    ]command[gt    ]'`;''
+     normal commands end with a semicolon.
+
+
+File: dldialog.info,  Node: Common options,  Next: Container Commands,  Prev: General Syntax,  Up: DLDialog Program Syntax
+
+Common options
+==============
+
+   The following options can be given to all commands:
+``[lsqb  ]'`-fork''
+     Together with the -exec tag this will let your spawned childs live
+     if the parent dies.
+
+``[lsqb  ]'`-height''
+     `[lt    ]height in percent[gt    ][rsqb  ]' Specifies the height
+     of the element in percent of the parent size.
+
+``[lsqb  ]'`-width''
+     `[lt    ]width in percent[gt    ][rsqb  ]' Specifies the width of
+     the element in percent of the parent size.
+
+``[lsqb  ]'`-font'` [lt    ]X11 font specifier[gt    ][rsqb  ]'
+     [lsqb  ]'`-size'` [lt    ]fontsize[gt    ][rsqb  ] [lsqb  ]'`-bg'`
+     [lt    ]backgroundcolor[gt    ][rsqb  ] [lsqb  ]'`-fg'` [lt
+     ]foregroundcolor[gt    ][rsqb  ] ' -font specifies the font of the
+     element in X11/QT mode.
+
+     -size specifies the size of the font. E.g. a  absolut numeric size
+     or mini, small, normal, large, huge or big. Default size is 12.
+
+     -bg specifies the background color of the font. Can be e.g. blue,
+     white, "[num   ]FF0010".
+
+     -fg specifies the foreground color of the font. Can be e.g. blue,
+     white, "[num   ]FF0010".
+
+
+File: dldialog.info,  Node: Container Commands,  Next: Simple Commands,  Prev: Common options,  Up: DLDialog Program Syntax
+
+Container Commands
+==================
+
+``dialog'[nbsp  ]`[lsqb  ][lt    ]name[gt    ][rsqb  ]'
+     [lsqb  ]'`-modal'`[rsqb  ] '`[lcub  ]'`[lt    ]block[gt
+     ]'`[rcub  ]' Draws a dialog window with title [lt    ]name[gt    ]
+     which contains the elements contained in [lt    ]block[gt    ].
+
+     If the argument -modal is set, input for other dialogs is blocked
+     until the last modal dialog exited.
+
+     There should be one or more buttons with the -exit argument in
+     this dialog to let the user exit the dialog.
+
+``form'[nbsp  ]`[lsqb  ][lt    ]name[gt    ][rsqb  ] '`[lcub  ]'`[lt    ]block[gt    ]'`[rcub  ]''
+     Draws a rectangle with title [lt    ]name[gt    ] which contains
+     the elements in [lt    ]block[gt    ].
+
+     DLDialog tries to order the elements more or less effective in this
+     rectangle.
+
+``row' `[lsqb  ][lt    ]name[gt    ][rsqb  ] '`[lcub  ]'`[lt    ]block[gt    ]'`[rcub  ]''
+     Draws a rectangle with title [lt    ]name[gt    ] which contains
+     the elements in [lt    ]block[gt    ].
+
+     DLDialog orders the elements in a row in this rectangle.
+
+``col' `[lsqb  ][lt    ]name[gt    ][rsqb  ] '`[lcub  ]'`[lt    ]block[gt    ]'`[rcub  ]''
+     Draws a rectangle with title [lt    ]name[gt    ] which contains
+     the elements in [lt    ]block[gt    ].
+
+     DLDialog orders the elements in a column in this rectangle.
+
+``radiolist' `[lsqb  ][lt    ]name[gt    ][rsqb  ]'
+     [lsqb  ]'`-var'` [lt    ]varname[gt    ][rsqb  ] '`[lcub  ]'`[lt
+     ]block[gt    ]'`[rcub  ]' Draws a rectangle with title [lt
+     ]name[gt    ] which contains radio buttons in [lt    ]block[gt
+     ].
+
+     DLDialog orders the radio buttons in a column in this rectangle.
+
+     The -var argument specifies a variable named [lt    ]varname[gt
+     ].
+
+     At creation this variable will be read and if set to a number, the
+     radio button with this number will be activated per default.
+
+     If the dialog exits the variable will be set to the number of the
+     selected radio button.
+
+     E.g. TESTVAR="1".
+
+``checklist' `[lsqb  ][lt    ]name[gt    ][rsqb  ]'
+     [lsqb  ]'`-var'` [lt    ]varname[gt    ][rsqb  ] '`[lcub  ]'`[lt
+     ]block[gt    ]'`[rcub  ]' Draws a rectangle with title [lt
+     ]name[gt    ] which contains check buttons in [lt    ]block[gt
+     ].
+
+     DLDialog orders the check buttons in a column in this rectangle.
+
+     The -var argument specifies a variable named [lt    ]varname[gt
+     ].
+
+     At creation this variable will be read and if set to a number(s),
+     the check button(s) with this number(s) will be activated per
+     default.
+
+     If the dialog exits the variable will be set to the number(s) of
+     the selected check button(s).
+
+     E.g. TESTVAR="1 3 5".
+
+``list' `[lsqb  ][lt    ]name[gt    ][rsqb  ]'
+     [lsqb  ]'`-var'` [lt    ]varname[gt    ][rsqb  ] [lsqb  ]'`-multi'
+     `[rsqb  ]' `[lcub  ] listitem' `[lsqb  ][lt    ]args[gt    ][rsqb
+     ]'`;' ` ...'`[rcub  ]' Draws a scrollable list with title [lt
+     ]name[gt    ] which contains the listitem elements in [lt
+     ]block[gt    ].
+
+     DLDialog orders the list items in a column in this rectangle.
+
+     The -var argument specifies a variable named [lt    ]varname[gt
+     ].
+
+     At creation this variable will be read and if set to a number(s),
+     the listitem(s) with this number(s) will be activated per default.
+
+     If the dialog exits the variable will be set to the number(s) of
+     the selected listitem(s).
+
+     E.g. TESTVAR="1 3 5".
+
+     The -multi argument enables multi line selection, where the line
+     numbers, that were selected, are stored space separated in the
+     variable.
+
+     In tvision mode `F7' marks all, `F8'unmarks all and `F9' toggles
+     all.
+
+``combobox''
+     `-var'` [lt    ]varname[gt    ][rsqb  ] '`[lcub  ] comboitem'
+     `[lsqb  ][lt    ]args[gt    ][rsqb  ]'`;'` ...'`[rcub  ]' Draws a
+     combobox with title [lt    ]name[gt    ] which contains the
+     comboitem elements in [lt    ]block[gt    ].
+
+     The -var argument specifies a variable named [lt    ]varname[gt
+     ].
+
+     At creation this variable will be read and if set to a number(s),
+     the n[acute ]th comboitem will be activated per default.
+
+     If the dialog exits the variable will be set to the number of the
+     selected comboitem.
+
+     E.g. TESTVAR="1".
+
+
+File: dldialog.info,  Node: Simple Commands,  Next: Script Example,  Prev: Container Commands,  Up: DLDialog Program Syntax
+
+Simple Commands
+===============
+
+``button' `[lt    ]name[gt    ]'
+     [lsqb  ]'`-var '`[lt    ]varname[gt    ] [lsqb  ]'`-set'` [lt
+     ]value[gt    ][rsqb  ] [lsqb  ]'`-add '`[lt    ]value[gt    ][rsqb
+     ][rsqb  ] [lsqb  ]'`-exec '`[lt    ]executable[gt    ][rsqb  ]
+     [lsqb  ]'`-image '`[lt    ]image file[gt    ][rsqb  ] [lsqb
+     ]'`-movie '`[lt    ]movie file[gt    ][rsqb  ] [lsqb  ]'`-sign
+     '`[rsqb  ] [lsqb  ]'`-exit'`[rsqb  ][nbsp  ]'`;' Draws a button
+     labelled with [lt    ]name[gt    ].
+
+     The -var argument specifies a variable named [lt    ]varname[gt
+     ], which will be set, if the button is pressed,[nbsp  ] to the
+     either the [lt    ]value[gt    ] specified with -set
+
+     If instead of the -set argument -add is specified, the old value of
+     the variable is not cleared but the [lt    ]value[gt    ] will be
+     appended with a space as a separator.
+
+     The -exec argument specifies an executable, which will be executed
+     if the button is pressed.
+
+     The -image argument specifies an image file, which will be
+     displayed left to the text. If the -sign option is given
+     additionally, the image will be displayed on top of the text.
+
+     The -movie argument specifies an animated image file, which will be
+     displayed left to the text. If the -sign option is given
+     additionally, the image will be displayed on top of the text.
+
+     The -exit argument means that the dialog will be terminated if the
+     button is pressed.
+
+``checkbutton' `[lt    ]name[gt    ]'
+     [lsqb  ]'`-var '`[lt    ]varname[gt    ] [lsqb  ]'`-set' `[lt
+     ]value[gt    ][rsqb  ] [lsqb  ]'`-add '`[lt    ]value[gt    ][rsqb
+     ][rsqb  ][nbsp  ]'`;' Draws a check button labelled with [lt
+     ]name[gt    ].
+
+     Check buttons can only be grouped with the checklist command.
+
+     The -var argument specifies a variable named [lt    ]varname[gt
+     ], which will be set if the button[nbsp  ] is selected to the
+     either the [lt    ]value[gt    ] specified with -set.
+
+     If instead of the -set argument -add is specified, the old value
+     of the variable is not cleared but the [lt    ]value[gt    ] will
+     be appended with a space as a separator.
+
+     If the variable is already set to the value specified with -set or
+     the variable contains a value specified with -add, the checkbutton
+     is activated per default.
+
+``radiobutton' `[lt    ]name[gt    ]'
+     [lsqb  ]'`-var '`[lt    ]varname[gt    ] [lsqb  ]'`-set' `[lt
+     ]value[gt    ][rsqb  ] [lsqb  ]'`-add '`[lt    ]value[gt    ][rsqb
+     ][rsqb  ][nbsp  ]'`;' Draws a radio button labelled with [lt
+     ]name[gt    ].
+
+     Radio buttons can only be grouped with the radiolist command.
+
+     The -var argument specifies a variable named [lt    ]varname[gt
+     ], which will be set ,if the button is selected, to the either the
+     [lt    ]value[gt    ] specified with -set.
+
+     If instead of the -set argument -add is specified, the old value of
+     the variable is not cleared but the [lt    ]value[gt    ] will be
+     appended with a space as a separator.
+
+     If the variable is already set to the value specified with -set or
+     the variable contains a value specified with -add, the radiobutton
+     is activated per default.
+
+     NOTE: If multiple radio buttons are activated per default, the
+     last one set will only be activated.
+
+``comboitem' `[lt    ]name[gt    ]'
+     [lsqb  ]'`-var '`[lt    ]varname[gt    ] [lsqb  ]'`-set' `[lt
+     ]value[gt    ][rsqb  ] [lsqb  ]'`-add '`[lt    ]value[gt    ][rsqb
+     ][rsqb  ][nbsp  ]'`;' Draws a combobox item labeled with [lt
+     ]name[gt    ].
+
+     Comboitems can only be grouped with the combolist command.
+
+     The -var argument specifies a variable named [lt    ]varname[gt
+     ], which will be set ,if the item is selected, to the either the
+     [lt    ]value[gt    ] specified with -set.
+
+     If instead of the -set argument -add is specified, the old value of
+     the variable is not cleared but the [lt    ]value[gt    ] will be
+     appended with a space as a separator.
+
+     If the variable is already set to the value specified with -set or
+     the variable contains a value specified with -add, the item is
+     activated per default.
+
+     NOTE: If multiple items are activated per default, the last one
+     set will only be activated.
+
+``listitem' `[lt    ]name[gt    ]'
+     [lsqb  ]'`-var ' `[lt    ]varname[gt    ] [lsqb  ]'`-set' `[lt
+     ]value[gt    ][rsqb  ] [lsqb  ]'`-add '`[lt    ]value[gt    ][rsqb
+     ][rsqb  ][nbsp  ] [lsqb  ]'`-exec '`[lt    ]executable[gt
+     ][rsqb  ] [lsqb  ]'`-image '`[lt    ]image file[gt    ][rsqb  ]
+     [lsqb  ]'`-exit'`[rsqb  ][nbsp  ]'`;' Draws a listitem labeled
+     with [lt    ]name[gt    ].
+
+     listitems can only exists within a list block.
+
+     The -var argument specifies a variable named [lt    ]varname[gt
+     ], which will be set ,if the button is selected, to the either the
+     [lt    ]value[gt    ] specified with -set.
+
+     If instead of the -set argument -add is specified, the old value
+     of the variable is not cleared but the [lt    ]value[gt    ] will
+     be appended with a space as a separator.
+
+     If the variable is already set to the value specified with -set or
+     the variable contains a value specified with -add, the listitem is
+     activated per default.
+
+     NOTE: If multiple listitems are activated per default and -multi
+     is not set in the list, the last one set will only be activated.
+
+     The -image argument specifies an image file, which will be
+     displayed left to the text.
+
+     The -exec argument specifies an executable, which will be executed
+     if the listitem is activated.
+
+     The -exit argument means that the dialog will be terminated if the
+     listitem is double-clicked.
+
+``text' `[lt    ]name[gt    ][nbsp  ]'`;''
+     Displays [lt    ]name[gt    ] as text. Should not be longer than
+     255 chars, because of some limitations in the tvision library!
+
+     Text can include newlines or backslashed characters, which will be
+     transformed like in C strings. E.g. [bsol  ]n is newline, [bsol  ]t
+     tabulator, etc.
+
+``textbox' `[lt    ]name[gt    ][nbsp  ]'`;''
+     Displays [lt    ]name[gt    ] as text in a box with scrollbars, if
+     needed.
+
+     Text can include newlines or backslashed characters, which will be
+     transformed like in C strings.  E.g. [bsol  ]n is newline, [bsol
+     ]t tabulator, etc.
+
+``textbox''
+     `-file '`[lt    ]filename[gt    ][nbsp  ]'`;' Displays the file
+     [lt    ]filename[gt    ] as text in a box with scrollbars, if
+     needed.
+
+``input''
+     `-var '`[lt    ]varname[gt    ] [lsqb  ]'`-passwd'`[rsqb  ] [nbsp
+     ] [lsqb  ]'`-length '`[lt    ]value[gt    ] [lsqb
+     ]'`-numeric'`[rsqb  ] [lsqb  ]'`-ip'`[rsqb  ]'` ;' Displays an
+     input field, which is named [lt    ]name[gt    ].
+
+     If -passwd is specified, no text is shown.
+
+     If -length is specified, the field is [lt    ]varname[gt    ] long.
+
+     If -numeric is specified, only numeric input is accepted
+
+     If -ip is specified, only IP address formatted input is accepted
+
+     -ip and -numeric can[acute ]t be used together!
+
+     The -var argument specifies a variable named [lt    ]varname[gt
+     ], which will be set to the contents of the input field, if the
+     dialog exits.
+
+     If the variable is already set it will be the default value for the
+     input field.
+
+     The -exec argument specifies an executable, which will be executed
+     if return is pressed or the dialog exits.
+
+     The -exit argument means that the dialog will be terminated if
+     return is pressed.
+
+``image' `[lt    ]name[gt    ][nbsp  ]'`;''
+     Displays an image with filename [lt    ]name[gt    ].
+
+``movie' `[lt    ]name[gt    ][nbsp  ]'`;''
+     Displays an animated image with filename [lt    ]name[gt    ].
+
+``gauge''
+     `-var'` [lt    ]varname[gt    ] [lsqb  ]'`-exec' `[lt
+     ]executable[gt    ][rsqb  ] [lsqb  ]'`-exit'`[rsqb  ] '`;' Draws a
+     meter labeled with [lt    ]name[gt    ].[nbsp  ] The meter
+     indicates the percentage.
+
+     The -exec argument specifies an executable, which will be executed
+     immediately.
+
+     New percentages are read from standard input of the executable.
+     Integer or double values are accepted separated by spaces.
+     Non-digit characters will be over-read.  The meter is updated to
+     reflect each new percentage.  The variable specified with the
+     varname is set to the percentage, when the dialog exits or to the
+     exit status of the executable, if it exits with a negative value.
+
+     If the -exit argument is set, the dialog will be exited if the
+     -exec child exits.
+
+``[lt    ]varname[gt    ]'`='`[lt    ]value[gt    ] '`;''
+     Sets the global variable [lt    ]varname[gt    ] to [lt
+     ]value[gt    ].
+
+
+File: dldialog.info,  Node: Script Example,  Prev: Simple Commands,  Up: DLDialog Program Syntax
+
+Script Example
+==============
+
+   Has no sense ... just to demonstrate all language elements of
+DLDialog.
+     #!./dldialog -tf
+      dialog "All GUI Elements" -width 100 -height 100 [lcub  ]
+           col [lcub  ]
+              text "A Column";
+              button "Button 1 30%" -height 30;
+              button "Button 2 70%" -height 70;
+           [rcub  ]
+     
+           text ""; //Spacer
+     
+           col [lcub  ]
+              text "A Row";
+              row -width 100 [lcub  ]
+                 button "Button 1 20%" -width 20;
+                 button "Button 1 30%" -width 30;
+                 button "Button 2 50%" -width 50;
+              [rcub  ]
+           [rcub  ]
+     
+           text ""; //Spacer
+     
+           col [lcub  ]
+              text "The Lists";
+              row -width 100 [lcub  ]
+                 lv="2";
+                 list "A [amp   ]List" -width 33 -var lv [lcub  ]
+                    listitem "1. Listitem";
+                    listitem "2. Listitem";
+                    listitem "3. Listitem";
+                 [rcub  ]
+     
+                 text "  "; //Spacer
+     
+                 checkvar="1 3";
+                 checklist "A [amp   ]Checklist" -var checkvar -width 33 [lcub  ]
+                    checkbutton "[amp   ]1. checkbutton";
+                    checkbutton "[amp   ]2. checkbutton";
+                    checkbutton "[amp   ]3. checkbutton";
+                 [rcub  ]
+     
+                 text "  "; //Spacer
+     
+                 radiovar="2";
+     
+                 radiolist "A [amp   ]Radiolist" -var radiovar -width 33 [lcub  ]
+                    radiobutton "[amp   ]1. radiobutton";
+                    radiobutton "[amp   ]2. radiobutton";
+                    radiobutton "[amp   ]3. radiobutton";
+                 [rcub  ]
+              [rcub  ]
+          [rcub  ]
+     
+           text ""; //Spacer
+           col [lcub  ]
+              STATIC_GAUGE="50";
+              text "Gauges";
+              row [lcub  ]
+                gauge  -exit -exec "sh -c 'for i in `seq 1 100`;do echo $i;sleep 1;done'";
+                gauge  -var STATIC_GAUGE;
+              [rcub  ]
+           [rcub  ]
+           text ""; //Spacer
+           row [lcub  ]
+              text "ComboBox";
+              cb="2";
+              combobox -var cb [lcub  ]
+                comboitem "Item 1" -var ci -set "1";
+                comboitem "Item 2" -var ci -set "2";
+                comboitem "Item 3" -var ci -set "3";
+              [rcub  ]
+           [rcub  ]
+           text ""; //Spacer
+     
+           row -width 100 [lcub  ]
+              text "Normal:";
+              iv="bla bla bla";
+              input -var iv;
+     
+              text " Numeric:";
+              ivn="1234567890";
+              input -var ivn -numeric;
+     
+              text " IP:";
+              ivi="123.123.123.123";
+              input -var ivi -ip;
+           [rcub  ]
+     
+           text ""; //Spacer
+     
+           row -width 100 [lcub  ]
+              button "[amp   ]OK - seen all" -exit;
+              button "[amp   ]Source" -exec "./dldialog <<EOF
+                dialog \"Source\" -width 100 -height 100 [lcub  ]
+                      textbox \"A TextBox\" -file \"../tests/test8\" -width 100 -height 100 ;
+                      text \"\"; //Spacer
+                      button \"OK\" -exit;
+                [rcub  ]
+     EOF";
+              button "[amp   ]Not OK - output is scrambled" -exit;
+           [rcub  ]
+     [rcub  ]
+
+
+File: dldialog.info,  Node: Questions and answers,  Next: NEWS,  Prev: DLDialog Program Syntax,  Up: Top
+
+Questions and answers
+*********************
+
+* Menu:
+
+* What is this start stop for?::
+* How can I display a status box (info box)?::
+* How can I specify the geometry of the dialog in qt mode?::
+* How can I change elements depending on others?::
+* How can I configure my xterm to display nice colours?::
+* Why does my dialog start up so minimised?::
+* Why can't I see my list?::
+
+
+File: dldialog.info,  Node: What is this start stop for?,  Next: How can I display a status box (info box)?,  Up: Questions and answers
+
+What is this start stop for?
+============================
+
+   If you plan to display several dialogs in your session, it is useful
+to start a dialog server with:
+     if [ -z "$DLDIALOG_INFIFO" ]; then
+       dld_waitforend="yes";
+     fi
+     
+     function dldialog_start () $lcub;
+       ret=$($DLDIALOG --start $@)
+       ERR="$?"
+       if [ "$ERR" != "0" ]; then
+         echo Exited with $ERR
+         exit 10;
+       fi
+       eval "$ret"
+       export DLDIALOG_INFIFO
+       trap dldialog_stop EXIT
+       trap dldialog_stop SIGCHLD
+       trap dldialog_stop SIGPIPE
+     [rcub  ]
+     
+     dldialog_start $ARGS
+
+   At the end of the script dldialog[lowbar]stop is now called, which
+can look like this:
+     function dldialog_stop () [lcub  ]
+       if [ "$dld_waitforend" = "yes" ]; then
+          $DLDIALOG --wait
+          dldirname=`dirname "$DLDIALOG_INFIFO"`
+          if [ -d $dldirname ]; then
+            rm -fr $dldirname
+          fi
+       else
+          $DLDIALOG --stop
+       fi
+     [rcub  ]
+
+   All of these functions (and more) can be found in
+dldialog[lowbar]funcs, which is in this documentation directory or in
+the tests directory of the source package.
+
+
+File: dldialog.info,  Node: How can I display a status box (info box)?,  Next: How can I specify the geometry of the dialog in qt mode?,  Prev: What is this start stop for?,  Up: Questions and answers
+
+How can I display a status box (info box)?
+==========================================
+
+   You want the user to see, what is going on. OK here is an example:
+     #!/bin/sh
+     
+     function infobox () [lcub  ]
+       $(dldialog -q <<EOF
+       dialog "Please wait...         " [lcub  ]
+         text "$1";
+         gauge -exit -exec "$2" ;
+       [rcub  ]
+     EOF)
+     [rcub  ]
+     
+     infobox "Preparing the system" "echo 0;sleep 2;echo 50;sleep 2;echo 100;";
+     
+     function testf () [lcub  ]
+     # Print the percent of completition
+       echo 0;
+     # Do s.th. useful :)
+       sleep 2;
+     # Print the percent of completition
+       echo 50;
+     # Do s.th. useful :)
+       sleep 2;
+     # Print the percent of completition
+       echo 100;
+     [rcub  ]
+     
+     declare -fx testf
+     
+     infobox "Preparing the system" testf;
+
+
+File: dldialog.info,  Node: How can I specify the geometry of the dialog in qt mode?,  Next: How can I change elements depending on others?,  Prev: How can I display a status box (info box)?,  Up: Questions and answers
+
+How can I specify the geometry of the dialog in qt mode?
+========================================================
+
+   Start dldialog with the -geometry in the EXTRA OPTIONS section. E.g.:
+     $ dldialog -q -- -geometry 640x480 << EOF
+     dialog "TEST" [lcub  ]
+         text "TEST";
+         button "[amp   ]OK" -exit;
+     [rcub  ]
+     EOF
+
+
+File: dldialog.info,  Node: How can I change elements depending on others?,  Next: How can I configure my xterm to display nice colours?,  Prev: How can I specify the geometry of the dialog in qt mode?,  Up: Questions and answers
+
+How can I change elements depending on others?
+==============================================
+
+   Suppose you want to get the host name and domain name of a host. You
+want to preset the domain name with the domain of the host name, once
+the user has entered it.
+     #!/bin/sh
+     
+     # Start the server
+     result=$(dldialog --start $@)
+     eval "$result"
+     export DLDIALOG_INFIFO
+     
+     export OK="0";
+     
+     while [ "$OK" != "1" ]; do
+     
+       result=$(dldialog <<EOF
+       dialog "Maindialog" [lcub  ]
+         hostname="$hostname";
+         domain="$domain";
+         text "";
+           row [lcub  ]
+             col [lcub  ]
+               text "Hostname:";
+               text "Domainname:";
+             [rcub  ]
+             col [lcub  ]
+               input -var hostname -length 20 -exit;
+               input -var domain -length 20;
+             [rcub  ]
+           [rcub  ]
+           button "[amp   ]OK" -var OK -set "1" -exit;
+       [rcub  ]
+     EOF)
+     
+       eval "$result"
+     
+       if [ -z "$domain" ]; then
+         export domain=`echo $hostname|(IFS='.' read a b;echo $b)`;
+       fi
+     
+     done
+     
+     dldialog --wait
+
+   `Note:' The user has to press return after entering the hostname to
+let the dialog exit.
+
+
+File: dldialog.info,  Node: How can I configure my xterm to display nice colours?,  Next: Why does my dialog start up so minimised?,  Prev: How can I change elements depending on others?,  Up: Questions and answers
+
+How can I configure my xterm to display nice colours?
+=====================================================
+
+   Try to set the TERM variable to one of: xterm-color, color-xterm or
+rxvt. Best results are on Linux console or in a rxvt.
+     $ export TERM=xterm-color
+
+
+File: dldialog.info,  Node: Why does my dialog start up so minimised?,  Next: Why can't I see my list?,  Prev: How can I configure my xterm to display nice colours?,  Up: Questions and answers
+
+Why does my dialog start up so minimised?
+=========================================
+
+   Same as below.
+
+
+File: dldialog.info,  Node: Why can't I see my list?,  Prev: Why does my dialog start up so minimised?,  Up: Questions and answers
+
+Why can't I see my list?
+========================
+
+   If no -width and -height is specified the element shows up with it's
+smallest size.
+
+   Remember: -width and -height are relative to the element with the
+most inner [lcub  ][rcub  ]. The dialog element's width and height tags
+are relative to the -geometry size (or as a default 600x400).
+
+   Specifying -width and -height also gives dldialog a hint which
+elements have to grow how much, if the dialog resizes.
+
+   This one is ugly:
+     dialog "Not so nice" [lcub  ]
+       list "A very small list" [lcub  ]
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+       [rcub  ]
+     [rcub  ]
+
+   Here a nicer one:
+     dialog "Not so nice" -width 100 -height 100 [lcub  ]
+       list "A very small list" -width 100 -height 100 [lcub  ]
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+         listitem "Item";
+       [rcub  ]
+     [rcub  ]
+
+
+File: dldialog.info,  Node: NEWS,  Next: The Change Log,  Prev: Questions and answers,  Up: Top
+
+NEWS
+****
+
+   Changes in release 1.3.0: * many many variable fixes
+
+   Changes in release 1.1.7: * you can move now with cursor up and down
+instead of tab
+
+   Changes in release 1.1.6: * combobox in text should work
+
+   Changes in release 1.1.1: * movie and -movie added: cause of resize
+bugs in dld_image(QT) * gauge exits dialog only if the forked child
+exits * listitems can have images
+
+   Changes in release 1.1.0: * buttons can now have multiple lines of
+text * dld_col and dld_row with title: bug fixed
+
+   Changes in release 1.0.12: * animated pictures now supported with
+qmovie class * list variables are now handled correctly * buttons can
+now be disabled
+
+   Changes in release 1.0.11:
+
+   Changes in release 1.0.10: * handle X11-window closes in qt mode
+correctly * can now start without controlling terminal (e.g.
+X-filemanager) * can now parse lines with inifinite length * better
+string conversion for tv
+
+   Changes in release 1.0.9: * list non-multi (tv) fixed * col, row,
+form cosmetic changes * gauge (qt) cosmetic changes * button images
+(qt) cosmetic changes
+
+   Changes in release 1.0.8: * Gauge fixes * image fixes * configure
+fixes (-with-qt, -with-tv and qimgio testing) * parser fixes * no more
+zombies.
+
+   Changes in release 1.0.6: * qt and tv are nearly complete * more
+verbose error messages from the parser * images in qt * several
+improvements * gauge exec now can parse floats and overreads non-digits
+
+   Changes in release 1.0.2: * better geometry handling * more verbose
+parser messages.
+
+   Changes in release 1.0.0: * small fixes * gettext support (i18n) for
+dldialog and for scripts
+
+   Changes in release 0.27.0: * TV and QT are now fully implemented
+(except menus)
+
+   Changes in release 0.23.0: * exit dialog if -exit in listitem´s is
+set and item is double-clicked
+
+   Changes in release 0.19.2: * tvision module stabilised * new tags
+for input * -multi in lists * the RPM has been split
+
+   Changes in release 0.16: * set variables immediatly in lists, radio
+and checks * gauge variables contain negative exit status of child if
+non-null
+
+   Changes in release 0.15: * Now more secure with
+/tmp/.dldialog_ttyXXX Dir * More security, due to dynamic strings (no
+buffer overflows) * Better terminal behaviour
+
+   Changes in release 0.13: * server-client protocol now mainly with
+sockets * test/dldialog_funcs added to easily program with bash
+
+   Changes in release 0.12: * small testsuite, try make check * setsid
+* made dldialog multiparsing safe * removed dlclose cause it segfaulted
+* fixes for glibc-2.0.111 and egcs-1.1.1 * -parse now works with
+libdld_gen.so
+
+   Changes in release 0.11: * Major interface change * tvision port
+nearly complete
+
+   Changes in release 0.6: * added list, listitem * updated doc *
+preset of radiolist, checklist and list with -var * updated tvision
+interface
+

@@ -1,0 +1,10 @@
+#!/usr/bin/dldialog -qf
+// A sample dialog
+dialog "Hier das Beispiel Nummer 3" {
+  col {
+	text "example3:";
+	textbox -file "../tests/example3";
+	textbox "Zeile 1\nZeile 2\nZeile 3\n";
+        button "OK" -exit;
+  }
+}
