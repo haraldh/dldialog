@@ -54,13 +54,14 @@ xlc )
 esac
 
 libtoolize --force --copy
-autoconf
+autoconf 
 #gettextize --copy --force --intl
 autoheader
 aclocal -I . $ACLOCAL_FLAGS
 aclocal
-automake --add-missing $am_opt
-autoconf
+automake --add-missing $am_opt --copy
+autoconf 
+
 cd $THEDIR
 
 $srcdir/configure --enable-maintainer-mode "$@"

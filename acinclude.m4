@@ -51,61 +51,6 @@ AC_PATH_PROG(MOC, moc, /usr/bin/moc,
 
 
 ## ------------------------------------------------------------------------
-## Find the header files and libraries for X-Windows. Extended the 
-## macro AC_PATH_X
-## ------------------------------------------------------------------------
-##
-AC_DEFUN(K_PATH_X,
-[
-AC_MSG_CHECKING(for X)
-AC_CACHE_VAL(ac_cv_have_x,
-[# One or both of the vars are not set, and there is no cached value.
-ac_x_includes=NO ac_x_libraries=NO
-AC_PATH_X_DIRECT
-AC_PATH_X_XMKMF
-if test "$ac_x_includes" = NO || test "$ac_x_libraries" = NO; then
-  AC_MSG_ERROR([Can't find X. Please add the correct paths. View configure --help for usage!])
-else
-  # Record where we found X for the cache.
-  ac_cv_have_x="have_x=yes \
-                ac_x_includes=$ac_x_includes ac_x_libraries=$ac_x_libraries"
-fi])dnl
-eval "$ac_cv_have_x"
- 
-if test "$have_x" != yes; then
-  AC_MSG_RESULT($have_x)
-  no_x=yes
-else
-  # If each of the values was on the command line, it overrides each guess.
-  test "x$x_includes" = xNONE && x_includes=$ac_x_includes
-  test "x$x_libraries" = xNONE && x_libraries=$ac_x_libraries
-  # Update the cache value to reflect the command line values.
-  ac_cv_have_x="have_x=yes \
-                ac_x_includes=$x_includes ac_x_libraries=$x_libraries"
-  AC_MSG_RESULT([libraries $x_libraries, headers $x_includes])
-fi
-
-if test -z "$x_includes" || test "x$x_includes" = xNONE; then
-  X_INCLUDES=""
-  x_includes="."; dnl better than nothing :-
- else
-  X_INCLUDES="-I$x_includes"
-fi
-
-if test -z "$x_libraries" || test "$x_libraries" = xNONE; then
-  X_LDFLAGS=""
-  x_libraries="/usr/lib"; dnl better than nothing :-
-  all_libraries=""
- else
-  X_LDFLAGS="-L$x_libraries"
-  all_libraries=$X_LDFLAGS
-fi
-
-AC_SUBST(X_INCLUDES)
-AC_SUBST(X_LDFLAGS)
-all_includes=$X_INCLUDES
-])
-## ------------------------------------------------------------------------
 ## Try to find the QT headers and libraries.
 ## $(QT_LDLFLAGS) will be -Lqtliblocation (if needed)
 ## and $(QT_INCLUDES) will be -Iqthdrlocation (if needed)
@@ -113,7 +58,7 @@ all_includes=$X_INCLUDES
 ##
 AC_DEFUN(AC_PATH_QT_1_3,
 [
-AC_REQUIRE([K_PATH_X])
+AC_REQUIRE([AC_PATH_X])
 
 AC_MSG_CHECKING([for QT-1.30])
 ac_qt_includes=NO ac_qt_libraries=NO
