@@ -1,0 +1,494 @@
+1999-09-15  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_QT/dld_list.cc (create): curious setCurrentItem(0)
+
+	* src/DLD_TV/dld_list.cc (close_brace): no preselection of multilist
+
+1999-09-13  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* many many variable fixes
+	
+	* create() to all objects
+
+	* src/dld_obj.h: added is_created, was_created
+
+	* src/dld_obj.cc (create): added
+
+	* src/dld_gauge.cc (create): likewise
+
+	* src/dld_obj.cc (activate): resolve symbolic "/bin/sh" link
+
+1999-09-07  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/dld_dialog.h: gcc-2.95 tweaks
+
+	* src/DLD_QT/dld_button.cc (movieUpdate): gcc-2.95 tweaks
+
+1999-09-06  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_TV/dld_combobox.cc (create): initial value is the first 
+
+1999-09-01  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/dld_parser_lex.ll: added -fork
+
+	* src/dld_parser_yacc.yy: added FORK
+
+	* src/dld_obj.h: added killchilds flag, set_killchild
+
+	* src/dld_gauge.cc (create): likewise
+
+	* src/dld_obj.cc (activate): changed $SHELL to /bin/sh
+
+1999-08-19  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_QT/dld_check.cc (slot_activate): signal_cbpress in deactivate
+
+1999-08-18  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_QT/dld_combobox.cc (DLD_QTComboBox): removed slot activate
+
+	* src/DLD_TV/dld_dialog.cc (handleEvent): added UP and DOWN keys
+
+1999-08-16  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_TV/dld_combobox.cc (create): cleanup of preset variables
+
+1999-08-10  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_TV/dld_row.cc (DLD_TVRow): likewise
+
+	* src/DLD_TV/dld_col.cc (DLD_TVObj): setSizeAdd(1)
+
+1999-08-09  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_QT/dld_list.h (class DLD_QTList): dict now with listitems
+
+	* src/DLD_QT/dld_list.cc (create): create listitems
+
+	* src/DLD_QT/dld_listitem.cc: load image only once
+
+	* src/DLD_TV/dld_tvobj.cc (conname): tabs corrected
+
+1999-07-21  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_QT/dld_radiolist.cc (DLD_QTRadioList): likewise
+
+	* src/DLD_QT/dld_checklist.cc (DLD_QTCheckList): no frame if no name
+
+	* src/DLD_TV/dld_radiolist.cc (DLD_TVRadioList): likewise
+
+	* src/DLD_TV/dld_checklist.cc (DLD_TVCheckList): no frame if no name
+
+	* src/dldialog.cc: fixed exit and return values
+
+1999-07-19  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_TV/dld_textbox.cc (handleEvent): added keys for scrolling
+
+1999-06-18  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_TV/dld_input.cc (DLD_TVInput): minimal width=3 (test13)
+
+1999-06-17  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_TV/dld_list.cc (handleEvent): if key pressed, jump to items
+
+1999-06-09  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_QT/dld_text.cc (create): -font added
+
+	* src/DLD_QT/dld_textbox.cc (create): -font added
+
+1999-05-19  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_QT/dld_button.cc (movieUpdate): optimizations
+
+1999-05-07  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/dld_parser_yacc.yy: MOVIE and MOVIEFILE added
+	* src/dld_parser_lex.ll: likewise
+
+	* src/dld_image.h (class DLD_Image): setIsMovie added
+
+	* src/dld_obj.h (class DLD_Obj): is_movie added
+
+1999-05-06  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_TV/dld_button.h (class DLD_TVButton): can now have 
+	multiple lines
+
+1999-05-05  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_TV/dld_button.h (class DLD_TVButton): added -disable
+
+	* src/DLD_QT/dld_button.cc: movies
+	* src/DLD_QT/dld_image.cc: movies
+
+1999-04-22  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/dldialog.cc (dld_server): catch no tty
+	(dld_send): fixed problem with buffer length
+
+	* src/DLD_QT/dld_dialog.cc (closeEvent): handle window close
+	(done): don't call QDialog::done if mainDialog
+
+	* src/DLD_QT/dld_qtapp.cc (exec): cleanup moved to dialog
+
+1999-04-21  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_QT/dld_button.cc (drawButtonLabel): center pixmap
+
+	* src/DLD_QT/dld_form.cc (DLD_QTForm): setBorder
+
+	* src/DLD_QT/dld_col.cc (DLD_QTCol): setBorder
+
+	* src/DLD_QT/dld_row.cc (DLD_QTRow): setBorder
+
+	* src/DLD_TV/dld_list.cc (DLD_TVList): forgot isMulti(false)
+
+	* src/DLD_TV/dld_col.cc (DLD_TVObj): use label
+
+	* src/DLD_TV/dld_row.cc (DLD_TVRow): use label
+
+	* src/DLD_TV/dld_form.cc (DLD_TVForm): use label
+
+1999-04-19  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_TV/dld_gauge.cc (draw): can now display 100
+
+	* src/DLD_QT/dld_gauge.cc (set_progress): can now display smaller 
+	values
+
+	* src/DLD_QT/dld_button.cc (create): check is image is loaded
+	(minimumSize): fallback to parent class if no pixmap is loaded
+	(drawButtonLabel): likewise
+
+	* src/dld_parser_lex.ll: no more spaces between concatenation 
+	strings
+
+	* src/dld_obj.cc (activate): set_env with this
+	(activate): dup2 with STDERR was wrong
+	(activate): DLD_run++
+
+	* acinclude.m4: added --with-qt, --with-tv and qimgio testing
+	* configure.in: likewise
+
+	* src/dld_gui.h: splitted into seperate header files
+
+	* src/dld_gauge.cc (parse): fixed child handling (zombies)
+
+1999-04-14  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/dld_app.cc (parse): improved parsing
+	(parse): improved parsing
+
+	* src/DLD_QT/dld_qtapp.cc (exec): fixed usleep call (microseconds)
+
+1999-04-13  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_QT/dld_button.cc (drawButtonLabel): improved
+
+	* src/DLD_QT/dld_image.cc: added
+
+	* src/DLD_QT/dld_button.cc (drawButtonLabel): image added
+
+	* src/parser.sed: better error messages from the parser
+
+	* src/DLD_QT/dld_qtapp.cc (exec): switched to processEvents
+
+	* src/DLD_QT/dld_dialog.cc (create): geometry handling
+
+1999-04-12  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/dldialog.cc: gettext
+
+	* src/dld_parser_lex.ll: gettext
+
+	* src/DLD_QT/dld_qtobj.cc (DLD_QTObj): handle fixed height, width
+
+	* src/DLD_QT/dld_row.cc (create): handle fixed height, width
+
+	* src/DLD_QT/dld_col.cc (create): handle fixed height, width
+
+	* src/DLD_TV/dld_button.cc (DLD_TVButton): fixed height
+
+1999-04-09  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_QT/dld_dialog.cc: correct geometry management
+	* src/DLD_QT/dld_form.cc: likewise
+	* src/DLD_QT/dld_col.cc: likewise
+	* src/DLD_QT/dld_row.cc: likewise
+
+1999-04-08  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_TV/dld_gauge.cc (set_progress): set variable every time
+
+	* src/DLD_QT/dld_qtobj.cc (activate): added (for -exit)
+
+	* src/DLD_QT/dld_qtcontainer.cc (gauge): implemented
+	(combobox): implemented
+
+	* src/DLD_QT/dld_combobox.cc: added
+	* src/DLD_QT/dld_combobox.h: added
+
+	* src/DLD_QT/dld_gauge.cc: added
+	* src/DLD_QT/dld_gauge.h: added
+
+1999-04-07  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/dld_parser_yacc.yy: textbox can have no <name>
+
+	* src/DLD_QT/dld_textbox.h (class DLD_QTTextBox): 
+	changed to new interface
+
+	* src/DLD_QT/dld_textbox.cc (class DLD_QTTextBox): 
+	changed to new interface
+
+	* src/DLD_QT/dld_qtobj.cc (DLD_QTObj): variable init´s
+
+	* src/DLD_QT/dld_qtcontainer.cc (textbox): added
+
+	* src/dldialog.cc (dld_server): init of tty_fdin, 
+	tty_fdout if not in tvision mode
+
+	* src/dld_obj.cc (activate): init of stdin, stdout
+
+	* src/dld_gui.h (class DLD_Obj): init of varaddflag
+
+	* src/dld_parser_yacc.yy: added old style syntax
+
+	* src/dldialog.cc (dld_client): added -q -t -T arguments, 
+	but they are ignored (compatibility)
+
+	* src/DLD_QT/dld_input.cc (class DLD_QTInput): 
+	changed to new interface
+
+	* src/DLD_QT/dld_input.h (class DLD_QTInput): likewise 
+
+	* src/DLD_QT: added convstr to initialisation, -Wall corrections
+
+	* src/dldialog.cc (dld_server): don't close stderr
+	(dld_server): changed some cerr to DLDerr
+
+	* src/dld_gui.h: changed ordering for -Wall
+
+1999-04-02  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/dld_gui.h: Documentation updates.
+
+	* src/DLD_TV/dld_radiolist.cc (create): select the radiobuutons first
+
+	* src/DLD_TV/dld_list.cc (close_brace): select listitems that have their variable set
+
+1999-04-01  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_TV/dld_list.cc (handleEvent): activate listitems only if they are doubleclicked
+
+	* src/DLD_TV/dld_tvobj.h (DLD_Obj): make is_exit public
+
+	* src/DLD_TV/tcmbovwr.cpp (handleEvent): fixed mouse
+
+	* src/DLD_TV/dld_radiolist.cc (movedTo): fixed activation
+	(create): fixed initialisation
+
+	* src/DLD_TV/dld_input.cc (DLD_TVInput): added -exit behaviour
+
+	* src/Makefile.am: removed LIBDIR
+
+	* src/DLD_TV/dld_combobox.cc (comboitem): set minimal width
+
+	* src/DLD_TV/dld_list.cc (handleEvent): add handling of mouse in nonmulti list
+	(selectItem): likewise
+
+	* src/DLD_TV/dld_input.cc (handleEvent): activate if Enter pressed
+
+	* src/DLD_TV/Makefile.am (libdld_tv_la_SOURCES): dld_comboitem.cc added
+
+	* src/dld_parser_lex.ll: -gaugevar removed
+
+	* src/dld_parser_yacc.yy: some cleanups, -gaugevar removed
+
+1999-03-26  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_TV/dld_list.cc (selectItem): fixed setting
+
+	* src/DLD_QT/dld_radiolist.cc (create): fixed presetting
+
+	* src/dld_obj.cc (deactivate): unset variable if it is -set
+
+	* src/DLD_QT/dld_check.cc (create): fixed presetting
+
+	* src/DLD_QT/dld_checklist.cc (create): fixed presetting
+
+	* src/DLD_TV/dld_checklist.cc (create): fixed presetting
+
+	* perl: moved all perl files in perl directory
+
+	* src/DLD_TV/dld_input.cc (DLD_TVInput): isPasswd initialised
+
+1999-03-18  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* src/DLD_TV/dld_list.cc: cosmetic -Wall changes
+
+	* src/DLD_TV/dld_dialog.cc (close_brace): put child dialogs in front
+
+	* src/DLD_QT/dld_qtcontainer.cc: app replaced with dld_app
+ 	Assertions for nonimplemented functions added
+
+	* src/DLD_QT/dld_qtapp.cc (~DLD_QTApp): destroyes now
+ 	child dialogs at end.
+	(DLD_QTApp): lastWindowClosed connected
+	(dialog): small cleanup
+	(exec): better handling of cleanup, reuse old mainDialog
+
+	* src/DLD_QT/dld_dialog.h (class DLD_QTDialog): isEmpty added
+	has_exited changed
+
+	* src/DLD_QT/dld_dialog.cc (create): major dialog is now reused
+	(done): better handling of close
+	(cleanup): reusing old dialog
+
+	* src/dld_parser_yacc.yy (YYERROR_VERBOSE): added
+	small cleanups, better error handling
+
+	* src/dld_parser_lex.ll (YY_INPUT): small error in length :)
+
+	* src/dld_gui.h: modified DLD_Out
+	DLD_Out& instead of DLD_Out
+
+	* src/dld_app.cc (init): added
+	(DLD_Out): moved to init
+	(flush): added
+	(DLD_Out): call flush
+	(close): out check
+
+	* released dldialog-0.19.2
+
+	* src/DLD_TV/dld_dialog.cc (changeBounds): faster window moves
+	* src/DLD_TV/dld_list.cc (DLD_TVList): changed tag char 
+	* src/DLD_TV/dld_tvapp.cc: new background color
+
+1999-03-17  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+	* src/DLD_TV/dld_list.cc: -multi added
+	* src/DLD_TV/dld_input.cc (set_length): added
+
+1999-03-12  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+	* added -passwd to input
+
+1999-03-03  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+ 	* src/DLD_QT/dld_list.cc (sizeHint): changed from 24 to 12 lines
+	* src/DLD_QT/dld_input.cc (DLD_Input): setMaxLength (1024)	
+
+1999-02-25  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+	* src/dld_parser_yacc.yy: made old style syntax work
+
+1999-02-17  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+	* dld_app.cc: (DLD_Dialog::DLD_Dialog) set_dialog added
+	* dld_app.cc: gauges changed from stack to list
+	* dld_gui.h: likewise
+	* dld_gui.h: major cleanup
+	* dld_obj.cc: deactivate(), add/del_child added
+	* dld_parser_lex.ll: dld_env_end added, added prefix dld to protocol keywords
+	* dld_parser_yacc.yy: DLD_lineno correction
+	* dldialog.cc: removed annoying debugging messages from client
+	* dldialog.cc: added prefix dld to protocol keywords
+	* DLD_QT: radiolist, radiobutton, checklist, checkbutton, list, listitem added
+	* DLD_QT: col, form, row added
+	* DLD_TV/tsinputl.cpp: newData instead of strcpy for the possible notification
+
+1999-02-12  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* dld_app.cc: export environment in forks
+	* dld_obj.cc: likewise, convstr to global function
+	* dld_app.cc: check exitstatus of gauge execs 
+	* dld_parser_lex.ll: moved line saving from lex-rule to YY_INPUT
+	* dldialog.cc: restauration of environment in dld_send
+	* DLD_TV/dld_gauge.cc: updated progress handling with child exitstatus
+	* DLD_TV/dld_list.cc: updated to activate immediatly if selected
+	* DLD_TV/dld_radiolist.cc: likewise
+	* DLD_TV/dld_checklist.cc: likewise
+
+1999-02-11  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* acinclude.m4: QT_LIBS added
+	* dld_app.c: gauges have 100 percent if the child ends
+
+1999-02-09  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* dldialog.spec.in: defattr added
+	* dld_parser_yacc.yy: changed tmpnam to tempnam
+	* dldialog.cc: sprintf replaced with strstream 
+	* DLD_TV/dld_lib.cc: (dld_lib_init) better terminal settings
+	* DLD_TV/dld_tvapp.cc: ignoring SIGTSTP, menuBar redraw obsoleted 
+	                       with setsid
+
+1999-02-08  Harald Hoyer  <Harald.Hoyer@hot.spotline.de>
+
+	* dldialog.cc: DLD_Gui::parse argument wait added
+	* dld_app.cc: likewise, changed select timeout to 0
+
+1999-01-29  Harald Hoyer  <HarryH@Royal.Net>
+
+	* dldialog.spec.in: tests and dldialog_funcs to %doc added
+	* dld_app.cc: modified for socket protocol
+	* dld_parser.h: small cleanups
+	* dld_parser_lex.ll: YY_INPUT rewritten to cope with sockets.
+	                     It now reads lines.
+	* dld_parser_yacc.yy: DLD_run=-1 and listen(0) for real end 
+	* dldialog.cc: modified for socket protocol. outfifo, outpath removed
+	* dldialog.h: likewise
+	* test: added dldialog_funcs for easier shell programming
+
+1999-01-28  Harald Hoyer  <HarryH@Royal.Net>
+
+	* configure.in: added enable debug, -fno-rtti
+	* DLD_GEN: added --parse should now work
+	* doc/: make clean removes the generated documents
+	* dld_app.cc: bugfix with DLD_Out counter
+	* dld_app.cc: DLD_Gui::idle -> DLD_Gui::parse improved
+	* dld_parser_lex.ll: improved server-client protocol
+	* dld_parser_yacc.yy: likewise
+	* dldialog.cc: likewise, added flock of pipes, setsid of dldialog.cc
+	* DLD_QT: beginning of migration
+
+1999-01-15  Harald Hoyer  <HarryH@Royal.Net>
+
+	* major interface change
+	* tvision mostly implemented
+
+1998-10-13  Harald Hoyer  <HarryH@Royal.Net>
+
+	* released dldialog-0.8
+	* added combobox to QT Module
+	* fixed input widget of QT Module
+	* added classdoc documentation
+	* added dummy server arguments
+	* fixed QT geometry
+	* fixed -r argument
+
+1998-08-29  Harald Hoyer  <HarryH@Royal.Net>
+
+	* added TV checklist, radiolist ENV Variable checking
+
+1998-08-27  Harald Hoyer  <HarryH@Royal.Net>
+
+	* Released Version 0.74
+
+1998-08-24  Harald Hoyer  <HarryH@Royal.Net>
+
+	* melted documentation to dldialog.sgml.cpp
+
+1998-08-17  Harald Hoyer  <HarryH@Royal.Net>
+
+	* added combobox, comboitem, input
+	* added -numeric, -ip, -width, -height, -file to parser
+	* added generic parsing (without any GUI)
+
+1998-06-26  Harald Hoyer  <HarryH@Royal.Net>
+
+	* added list, listitem
+	* updated doc
+	* added preset of radiolist, checklist and list with -var
+	* updated tvision interface
+	* changed to GNU automake, autoconfig
